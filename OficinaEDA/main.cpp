@@ -3,14 +3,16 @@
 #include <time.h>
 #include <fstream>
 #include <string>
-#include "contagemLinhas.h"
+#include "constantes.h"
 
 using namespace std;
 
 struct ET {
+    int id;
     int capacidade;
     string mecanico;
     string marca;
+    static int num_ETs;
 };
 
 struct carro {
@@ -22,16 +24,12 @@ struct carro {
     string prioridade;
 };
 
-string* marcas = new string[num_marcas];
-string* modelos = new string[num_modelos];
-
-void criarEstacoes(int num_ETs) {
+void criarEstacoes(ET* estacoes, string* marcas) {
     string file = "marcas.txt";
     ifstream fileMarcas(file);
     string marca;
 
-    ET* estacoes = new ET[num_ETs];
-
+    int id_estacao = 1;
 
     if (fileMarcas.is_open()) {
         int i = 0;
@@ -40,17 +38,17 @@ void criarEstacoes(int num_ETs) {
         }
     }
 
-    for (int i = 0; i < num_ETs; i++)
+    for (int i = 0; i < NUM_ETS; i++)
     {
-        ET* et = new ET[i];
         cout << "Introduza o mecânico para a estação " << i << ": ";
-        cin >> estacoes[i].mecanico;
+        getline(cin, estacoes[i].mecanico);
+        estacoes[i].id = id_estacao++;
         estacoes[i].capacidade = rand() % 4 + 2;
-        estacoes[i].marca = marcas[rand() % num_marcas];
+        estacoes[i].marca = marcas[rand() % NUM_MARCAS];
     }
 }
 
-void criarCarros(int num_Ets) {
+void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
     string file2 = "modelos.txt";
     ifstream fileModelos(file2);
     string modelo;
@@ -61,31 +59,43 @@ void criarCarros(int num_Ets) {
             getline(fileModelos, modelos[i++]);
         }
     }
-
-
-    carro* listadeespera = new carro[10];
+    
     int id = 0;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < NUM_CARROS; i++) {
         listadeespera[i].id = id + 1;
         listadeespera[i].tempo_reparacao = rand() % 6 + 2;
-        listadeespera[i].marca = marcas[rand() % num_marcas];
+        listadeespera[i].marca = marcas[rand() % NUM_MARCAS];
         listadeespera[i].dias_ET = 0;
-        listadeespera[i].modelo = modelos[rand() % num_modelos];
+        listadeespera[i].modelo = modelos[rand() % NUM_MODELOS];
+        
         int decisao = rand() % 2;
         if (decisao == 0) {
             listadeespera[i].prioridade = "Não";
         }
         else listadeespera[i].prioridade = "Sim";
+
         id++;
     }
+}
 
-    for (int i = 0; i < 10; i++)
+void menu(ET* estacoes, carro* listadeespera) {
+    for (size_t i = 0; i < NUM_ETS; i++)
     {
-        cout << "Carro: ID: " << listadeespera[i].id << " | ";
-        cout << listadeespera[i].marca << "-" << listadeespera[i].modelo << " | ";
-        cout << "Prioritario: " << listadeespera[i].prioridade << " | ";
-        cout << "Tempo Reparação: " << listadeespera[i].tempo_reparacao << " | ";
-        cout << "Dias da ET: " << listadeespera[i].dias_ET << endl;
+        cout << "ET: " << estacoes[i].id << " | ";
+        cout << "Mecânico: " << estacoes[i].mecanico << " | ";
+        cout << "Capacidade: " << estacoes[i].capacidade << " | ";
+        cout << "Carros: " << " | ";
+        cout << "Marca: " << estacoes[i].marca << " | ";
+        cout << "Total de Faturação: " << endl;
+        for (int i = 0; i < NUM_CARROS; i++)
+        {
+            cout << "Carro: ID: " << listadeespera[i].id << " | ";
+            cout << listadeespera[i].marca << "-" << listadeespera[i].modelo << " | ";
+            cout << "Prioritario: " << listadeespera[i].prioridade << " | ";
+            cout << "Tempo Reparação: " << listadeespera[i].tempo_reparacao << " | ";
+            cout << "Dias da ET: " << listadeespera[i].dias_ET << endl;
+        }
+        cout << "---------------------------------" << endl;
     }
 }
 
@@ -93,12 +103,13 @@ int main() {
     locale::global(locale(""));
     srand(time(NULL));
 
-    int num_ETs;
-    num_ETs = rand() % 6 + 3;
-    criarEstacoes(num_ETs);
-    criarCarros(num_ETs);
+    string* marcas = new string[NUM_MARCAS];
+    string* modelos = new string[NUM_MODELOS];
+    carro* listadeespera = new carro[NUM_CARROS];
+    ET* estacoes = new ET[NUM_ETS];
 
-
-
+    criarEstacoes(estacoes, marcas);
+    criarCarros(listadeespera, modelos, marcas);
+    menu(estacoes, listadeespera);
     return 0;
 }
