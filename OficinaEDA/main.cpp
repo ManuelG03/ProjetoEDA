@@ -97,6 +97,36 @@ void menu(ET* estacoes, carro* listadeespera) {
         }
         cout << "---------------------------------" << endl;
     }
+
+}
+
+int menuInicio() {
+    int escolha;
+    cout << "***** Bem Vindo Gestor ***** \n";
+    cout << "(1).Reparação Manual \n";
+    cout << "(2).Atualizar tempo de reparação \n";
+    cout << "(3).Adicionar Prioridade\n";
+    cout << "(4).Remover Mecânico\n";
+    cout << "(5).Gravar Oficina \n";
+    cout << "(6).Carregar Oficina \n";
+    cout << "(7).Imprimir Oficina \n";
+
+
+do
+{
+    cout << "Selecione a sua opção:";
+    cin >> escolha;
+    switch (escolha)
+    {
+    case 1: ; break;
+    case 2: ; break;
+    case 3: ; break;
+    case 4: ; break;
+    case 5: ; break;
+    default: cout << "Escolha Inválida!"; break;
+    }
+} while (escolha > 6);
+return 0;
 }
 
 int main() {
