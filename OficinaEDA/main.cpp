@@ -92,20 +92,20 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
 void adicionarCarrosETs(carro* listadeespera, ET* estacoes) {
     int num_carros_adicionados = 0;
     int i = 0;
-    int NUM_CARROS_A_CRIAR = 8; 
+    int NUM_CARROS_A_CRIAR = NUM_CARROS_CRIADOS; 
     int ultima_posicao = -1;
-
+    int f = 0;
     while (num_carros_adicionados < 8 && i < NUM_CARROS_A_CRIAR) {
         for (int j = 0; j < NUM_ETS; j++) {
             if (estacoes[j].marca == listadeespera[i].marca) {
                 if (estacoes[j].capacidade > 0) {
-                    estacoes[j].carros[estacoes[j].capacidade - 1] = listadeespera[i];
+                    estacoes[j].carros[estacoes[j].capacidade_atual] = listadeespera[i];
                     estacoes[j].capacidade--;
                     estacoes[j].capacidade_atual++;
                     num_carros_adicionados++;
-
+                    
  
-                    for (int k = i; k < NUM_CARROS_A_CRIAR - 1; k++) {
+                    for (int k = i; k < NUM_CARROS_A_CRIAR - 1; k++) { //***
                         listadeespera[k] = listadeespera[k + 1];
                     }
                     NUM_CARROS_A_CRIAR--;
@@ -113,7 +113,9 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes) {
                     break;
                 }
             }
+            
         }
+        
         i++;
     }
 
@@ -130,7 +132,7 @@ void menu(ET* estacoes, carro* listadeespera) {
         cout << "ET: " << estacoes[i].id << " | ";
         cout << "Mecânico: " << estacoes[i].mecanico << " | ";
         cout << "Capacidade: " << estacoes[i].capacidade << " | ";
-        cout << "Carros: " << " | ";
+        cout << "Carros: " << estacoes[i].capacidade_atual<< " | ";
         cout << "Marca: " << estacoes[i].marca << " | ";
         cout << "Total de Faturação: " << endl;
 
@@ -144,7 +146,7 @@ void menu(ET* estacoes, carro* listadeespera) {
                 cout << estacoes[i].carros[h].marca << "-" << estacoes[i].carros[h].modelo << " | ";
                 cout << "Prioritario: " << estacoes[i].carros[h].prioridade << " | ";
                 cout << "Tempo Reparação: " << estacoes[i].carros[h].tempo_reparacao << " | ";
-                cout << "Dias da ET: " << estacoes[i].carros[h].id << endl;
+                cout << "Dias da ET: " << estacoes[i].carros[h].dias_ET << endl;
             }
         }
     }
@@ -209,7 +211,7 @@ int main() {
     verListaDeEspera(listadeespera);
     adicionarCarrosETs(listadeespera,estacoes);
 
-    verListaDeEspera(listadeespera);
+    //verListaDeEspera(listadeespera);
    
     menu(estacoes, listadeespera);
     return 0;
