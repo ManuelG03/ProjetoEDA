@@ -91,11 +91,11 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
 
 void adicionarCarrosETs(carro* listadeespera, ET* estacoes) {
     int num_carros_adicionados = 0;
-    int i = 0; 
-    int ultima_posicao = -1; 
+    int i = 0;
+    int NUM_CARROS_A_CRIAR = 8; 
+    int ultima_posicao = -1;
 
     while (num_carros_adicionados < 8 && i < NUM_CARROS_A_CRIAR) {
-        bool carro_adicionado = false;
         for (int j = 0; j < NUM_ETS; j++) {
             if (estacoes[j].marca == listadeespera[i].marca) {
                 if (estacoes[j].capacidade > 0) {
@@ -103,21 +103,24 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes) {
                     estacoes[j].capacidade--;
                     estacoes[j].capacidade_atual++;
                     num_carros_adicionados++;
-                    carro_adicionado = true;
-                    ultima_posicao = i; 
-                    break; 
+
+ 
+                    for (int k = i; k < NUM_CARROS_A_CRIAR - 1; k++) {
+                        listadeespera[k] = listadeespera[k + 1];
+                    }
+                    NUM_CARROS_A_CRIAR--;
+                    i--;
+                    break;
                 }
             }
         }
-
-        if (!carro_adicionado) {
-            i++;
-        }
+        i++;
     }
 
     cout << num_carros_adicionados << " carros adicionados às ETs.\n";
-   
 }
+
+
 
 
 
