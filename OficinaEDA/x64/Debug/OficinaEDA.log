@@ -1,2 +1,3 @@
 ﻿  main.cpp
-C:\Users\manue\Desktop\react\ProjetoEDA\OficinaEDA\main.cpp : fatal  error C1041: não é possível abrir banco de dados do programa 'C:\Users\manue\Desktop\react\ProjetoEDA\OficinaEDA\x64\Debug\vc143.pdb'; Se mais de um CL.EXE escrever no mesmo arquivo .PDB, use /FS
+C:\Users\manue\Desktop\react\ProjetoEDA\OficinaEDA\main.cpp(199,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  OficinaEDA.vcxproj -> C:\Users\manue\Desktop\react\ProjetoEDA\x64\Debug\OficinaEDA.exe
