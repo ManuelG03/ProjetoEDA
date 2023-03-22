@@ -13,6 +13,8 @@ struct ET {
     string mecanico;
     string marca;
     static int num_ETs;
+    carro* carros;
+    
 };
 
 struct carro {
