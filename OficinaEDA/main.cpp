@@ -3,6 +3,7 @@
 #include <time.h>
 #include <fstream>
 #include <string>
+#include <algorithm>
 #include "constantes.h"
 
 using namespace std;
@@ -57,6 +58,13 @@ void criarEstacoes(ET* estacoes, string* marcas) {
     }
 }
 
+bool comparaCarros(const carro& a, const carro& b) {
+    if (a.prioridade == "Sim" && b.prioridade != "Sim") {
+        return true;
+    }
+
+    return false;
+}
 void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
    
     string file2 = "modelos.txt";
@@ -79,7 +87,7 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
         listadeespera[i].modelo = modelos[rand() % NUM_MODELOS];
         
         int decisao = rand() % 100;
-        if (decisao > 6) {
+        if (decisao > 5) {
             listadeespera[i].prioridade = "Não";
         }
         else listadeespera[i].prioridade = "Sim";
@@ -87,7 +95,10 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
         id_lista++;
     }
     NUM_CARROS_CRIADOS += 10;
+    sort(listadeespera, listadeespera + NUM_CARROS_CRIADOS, comparaCarros);
 }
+
+
 
 void adicionarCarrosETs(carro* listadeespera, ET* estacoes) {
     int num_carros_adicionados = 0;
@@ -208,9 +219,9 @@ int main() {
 
     criarEstacoes(estacoes, marcas);
     criarCarros(listadeespera, modelos, marcas);
+    //adicionarCarrosETs(listadeespera,estacoes);
+    
     verListaDeEspera(listadeespera);
-    adicionarCarrosETs(listadeespera,estacoes);
-
     //verListaDeEspera(listadeespera);
    
     menu(estacoes, listadeespera);

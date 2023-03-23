@@ -1,2 +1,3 @@
-﻿  constantes.cpp
+﻿  main.cpp
+C:\Users\manue\Desktop\react\ProjetoEDA\OficinaEDA\main.cpp(213,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
   OficinaEDA.vcxproj -> C:\Users\manue\Desktop\react\ProjetoEDA\x64\Debug\OficinaEDA.exe
