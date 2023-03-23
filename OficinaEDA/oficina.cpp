@@ -11,6 +11,12 @@ using namespace std;
 
 int NUM_CARROS_CRIADOS = 0;
 int id_lista = 0;
+int car_ids[100];
+int num_car_ids = 0;
+
+int num_not_added;
+int HOLD_nca;
+
 
 void inicializarEstacoes(ET* estacoes, string* marcas) {
     string file = "marcas.txt";
@@ -75,36 +81,54 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
     fileModelos.close();
 }
 
-void adicionarCarrosETs(carro* listadeespera, ET* estacoes) {
+void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added) {
     int num_carros_adicionados = 0;
     int i = 0;
-    int NUM_CARROS_A_CRIAR = NUM_CARROS_CRIADOS;
-    int ultima_posicao = -1;
     int f = 0;
-    while (num_carros_adicionados < 8 && i < NUM_CARROS_A_CRIAR) {
+    int carange = NUM_CARROS_CRIADOS;
+    bool car_added;
+    num_not_added = 0;
+    while (num_carros_adicionados < 8 && i < carange) {
+        car_added = false;
+
         for (int j = 0; j < NUM_ETS; j++) {
             if (estacoes[j].marca == listadeespera[i].marca) {
                 if (estacoes[j].capacidade > 0) {
-                    estacoes[j].carros[estacoes[j].capacidade_atual] = listadeespera[i];
-                    estacoes[j].capacidade--;
-                    estacoes[j].capacidade_atual++;
-                    num_carros_adicionados++;
-
-
-                    for (int k = i; k < NUM_CARROS_A_CRIAR - 1; k++) {
-                        listadeespera[k] = listadeespera[k + 1];
+                    bool car_id_exists = false;
+                    for (int k = 0; k < num_car_ids; k++) {
+                        if (listadeespera[i].id == car_ids[k]) {
+                            car_id_exists = true;
+                            car_added = true;
+                            break;
+                        }
                     }
-                    NUM_CARROS_A_CRIAR--;
-                    i--;
-                    break;
+                    if (!car_id_exists) {
+                        estacoes[j].carros[estacoes[j].capacidade_atual] = listadeespera[i];
+                        estacoes[j].capacidade--;
+                        estacoes[j].capacidade_atual++;
+                        num_carros_adicionados++;
+                        car_added = true;
+                        car_ids[num_car_ids] = listadeespera[i].id;
+                        num_car_ids++;
+                        break;
+                    }
                 }
             }
-
         }
-        i++;
+        if (car_added == false) {
+            not_added[num_not_added] = listadeespera[i];
+            num_not_added++;
+        }
+       i++;
     }
-
+   
     cout << num_carros_adicionados << " carros adicionados às ETs.\n";
+    //cout << num_car_ids << num_not_added << endl;
+    //for (int L = 0; L < num_car_ids +1 ; L++) {
+      //  cout << car_ids[L] << " | ";
+
+    //
+    HOLD_nca =  HOLD_nca + num_carros_adicionados;
 }
 
 
@@ -143,14 +167,24 @@ void menu(ET* estacoes, carro* listadeespera) {
 
 }
 
-void verListaDeEspera(carro* listadeespera) {
-    for (int i = 0; i < NUM_CARROS_CRIADOS; i++)
-    {
-        cout << "Carro: ID: " << " | ";
-        cout << " | ";
-        cout << "Prioritario: " << " | ";
-        cout << "Tempo Reparação: " << " | ";
-        cout << "Dias da ET: " << endl;
+void verListaDeEspera(carro* listadeespera) { 
+    for (int i = 0; i < NUM_CARROS_CRIADOS; i++) {
+        cout << "Carro: ID: " << listadeespera[i].id << " | ";
+        cout << listadeespera[i].marca << "-" << listadeespera[i].modelo << " | ";
+        cout << "Prioritario: " << listadeespera[i].prioridade << " | ";
+        cout << "Tempo Reparação: " << listadeespera[i].tempo_reparacao << " | ";
+        cout << "Dias da ET: " << listadeespera[i].dias_ET << endl;
+    }
+}
+
+void verNotAdded(carro* not_added) {
+    cout << "------------------NA--------------" << endl;
+    for (int i = 0; i < NUM_CARROS_CRIADOS - HOLD_nca; i++) {
+        cout << "Carro: ID: " << not_added[i].id << " | ";
+        cout << not_added[i].marca << "-" << not_added[i].modelo << " | ";
+        cout << "Prioritario: " << not_added[i].prioridade << " | ";
+        cout << "Tempo Reparação: " << not_added[i].tempo_reparacao << " | ";
+        cout << "Dias da ET: " << not_added[i].dias_ET << endl;
     }
 }
 

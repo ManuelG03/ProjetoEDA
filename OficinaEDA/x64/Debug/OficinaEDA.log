@@ -1,8 +1,2 @@
-﻿  constantes.cpp
-C:\Users\manue\Desktop\react\ProjetoEDA\OficinaEDA\constantes.cpp(45,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
-  main.cpp
-C:\Users\manue\Desktop\react\ProjetoEDA\OficinaEDA\main.cpp(14,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
-  oficina.cpp
-  Gerando Código...
-  LINK : C:\Users\manue\Desktop\react\ProjetoEDA\x64\Debug\OficinaEDA.exe não encontrado ou não compilado pelo o último link incremental; executando link completo
+﻿  oficina.cpp
   OficinaEDA.vcxproj -> C:\Users\manue\Desktop\react\ProjetoEDA\x64\Debug\OficinaEDA.exe
