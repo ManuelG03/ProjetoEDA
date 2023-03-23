@@ -1,3 +1,6 @@
-﻿  main.cpp
-C:\Users\joaoc\Desktop\OficinaEDA\OficinaEDA\main.cpp(104,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
-  OficinaEDA.vcxproj -> C:\Users\joaoc\Desktop\OficinaEDA\x64\Debug\OficinaEDA.exe
+﻿  constantes.cpp
+C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\constantes.cpp(45,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  main.cpp
+C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\main.cpp(107,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  Gerando Código...
+  OficinaEDA.vcxproj -> C:\Users\joaoc\Documents\GitHub\ProjetoEDA\x64\Debug\OficinaEDA.exe
