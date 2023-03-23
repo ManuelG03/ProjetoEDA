@@ -103,9 +103,10 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
 void adicionarCarrosETs(carro* listadeespera, ET* estacoes) {
     int num_carros_adicionados = 0;
     int i = 0;
-    int NUM_CARROS_A_CRIAR = NUM_CARROS_CRIADOS; 
+    int NUM_CARROS_A_CRIAR = NUM_CARROS_CRIADOS;
     int ultima_posicao = -1;
     int f = 0;
+    int* indices_adicionados = new int[100]; // array to store indices of added cars
     while (num_carros_adicionados < 8 && i < NUM_CARROS_A_CRIAR) {
         for (int j = 0; j < NUM_ETS; j++) {
             if (estacoes[j].marca == listadeespera[i].marca) {
@@ -114,23 +115,52 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes) {
                     estacoes[j].capacidade--;
                     estacoes[j].capacidade_atual++;
                     num_carros_adicionados++;
-                    
- 
-                    for (int k = i; k < NUM_CARROS_A_CRIAR - 1; k++) { //***
-                        listadeespera[k] = listadeespera[k + 1];
-                    }
+                    indices_adicionados[num_carros_adicionados - 1] = i; // add index to array
+                    ultima_posicao = i;
                     NUM_CARROS_A_CRIAR--;
-                    i--;
                     break;
                 }
             }
-            
         }
-        
         i++;
     }
 
+    // copy the remaining cars to the new array
+    carro* nova_lista = new carro[NUM_CARROS_CRIADOS - num_carros_adicionados];
+    f = 0;
+    for (int k = 0; k < NUM_CARROS_CRIADOS; k++) {
+        bool adicionado = false;
+        for (int l = 0; l < num_carros_adicionados; l++) {
+            if (k == indices_adicionados[l]) {
+                adicionado = true;
+                break;
+            }
+        }
+        if (!adicionado) {
+            nova_lista[f] = listadeespera[k];
+            f++;
+        }
+    }
+
+    //delete[] listadeespera; // free the memory allocated for the original array
+    //listadeespera = nova_lista; // set the pointer to the new array
+
     cout << num_carros_adicionados << " carros adicionados às ETs.\n";
+    //delete[] indices_adicionados; // free the memory allocated for the indices array
+
+    cout << "nova_lista: ";
+    for (int i = 0; i < NUM_CARROS_CRIADOS - num_carros_adicionados; i++) {
+        cout << "Carro: ID: " << nova_lista[i].id << " | ";
+        cout << nova_lista[i].marca << "-" << nova_lista[i].modelo << " | ";
+        cout << "Prioritario: " << nova_lista[i].prioridade << " | ";
+        cout << "Tempo Reparação: " << nova_lista[i].tempo_reparacao << " | ";
+        cout << "Dias da ET: " << nova_lista[i].dias_ET << endl;
+    }
+    cout << endl;
+    delete[] nova_lista;
+    nova_lista = listadeespera;
+
+
 }
 
 
@@ -174,6 +204,17 @@ void verListaDeEspera(carro* listadeespera) {
             cout << "Dias da ET: " << listadeespera[i].dias_ET << endl;
         }
 }
+void verListaDeEspera2(carro* nova_lista) {
+    for (int i = 0; i < NUM_CARROS_CRIADOS; i++)
+    {
+        cout << "Carro: ID: " << nova_lista[i].id << " | ";
+        cout << nova_lista[i].marca << "-" << nova_lista[i].modelo << " | ";
+        cout << "Prioritario: " << nova_lista[i].prioridade << " | ";
+        cout << "Tempo Reparação: " << nova_lista[i].tempo_reparacao << " | ";
+        cout << "Dias da ET: " << nova_lista[i].dias_ET << endl;
+    }
+}
+
 
 int menuInicio() {
     int escolha;
@@ -219,9 +260,11 @@ int main() {
 
     criarEstacoes(estacoes, marcas);
     criarCarros(listadeespera, modelos, marcas);
-    adicionarCarrosETs(listadeespera,estacoes);
-    
-    verListaDeEspera(listadeespera);
+    criarCarros(listadeespera, modelos, marcas);
+    criarCarros(listadeespera, modelos, marcas);
+    adicionarCarrosETs(listadeespera, estacoes);
+    adicionarCarrosETs(listadeespera, estacoes);
+    //verListaDeEspera(listadeespera);
     //verListaDeEspera(listadeespera);
    
     menu(estacoes, listadeespera);
