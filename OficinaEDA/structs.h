@@ -1,10 +1,9 @@
 #pragma once
-#include <string>
 
 using namespace std;
 struct carro {
     int id;
-    string marca = "";
+    string marca;
     string modelo;
     int tempo_reparacao;
     int dias_ET;
