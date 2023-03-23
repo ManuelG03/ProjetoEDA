@@ -35,7 +35,7 @@ int contarModelos() {
 
 int contarEstacoes() {
 	int num_ETs;
-	num_ETs = rand() % 6 + 3;
+	num_ETs = rand()% 3 + 5;
 
 	return num_ETs;
 }
