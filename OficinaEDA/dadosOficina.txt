@@ -1,0 +1,11 @@
+--------------------------------------------OFICINA--------------------------------------------
+ET: 1 | Mecânico:  | Capacidade: 5 | Carros: 0 | Marca: Land Rover | Total de Faturação: 
+ ET não possui carros de momento
+ET: 2 | Mecânico:  | Capacidade: 2 | Carros: 0 | Marca: Volvo | Total de Faturação: 
+ ET não possui carros de momento
+ET: 3 | Mecânico:  | Capacidade: 3 | Carros: 0 | Marca: MINI | Total de Faturação: 
+ ET não possui carros de momento
+ET: 4 | Mecânico:  | Capacidade: 2 | Carros: 0 | Marca: Buick | Total de Faturação: 
+ ET não possui carros de momento
+ET: 5 | Mecânico:  | Capacidade: 4 | Carros: 0 | Marca: Volvo | Total de Faturação: 
+ ET não possui carros de momento

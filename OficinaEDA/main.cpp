@@ -25,6 +25,7 @@ int main() {
     verListaDeEspera(listadeespera);
    
     menu(estacoes, listadeespera);
+    menuInicio(estacoes, listadeespera);
 
     return 0;
 }

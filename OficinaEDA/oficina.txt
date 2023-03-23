@@ -1,0 +1,11 @@
+----------------------OFICINA----------------------
+ET: 1 | Mecânico: maria | Capacidade: 3 | Carros: 0 | Marca: Buick | Total de Faturação: 
+ET: 2 | Mecânico:  | Capacidade: 1 | Carros: 1 | Marca: Volvo | Total de Faturação: 
+Carro: ID: 7 | Volvo-Discovery | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
+ET: 3 | Mecânico:  | Capacidade: 4 | Carros: 1 | Marca: Acura | Total de Faturação: 
+Carro: ID: 2 | Acura-Ocean | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
+ET: 4 | Mecânico:  | Capacidade: 3 | Carros: 1 | Marca: Chrysler | Total de Faturação: 
+Carro: ID: 3 | Chrysler-CX-5 | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
+ET: 5 | Mecânico:  | Capacidade: 4 | Carros: 0 | Marca: Chrysler | Total de Faturação: 
+ET: 6 | Mecânico:  | Capacidade: 1 | Carros: 1 | Marca: Hyundai | Total de Faturação: 
+Carro: ID: 6 | Hyundai-Z4 | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0

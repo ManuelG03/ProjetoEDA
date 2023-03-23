@@ -154,7 +154,54 @@ void verListaDeEspera(carro* listadeespera) {
     }
 }
 
-int menuInicio() {
+void ciclo(carro* listadeespera, string* modelos, string* marcas) {
+    criarCarros(listadeespera, modelos, marcas);
+}
+
+void gravarOficina(ET* estacoes, carro* listadeespera){
+    ofstream outputFile;
+    outputFile.open("dadosOficina.txt", ios::out);
+
+    if (outputFile.is_open()) {
+        outputFile << "--------------------------------------------OFICINA--------------------------------------------\n";
+        for (int i = 0; i < NUM_ETS; i++)
+        {
+            outputFile << "ET: " << estacoes[i].id << " | ";
+            outputFile << "Mecânico: " << estacoes[i].mecanico << " | ";
+            outputFile << "Capacidade: " << estacoes[i].capacidade << " | ";
+            outputFile << "Carros: " << estacoes[i].capacidade_atual << " | ";
+            outputFile << "Marca: " << estacoes[i].marca << " | ";
+            outputFile << "Total de Faturação: " << endl;
+
+            if (estacoes[i].capacidade_atual == 0) {
+                outputFile << " ET não possui carros de momento" << endl;
+            }
+            else {
+                for (int h = 0; h < estacoes[i].capacidade_atual; h++)
+                {
+                    outputFile << "Carro: ID: " << estacoes[i].carros[h].id << " | ";
+                    outputFile << estacoes[i].carros[h].marca << "-" << estacoes[i].carros[h].modelo << " | ";
+                    outputFile << "Prioritário: " << estacoes[i].carros[h].prioridade << " | ";
+                    outputFile << "Tempo Reparação: " << estacoes[i].carros[h].tempo_reparacao << " | ";
+                    outputFile << "Dias da ET: " << estacoes[i].carros[h].dias_ET << endl;
+                }
+            }
+        }
+
+        cout << "\nOs dados da oficina foram escritos no ficheiro com sucesso.";
+
+        outputFile.close();
+    }
+    else {
+        cout << "Erro ao abrir o ficheiro.\n";
+    }
+}
+
+void carregarOficina() {
+
+}
+
+int menuInicio(ET* estacoes, carro* listadeespera) {
     int escolha;
     cout << "***** Bem Vindo Gestor ***** \n";
     cout << "(1).Reparação Manual \n";
@@ -165,24 +212,31 @@ int menuInicio() {
     cout << "(6).Carregar Oficina \n";
     cout << "(7).Imprimir Oficina \n";
 
-
     do
     {
         cout << "Selecione a sua opção:";
         cin >> escolha;
         switch (escolha)
         {
-        case 1:; break;
-        case 2:; break;
-        case 3:; break;
-        case 4:; break;
-        case 5:; break;
-        default: cout << "Escolha Inválida!"; break;
+        case 1:
+            ; 
+            break;
+        case 2:
+            ; 
+            break;
+        case 3:
+            ; 
+            break;
+        case 4:
+            ; 
+            break;
+        case 5:
+            gravarOficina(estacoes, listadeespera);
+            break;
+        default: 
+            cout << "Escolha Inválida!"; 
+            break;
         }
     } while (escolha > 6);
     return 0;
-}
-
-void ciclo(carro* listadeespera, string* modelos, string* marcas) {
-    criarCarros(listadeespera, modelos, marcas);
 }

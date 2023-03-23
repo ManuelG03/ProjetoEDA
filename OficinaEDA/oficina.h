@@ -13,6 +13,8 @@ void menu(ET* estacoes, carro* listadeespera);
 
 void verListaDeEspera(carro* listadeespera);
 
-int menuInicio();
-
 void ciclo(carro* listadeespera, string* modelos, string* marcas);
+
+void gravarOficina(ET* estacoes, carro* listadeespera);
+
+int menuInicio(ET* estacoes, carro* listadeespera);
