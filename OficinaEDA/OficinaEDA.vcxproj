@@ -129,9 +129,11 @@
   <ItemGroup>
     <ClCompile Include="constantes.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="oficinas.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constantes.h" />
+    <ClInclude Include="structs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

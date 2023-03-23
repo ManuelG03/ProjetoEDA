@@ -5,34 +5,14 @@
 #include <string>
 #include <algorithm>
 #include "constantes.h"
+#include "structs.h"
 
 using namespace std;
 const int NUM_CARROS_A_CRIAR = 10;
 int NUM_CARROS_CRIADOS = 0;
 int id_lista = 0;
 
-
-struct carro {
-    int id;
-    string marca;
-    string modelo;
-    int tempo_reparacao;
-    int dias_ET;
-    string prioridade;
-};
-
-struct ET {
-    int id;
-    int capacidade;
-    string mecanico;
-    string marca;
-    static int num_ETs;
-    carro* carros;
-    int capacidade_atual;
-
-};
-
-void criarEstacoes(ET* estacoes, string* marcas) {
+void inicializarEstacoes(ET* estacoes, string* marcas) {
     string file = "marcas.txt";
     ifstream fileMarcas(file);
     string marca;
@@ -48,7 +28,7 @@ void criarEstacoes(ET* estacoes, string* marcas) {
 
     for (int i = 0; i < NUM_ETS; i++)
     {
-        cout << "Introduza o mecânico para a estação " << i << ": ";
+        cout << "Introduza o mecï¿½nico para a estaï¿½ï¿½o " << i << ": ";
         getline(cin, estacoes[i].mecanico);
         estacoes[i].id = id_estacao++;
         estacoes[i].capacidade = rand() % 4 + 2;
@@ -56,6 +36,8 @@ void criarEstacoes(ET* estacoes, string* marcas) {
         estacoes[i].marca = marcas[rand() % NUM_MARCAS];
         estacoes[i].carros = new carro[estacoes[i].capacidade];
     }
+
+    fileMarcas.close();
 }
 
 bool comparaCarros(const carro& a, const carro& b) {
@@ -88,7 +70,7 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
         
         int decisao = rand() % 100;
         if (decisao > 5) {
-            listadeespera[i].prioridade = "Não";
+            listadeespera[i].prioridade = "Nï¿½o";
         }
         else listadeespera[i].prioridade = "Sim";
 
@@ -130,7 +112,7 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes) {
         i++;
     }
 
-    cout << num_carros_adicionados << " carros adicionados às ETs.\n";
+    cout << num_carros_adicionados << " carros adicionados ï¿½s ETs.\n";
 }
 
 
@@ -138,17 +120,17 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes) {
 
 
 void menu(ET* estacoes, carro* listadeespera) {
-    for (size_t i = 0; i < NUM_ETS; i++)
+    for (int i = 0; i < NUM_ETS; i++)
     {
         cout << "ET: " << estacoes[i].id << " | ";
-        cout << "Mecânico: " << estacoes[i].mecanico << " | ";
+        cout << "Mecï¿½nico: " << estacoes[i].mecanico << " | ";
         cout << "Capacidade: " << estacoes[i].capacidade << " | ";
         cout << "Carros: " << estacoes[i].capacidade_atual<< " | ";
         cout << "Marca: " << estacoes[i].marca << " | ";
-        cout << "Total de Faturação: " << endl;
+        cout << "Total de Faturaï¿½ï¿½o: " << endl;
 
         if (estacoes[i].capacidade_atual == 0) {
-            cout << " ET não possui carros de momento" << endl;
+            cout << " ET nï¿½o possui carros de momento" << endl;
         }
         else {
             for (int h = 0; h < estacoes[i].capacidade_atual; h++)
@@ -156,7 +138,7 @@ void menu(ET* estacoes, carro* listadeespera) {
                 cout << "Carro: ID: " << estacoes[i].carros[h].id << " | ";
                 cout << estacoes[i].carros[h].marca << "-" << estacoes[i].carros[h].modelo << " | ";
                 cout << "Prioritario: " << estacoes[i].carros[h].prioridade << " | ";
-                cout << "Tempo Reparação: " << estacoes[i].carros[h].tempo_reparacao << " | ";
+                cout << "Tempo Reparaï¿½ï¿½o: " << estacoes[i].carros[h].tempo_reparacao << " | ";
                 cout << "Dias da ET: " << estacoes[i].carros[h].dias_ET << endl;
             }
         }
@@ -167,21 +149,21 @@ void menu(ET* estacoes, carro* listadeespera) {
 void verListaDeEspera(carro* listadeespera) {
     for (int i = 0; i < NUM_CARROS_CRIADOS; i++)
         {
-            cout << "Carro: ID: " << listadeespera[i].id << " | ";
-            cout << listadeespera[i].marca << "-" << listadeespera[i].modelo << " | ";
-            cout << "Prioritario: " << listadeespera[i].prioridade << " | ";
-            cout << "Tempo Reparação: " << listadeespera[i].tempo_reparacao << " | ";
-            cout << "Dias da ET: " << listadeespera[i].dias_ET << endl;
+            cout << "Carro: ID: " << " | ";
+            cout << " | ";
+            cout << "Prioritario: " << " | ";
+            cout << "Tempo Reparaï¿½ï¿½o: " << " | ";
+            cout << "Dias da ET: " << endl;
         }
 }
 
 int menuInicio() {
     int escolha;
     cout << "***** Bem Vindo Gestor ***** \n";
-    cout << "(1).Reparação Manual \n";
-    cout << "(2).Atualizar tempo de reparação \n";
+    cout << "(1).Reparaï¿½ï¿½o Manual \n";
+    cout << "(2).Atualizar tempo de reparaï¿½ï¿½o \n";
     cout << "(3).Adicionar Prioridade\n";
-    cout << "(4).Remover Mecânico\n";
+    cout << "(4).Remover Mecï¿½nico\n";
     cout << "(5).Gravar Oficina \n";
     cout << "(6).Carregar Oficina \n";
     cout << "(7).Imprimir Oficina \n";
@@ -189,7 +171,7 @@ int menuInicio() {
 
 do
 {
-    cout << "Selecione a sua opção:";
+    cout << "Selecione a sua opï¿½ï¿½o:";
     cin >> escolha;
     switch (escolha)
     {
@@ -198,7 +180,7 @@ do
     case 3: ; break;
     case 4: ; break;
     case 5: ; break;
-    default: cout << "Escolha Inválida!"; break;
+    default: cout << "Escolha Invï¿½lida!"; break;
     }
 } while (escolha > 6);
 return 0;
@@ -217,7 +199,7 @@ int main() {
     carro* listadeespera = new carro[200];
     ET* estacoes = new ET[NUM_ETS];
 
-    criarEstacoes(estacoes, marcas);
+    inicializarEstacoes(estacoes, marcas);
     criarCarros(listadeespera, modelos, marcas);
     adicionarCarrosETs(listadeespera,estacoes);
     
@@ -225,5 +207,6 @@ int main() {
     //verListaDeEspera(listadeespera);
    
     menu(estacoes, listadeespera);
+
     return 0;
 }
