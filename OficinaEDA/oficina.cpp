@@ -44,6 +44,14 @@ void inicializarEstacoes(ET* estacoes, string* marcas) {
     }
 
     fileMarcas.close();
+
+    
+}
+
+void obtemMarcasET(string* marcas, string* marcas_ET, ET* estacoes) {
+    for (int i = 0; i < NUM_ETS; i++) {
+        marcas_ET[i] = estacoes[i].marca;
+    }
 }
 
 void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
@@ -63,7 +71,7 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
     for (int i = NUM_CARROS_CRIADOS; i < NUM_CARROS_CRIADOS + 10; i++) {
         listadeespera[i].id = id_lista + 1;
         listadeespera[i].tempo_reparacao = rand() % 6 + 2;
-        listadeespera[i].marca = marcas[rand() % NUM_MARCAS];
+        listadeespera[i].marca = marcas[rand() % NUM_ETS];
         listadeespera[i].dias_ET = 0;
         listadeespera[i].modelo = modelos[rand() % NUM_MODELOS];
 
@@ -121,8 +129,16 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added) {
         }
        i++;
     }
-   
+    if (num_carros_adicionados == 8 && i < carange) {
+        while (i < carange) {
+            not_added[num_not_added] = listadeespera[i];
+            num_not_added++;
+            i++;
+        }
+    }
     cout << num_carros_adicionados << " carros adicionados às ETs.\n";
+    cout << num_not_added << " carros NÃO adicionados ás ETs.\n";
+    cout << NUM_CARROS_CRIADOS << " carros criados inicialmente.\n";
     //cout << num_car_ids << num_not_added << endl;
     //for (int L = 0; L < num_car_ids +1 ; L++) {
       //  cout << car_ids[L] << " | ";

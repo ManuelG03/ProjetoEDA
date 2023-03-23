@@ -18,3 +18,5 @@ int menuInicio();
 void verNotAdded(carro* not_added);
 
 void ciclo(carro* listadeespera, string* modelos, string* marcas);
+
+void obtemMarcasET(string* marcas, string* marcas_ET, ET* estacoes);
