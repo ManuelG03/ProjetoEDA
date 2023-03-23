@@ -8,7 +8,7 @@
 #include "structs.h"
 
 using namespace std;
-const int NUM_CARROS_A_CRIAR = 10;
+
 int NUM_CARROS_CRIADOS = 0;
 int id_lista = 0;
 
@@ -28,7 +28,7 @@ void inicializarEstacoes(ET* estacoes, string* marcas) {
 
     for (int i = 0; i < NUM_ETS; i++)
     {
-        cout << "Introduza o mec�nico para a esta��o " << i << ": ";
+        cout << "Introduza o mecânico para a estação " << i << ": ";
         getline(cin, estacoes[i].mecanico);
         estacoes[i].id = id_estacao++;
         estacoes[i].capacidade = rand() % 4 + 2;
@@ -70,7 +70,7 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
         
         int decisao = rand() % 100;
         if (decisao > 5) {
-            listadeespera[i].prioridade = "N�o";
+            listadeespera[i].prioridade = "Não";
         }
         else listadeespera[i].prioridade = "Sim";
 
@@ -78,6 +78,8 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
     }
     NUM_CARROS_CRIADOS += 10;
     sort(listadeespera, listadeespera + NUM_CARROS_CRIADOS, comparaCarros);
+
+    fileModelos.close();
 }
 
 
@@ -98,7 +100,7 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes) {
                     num_carros_adicionados++;
                     
  
-                    for (int k = i; k < NUM_CARROS_A_CRIAR - 1; k++) { //***
+                    for (int k = i; k < NUM_CARROS_A_CRIAR - 1; k++) { 
                         listadeespera[k] = listadeespera[k + 1];
                     }
                     NUM_CARROS_A_CRIAR--;
@@ -112,7 +114,7 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes) {
         i++;
     }
 
-    cout << num_carros_adicionados << " carros adicionados �s ETs.\n";
+    cout << num_carros_adicionados << " carros adicionados às ETs.\n";
 }
 
 
@@ -127,10 +129,10 @@ void menu(ET* estacoes, carro* listadeespera) {
         cout << "Capacidade: " << estacoes[i].capacidade << " | ";
         cout << "Carros: " << estacoes[i].capacidade_atual<< " | ";
         cout << "Marca: " << estacoes[i].marca << " | ";
-        cout << "Total de Fatura��o: " << endl;
+        cout << "Total de Faturação: " << endl;
 
         if (estacoes[i].capacidade_atual == 0) {
-            cout << " ET n�o possui carros de momento" << endl;
+            cout << " ET não possui carros de momento" << endl;
         }
         else {
             for (int h = 0; h < estacoes[i].capacidade_atual; h++)
@@ -138,7 +140,7 @@ void menu(ET* estacoes, carro* listadeespera) {
                 cout << "Carro: ID: " << estacoes[i].carros[h].id << " | ";
                 cout << estacoes[i].carros[h].marca << "-" << estacoes[i].carros[h].modelo << " | ";
                 cout << "Prioritario: " << estacoes[i].carros[h].prioridade << " | ";
-                cout << "Tempo Repara��o: " << estacoes[i].carros[h].tempo_reparacao << " | ";
+                cout << "Tempo Reparação: " << estacoes[i].carros[h].tempo_reparacao << " | ";
                 cout << "Dias da ET: " << estacoes[i].carros[h].dias_ET << endl;
             }
         }
@@ -152,7 +154,7 @@ void verListaDeEspera(carro* listadeespera) {
             cout << "Carro: ID: " << " | ";
             cout << " | ";
             cout << "Prioritario: " << " | ";
-            cout << "Tempo Repara��o: " << " | ";
+            cout << "Tempo Reparação: " << " | ";
             cout << "Dias da ET: " << endl;
         }
 }
@@ -160,10 +162,10 @@ void verListaDeEspera(carro* listadeespera) {
 int menuInicio() {
     int escolha;
     cout << "***** Bem Vindo Gestor ***** \n";
-    cout << "(1).Repara��o Manual \n";
-    cout << "(2).Atualizar tempo de repara��o \n";
+    cout << "(1).Reparação Manual \n";
+    cout << "(2).Atualizar tempo de reparação \n";
     cout << "(3).Adicionar Prioridade\n";
-    cout << "(4).Remover Mec�nico\n";
+    cout << "(4).Remover Mecânico\n";
     cout << "(5).Gravar Oficina \n";
     cout << "(6).Carregar Oficina \n";
     cout << "(7).Imprimir Oficina \n";
@@ -171,7 +173,7 @@ int menuInicio() {
 
 do
 {
-    cout << "Selecione a sua op��o:";
+    cout << "Selecione a sua opção:";
     cin >> escolha;
     switch (escolha)
     {
@@ -180,7 +182,7 @@ do
     case 3: ; break;
     case 4: ; break;
     case 5: ; break;
-    default: cout << "Escolha Inv�lida!"; break;
+    default: cout << "Escolha Inválida!"; break;
     }
 } while (escolha > 6);
 return 0;
@@ -196,7 +198,7 @@ int main() {
 
     string* marcas = new string[NUM_MARCAS];
     string* modelos = new string[NUM_MODELOS];
-    carro* listadeespera = new carro[200];
+    carro* listadeespera = new carro[LIMITE];
     ET* estacoes = new ET[NUM_ETS];
 
     inicializarEstacoes(estacoes, marcas);
@@ -204,7 +206,6 @@ int main() {
     adicionarCarrosETs(listadeespera,estacoes);
     
     verListaDeEspera(listadeespera);
-    //verListaDeEspera(listadeespera);
    
     menu(estacoes, listadeespera);
 

@@ -21,7 +21,7 @@
     <ClCompile Include="constantes.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="oficinas.cpp">
+    <ClCompile Include="oficina.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>

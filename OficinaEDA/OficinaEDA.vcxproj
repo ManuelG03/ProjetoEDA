@@ -129,7 +129,7 @@
   <ItemGroup>
     <ClCompile Include="constantes.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="oficinas.cpp" />
+    <ClCompile Include="oficina.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constantes.h" />

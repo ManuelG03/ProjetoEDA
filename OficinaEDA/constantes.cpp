@@ -4,7 +4,6 @@
 #include <fstream>
 #include <string>
 #include "constantes.h"
-#include "structs.h"
 
 using namespace std;
 
