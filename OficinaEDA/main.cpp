@@ -219,7 +219,7 @@ int main() {
 
     criarEstacoes(estacoes, marcas);
     criarCarros(listadeespera, modelos, marcas);
-    //adicionarCarrosETs(listadeespera,estacoes);
+    adicionarCarrosETs(listadeespera,estacoes);
     
     verListaDeEspera(listadeespera);
     //verListaDeEspera(listadeespera);
