@@ -23,10 +23,9 @@ int main() {
     inicializarEstacoes(estacoes, marcas);
     obtemMarcasET(marcas,marcas_ET,estacoes);
     criarCarros(listadeespera, modelos, marcas_ET);
-    criarCarros(listadeespera, modelos, marcas_ET);
     adicionarCarrosETs(listadeespera,estacoes,not_added);
-    adicionarCarrosETs(listadeespera, estacoes, not_added);
-    //adicionarCarrosETs(listadeespera, estacoes, not_added);
+    
+   
     verNotAdded(not_added);
    //verListaDeEspera(listadeespera);
    

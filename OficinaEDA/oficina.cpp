@@ -90,25 +90,30 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
 }
 
 void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added) {
-
     int num_carros_adicionados = 0;
     int i = 0;
     int f = 0;
+    int x = 0;
     int carange = NUM_CARROS_CRIADOS;
     bool car_added;
+    bool reny = false;
+    bool ALFA = false;
+    bool BETA = false;
+    bool AURIS = false;
+    bool JAESTA = false;
+    int GAMA = 0;
     num_not_added = 0;
-    bool car_id_exists = false;  // Add this line
-
-    while (num_carros_adicionados < 8 && i < carange) {
+    while (i < carange) {
         car_added = false;
-        car_id_exists = false;  // Reset the flag for each car
 
         for (int j = 0; j < NUM_ETS; j++) {
             if (estacoes[j].marca == listadeespera[i].marca) {
                 if (estacoes[j].capacidade > 0) {
+                    bool car_id_exists = false;
                     for (int k = 0; k < num_car_ids; k++) {
                         if (listadeespera[i].id == car_ids[k]) {
                             car_id_exists = true;
+                            car_added = true;
                             break;
                         }
                     }
@@ -126,31 +131,54 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added) {
             }
         }
         if (car_added == false) {
-            not_added[num_not_added] = listadeespera[i];
-            num_not_added++;
+            for (int r = 0; r < num_car_ids; r++) {
+                if (car_ids[r] == listadeespera[i].id) {
+                    reny = true;
+                    
+                }
+            }
+            if (reny == false) {
+                not_added[num_not_added] = listadeespera[i];
+                num_not_added++;
+            }
+        }
+        if (num_carros_adicionados == 8) {
+            BETA = true;
+            break;
         }
         i++;
     }
-
-    if (num_carros_adicionados == 8 && i < carange) {
-        while (i < carange) {
-            not_added[num_not_added] = listadeespera[i];
-            num_not_added++;
-            i++;
+    
+    if (BETA == true) { // A PARTIR DE 8 CARROS ADICIONADOS
+        while (GAMA < carange) {
+            for (int y = 0; y < num_car_ids; y++) {
+                if (car_ids[y] == listadeespera[GAMA].id) {
+                    AURIS = true; //verifica se ja tem ET
+                }
+            }
+            for (int w = 0; w < num_not_added; w++) {
+                
+                if (listadeespera[GAMA].id == not_added[w].id) {
+                    JAESTA = true;//se ja estiver no not added
+                }
+            }
+            if (AURIS == false && JAESTA == false) {
+                not_added[num_not_added] = listadeespera[GAMA];
+                num_not_added++;
+            }
+            GAMA++;
         }
+
     }
 
     cout << num_carros_adicionados << " carros adicionados às ETs.\n";
-    cout << num_not_added << " carros NÃO adicionados ás ETs.\n";
-    cout << NUM_CARROS_CRIADOS << " carros criados inicialmente.\n";
+    //cout << num_car_ids << num_not_added << endl;
+    //for (int L = 0; L < num_car_ids +1 ; L++) {
+      //  cout << car_ids[L] << " | ";
 
-    for (int g = 0; g < num_car_ids; g++) {
-        cout << car_ids[g];
-    }
-    HOLD_nca = HOLD_nca + num_carros_adicionados;
+    //
+    HOLD_nca = num_not_added;
 }
-
-
 
 bool comparaCarros(const carro& a, const carro& b) {
     if (a.prioridade == "Sim" && b.prioridade != "Sim") {
@@ -199,7 +227,7 @@ void verListaDeEspera(carro* listadeespera) {
 
 void verNotAdded(carro* not_added) {
     cout << "------------------NA--------------" << endl;
-    for (int i = 0; i < NUM_CARROS_CRIADOS - HOLD_nca; i++) {
+    for (int i = 0; i < 31; i++) {
         cout << "Carro: ID: " << not_added[i].id << " | ";
         cout << not_added[i].marca << "-" << not_added[i].modelo << " | ";
         cout << "Prioritario: " << not_added[i].prioridade << " | ";
