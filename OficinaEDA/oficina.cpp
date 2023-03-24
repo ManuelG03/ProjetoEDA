@@ -97,17 +97,18 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added) {
     int carange = NUM_CARROS_CRIADOS;
     bool car_added;
     num_not_added = 0;
+    bool car_id_exists = false;  // Add this line
+
     while (num_carros_adicionados < 8 && i < carange) {
         car_added = false;
+        car_id_exists = false;  // Reset the flag for each car
 
         for (int j = 0; j < NUM_ETS; j++) {
             if (estacoes[j].marca == listadeespera[i].marca) {
                 if (estacoes[j].capacidade > 0) {
-                    bool car_id_exists = false;
                     for (int k = 0; k < num_car_ids; k++) {
                         if (listadeespera[i].id == car_ids[k]) {
                             car_id_exists = true;
-                            car_added = true;
                             break;
                         }
                     }
@@ -128,8 +129,9 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added) {
             not_added[num_not_added] = listadeespera[i];
             num_not_added++;
         }
-       i++;
+        i++;
     }
+
     if (num_carros_adicionados == 8 && i < carange) {
         while (i < carange) {
             not_added[num_not_added] = listadeespera[i];
@@ -137,16 +139,17 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added) {
             i++;
         }
     }
+
     cout << num_carros_adicionados << " carros adicionados às ETs.\n";
     cout << num_not_added << " carros NÃO adicionados ás ETs.\n";
     cout << NUM_CARROS_CRIADOS << " carros criados inicialmente.\n";
-    //cout << num_car_ids << num_not_added << endl;
-    //for (int L = 0; L < num_car_ids +1 ; L++) {
-      //  cout << car_ids[L] << " | ";
 
-    //
-    HOLD_nca =  HOLD_nca + num_carros_adicionados;
+    for (int g = 0; g < num_car_ids; g++) {
+        cout << car_ids[g];
+    }
+    HOLD_nca = HOLD_nca + num_carros_adicionados;
 }
+
 
 
 bool comparaCarros(const carro& a, const carro& b) {
