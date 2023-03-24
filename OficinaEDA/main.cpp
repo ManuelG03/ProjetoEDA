@@ -18,15 +18,15 @@ int main() {
     string* modelos = new string[NUM_MODELOS];
     carro* listadeespera = new carro[LIMITE];
     carro* not_added = new carro[LIMITE];
+    carro* not_added_copy = new carro[LIMITE];
     ET* estacoes = new ET[NUM_ETS];
     
     inicializarEstacoes(estacoes, marcas);
     obtemMarcasET(marcas,marcas_ET,estacoes);
     criarCarros(listadeespera, modelos, marcas_ET);
-    adicionarCarrosETs(listadeespera,estacoes,not_added);
-    
-   
-    verNotAdded(not_added);
+    adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
+    adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
+    //verNotAdded(not_added_copy);
    //verListaDeEspera(listadeespera);
    
     menu(estacoes, listadeespera);

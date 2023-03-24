@@ -5,7 +5,7 @@ void inicializarEstacoes(ET* estacoes, string* marcas);
 
 void criarCarros(carro* listadeespera, string* modelos, string* marcas);
 
-void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added);
+void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added_copy);
 
 bool comparaCarros(const carro& a, const carro& b);
 
