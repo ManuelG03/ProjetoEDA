@@ -90,6 +90,7 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
 }
 
 void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added) {
+
     int num_carros_adicionados = 0;
     int i = 0;
     int f = 0;
