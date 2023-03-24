@@ -156,7 +156,7 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added) {
                     AURIS = true; //verifica se ja tem ET
                 }
             }
-            for (int w = 0; w < num_not_added; w++) {
+            for (int w = 0; w < num_not_added; w++) { 
                 
                 if (listadeespera[GAMA].id == not_added[w].id) {
                     JAESTA = true;//se ja estiver no not added
