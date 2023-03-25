@@ -21,5 +21,6 @@ void obtemMarcasET(string* marcas, string* marcas_ET, ET* estacoes);
 
 void simulateDay();
 
-void reparar_carros(ET estacoes[], int num_estacoes);
+void reparar_carros(ET* estacoes, int num_estacoes);
 	
+void incrementar_dias_ET(ET* estacoes, int num_estacoes);

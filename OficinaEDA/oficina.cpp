@@ -154,24 +154,24 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added_cop
         i++;
     }
     
-    if (BETA == true) { // A PARTIR DE 8 CARROS ADICIONADOS
+    if (BETA == true) { //8+
         while (GAMA < carange) {
             AURIS = false;
             JAESTA = false;
             for (int y = 0; y < num_car_ids; y++) {
                 if (car_ids[y] == listadeespera[GAMA].id) {
-                    AURIS = true; //verifica se ja tem ET
-                    //cout << "ID:" << car_ids[y] << " ja tem ET." << endl;
+                    AURIS = true; 
+                    //cout << "ID:" << car_ids[y] << " ja tem ET." << endl; NAO APAGAR
                 }
             }
             for (int w = 0; w < num_not_added; w++) { 
                 
                 if (listadeespera[GAMA].id == not_added[w].id) {
-                    JAESTA = true;//se ja estiver no not added
-                    //cout << "ID:" << not_added[w].id << " ja esta no not_added." << endl;
+                    JAESTA = true;
+                    //cout << "ID:" << not_added[w].id << " ja esta no not_added." << endl; NAO APAGAR
                 }
             }
-            cout << AURIS << " | " << JAESTA << endl; 
+            //cout << AURIS << " | " << JAESTA << endl;  NAO APAGAR
             if (AURIS == false && JAESTA == false) {
                 not_added[num_not_added] = listadeespera[GAMA];
                 num_not_added++;
@@ -290,7 +290,7 @@ void reparacaoCarros(ET* estacoes) {
     
 
 }
-void reparar_carros(ET estacoes[], int num_estacoes) {
+void reparar_carros(ET* estacoes, int num_estacoes) {
     for (int i = 0; i < num_estacoes; i++) {
         for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
             int probabilidade = rand() % 100 + 1;
@@ -341,6 +341,13 @@ void reparar_carros2(ET estacoes[], int num_estacoes) {
     }
 }
 
+void incrementar_dias_ET(ET* estacoes, int num_estacoes) {
+    for (int i = 0; i < num_estacoes; i++) {
+        for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
+            estacoes[i].carros[j].dias_ET++;
+        }
+    }
+}
 
 
 
