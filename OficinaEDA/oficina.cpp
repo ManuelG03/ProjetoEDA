@@ -321,37 +321,46 @@ void reparar_carros2(ET* estacoes, int num_estacoes) {
         num_carros_reparados = 0;
         for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
             carro* car = &estacoes[i].carros[j];
-            if (car->dias_ET < car->tempo_reparacao) {
+            if (car->dias_ET <= car->tempo_reparacao) {
                 int probabilidade = rand() % 100 + 1;
                 if (probabilidade <= 50) {
-                    estacoes[i].capacidade_atual--;
-                    estacoes[i].capacidade++;
-                    for (int k = j; k < estacoes[i].capacidade_atual; k++) {
-                        estacoes[i].carros[k] = estacoes[i].carros[k + 1];
-                    }
                     estacoes[i].regRepCars[num_carros_reparados++] = *car;
                     estacoes[i].faturacao += car->custo_reparacao;
                     estacoes[i].carros_reparados++;
                     cout << "O carro com o ID " << car->id << " foi reparado na ET " << estacoes[i].id << "." << endl;
-                    j--; //VERIFICAR A POSIÇAO ATUAL
                 }
             }
             else {
-
-                estacoes[i].capacidade_atual--;
-                estacoes[i].capacidade++;
-                for (int k = j; k < estacoes[i].capacidade_atual; k++) {
-                    estacoes[i].carros[k] = estacoes[i].carros[k + 1];
-                }
-                estacoes[i].regRepCars[num_carros_reparados++] = *car;
-                estacoes[i].carros_reparados++;
-                j--; // VERIFICAR(again) posicao atual
                 cout << "O carro com o ID " << car->id << " foi removido da ET " << estacoes[i].id << " por ter ultrapassado o tempo máximo de reparação." << endl;
             }
         }
+
+        int new_capacity_atual = estacoes[i].capacidade_atual - num_carros_reparados;
+        carro* new_carros = new carro[new_capacity_atual];
+        int new_index = 0;
+
+        for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
+            carro* car = &estacoes[i].carros[j];
+            bool car_removed = false;
+            for (int k = 0; k < num_carros_reparados; k++) {
+                if (car->id == estacoes[i].regRepCars[k].id) {
+                    car_removed = true;
+                    break;
+                }
+            }
+            if (!car_removed) {
+                new_carros[new_index++] = *car;
+            }
+        }
+
+        delete[] estacoes[i].carros;
+        estacoes[i].carros = new_carros;
+        estacoes[i].capacidade_atual = new_capacity_atual;
+        estacoes[i].capacidade += num_carros_reparados;
     }
     cout << endl;
 }
+
 
 
 
