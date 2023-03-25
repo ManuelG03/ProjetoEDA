@@ -28,8 +28,12 @@ int main() {
 
     criarCarros(listadeespera, modelos, marcas_ET);
     adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
-    reparar_carros(estacoes, NUM_ETS);
+    reparar_carros2(estacoes, NUM_ETS);
+    criarCarros(listadeespera, modelos, marcas_ET);
+    adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
     incrementar_dias_ET(estacoes, NUM_ETS);
+    reparar_carros2(estacoes, NUM_ETS);
+    
    
    
     
