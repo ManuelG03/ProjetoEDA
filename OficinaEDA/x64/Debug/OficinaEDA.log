@@ -1,3 +1,1 @@
-﻿  oficina.cpp
-C:\Users\manue\Desktop\react\ProjetoEDA\OficinaEDA\oficina.cpp(285,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
-LINK : fatal error LNK1168: não foi possível abrir C:\Users\manue\Desktop\react\ProjetoEDA\x64\Debug\OficinaEDA.exe para escrita
+﻿LINK : fatal error LNK1168: não foi possível abrir C:\Users\manue\Desktop\react\ProjetoEDA\x64\Debug\OficinaEDA.exe para escrita
