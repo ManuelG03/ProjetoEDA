@@ -18,6 +18,7 @@ struct ET {
     string marca;
     carro* carros;
     carro* regRepCars;
+    int carros_reparados;
     int capacidade_atual;
     int faturacao;
 };

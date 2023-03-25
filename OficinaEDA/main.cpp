@@ -19,6 +19,7 @@ int main() {
     carro* listadeespera = new carro[LIMITE];
     carro* not_added = new carro[LIMITE];
     carro* not_added_copy = new carro[LIMITE];
+    carro* imprime = new carro[LIMITE];
     ET* estacoes = new ET[NUM_ETS];
     
     inicializarEstacoes(estacoes, marcas);
@@ -29,12 +30,10 @@ int main() {
     criarCarros(listadeespera, modelos, marcas_ET);
     adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
     reparar_carros2(estacoes, NUM_ETS);
-    criarCarros(listadeespera, modelos, marcas_ET);
-    adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
-    incrementar_dias_ET(estacoes, NUM_ETS);
-    reparar_carros2(estacoes, NUM_ETS);
+    printAllCarsInRegRepCars(estacoes);
     
-   
+    //criaimprimeOficina(estacoes,listadeespera,imprime);
+
    
     
     

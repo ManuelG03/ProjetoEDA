@@ -5,6 +5,7 @@
 #include "oficina.h"
 #include "constantes.h"
 #include "structs.h"
+#include "string.h"
 
 using namespace std;
 
@@ -13,7 +14,7 @@ int NUM_CARROS_CRIADOS = 0;
 int id_lista = 0;
 int car_ids[100];
 int num_car_ids = 0;
-
+int num_carros_reparados = 0;
 int num_not_added;
 int HOLD_nca;
 
@@ -43,6 +44,7 @@ void inicializarEstacoes(ET* estacoes, string* marcas) {
         estacoes[i].carros = new carro[estacoes[i].capacidade];
         estacoes[i].regRepCars = new carro[LIMITE];
         estacoes[i].faturacao = 0;
+        estacoes[i].carros_reparados = 0;
     }
 
     fileMarcas.close();
@@ -201,6 +203,10 @@ bool comparaCarros(const carro& a, const carro& b) {
     return false;
 }
 
+bool compareCarrosByMarca(const carro& a, const carro& b) {
+    return a.marca < b.marca;
+}
+
 void menu(ET* estacoes, carro* listadeespera) {
     for (int i = 0; i < NUM_ETS; i++)
     {
@@ -209,7 +215,7 @@ void menu(ET* estacoes, carro* listadeespera) {
         cout << "Capacidade: " << estacoes[i].capacidade << " | ";
         cout << "Carros: " << estacoes[i].capacidade_atual << " | ";
         cout << "Marca: " << estacoes[i].marca << " | ";
-        cout << "Total de Faturação: " <<  estacoes[i].faturacao << " | " << endl;
+        cout << "Total de Faturação: " <<  estacoes[i].faturacao << "€ | " << endl;
 
         if (estacoes[i].capacidade_atual == 0) {
             cout << " ET não possui carros de momento" << endl;
@@ -311,41 +317,42 @@ void reparar_carros(ET* estacoes, int num_estacoes) {
 }
 
 void reparar_carros2(ET* estacoes, int num_estacoes) {
-    
     for (int i = 0; i < num_estacoes; i++) {
-        int num_carros_reparados = 0;
+        num_carros_reparados = 0;
         for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
-            carro car = estacoes[i].carros[j];
-            if (car.dias_ET <= car.tempo_reparacao) {
+            carro* car = &estacoes[i].carros[j];
+            if (car->dias_ET < car->tempo_reparacao) {
                 int probabilidade = rand() % 100 + 1;
-                if (probabilidade <= 15) {
+                if (probabilidade <= 50) {
                     estacoes[i].capacidade_atual--;
                     estacoes[i].capacidade++;
                     for (int k = j; k < estacoes[i].capacidade_atual; k++) {
                         estacoes[i].carros[k] = estacoes[i].carros[k + 1];
                     }
-                    estacoes[i].regRepCars[num_carros_reparados++] = car;
-                    estacoes[i].faturacao += car.custo_reparacao;
-                    cout << "O carro com o ID " << car.id << " foi reparado na ET " << estacoes[i].id << "." << endl;
+                    estacoes[i].regRepCars[num_carros_reparados++] = *car;
+                    estacoes[i].faturacao += car->custo_reparacao;
+                    estacoes[i].carros_reparados++;
+                    cout << "O carro com o ID " << car->id << " foi reparado na ET " << estacoes[i].id << "." << endl;
                     j--; //VERIFICAR A POSIÇAO ATUAL
                 }
             }
             else {
-                
+
                 estacoes[i].capacidade_atual--;
                 estacoes[i].capacidade++;
                 for (int k = j; k < estacoes[i].capacidade_atual; k++) {
                     estacoes[i].carros[k] = estacoes[i].carros[k + 1];
                 }
-                estacoes[i].regRepCars[num_carros_reparados++] = car;
+                estacoes[i].regRepCars[num_carros_reparados++] = *car;
+                estacoes[i].carros_reparados++;
                 j--; // VERIFICAR(again) posicao atual
-                cout << "O carro com o ID " << car.id << " foi removido da ET " << estacoes[i].id << " por ter ultrapassado o tempo máximo de reparação." << endl;
+                cout << "O carro com o ID " << car->id << " foi removido da ET " << estacoes[i].id << " por ter ultrapassado o tempo máximo de reparação." << endl;
             }
         }
-
     }
     cout << endl;
 }
+
 
 
 
@@ -357,7 +364,54 @@ void incrementar_dias_ET(ET* estacoes, int num_estacoes) {
     }
 }
 
+void criaimprimeOficina(ET* estacoes, carro* listadeespera, carro* imprime) {
+    int index = 0;
+    for (int i = 0; i < NUM_CARROS_CRIADOS; i++) {
+        bool found = false;
+        for (int j = 0; j < NUM_ETS; j++) {
+            for (int h = 0; h < estacoes[j].capacidade_atual; h++) {
+                if (listadeespera[i].id == estacoes[j].regRepCars[h].id) {
+                    found = true;
+                    break;
+                }
+            }
+        }
+        if (!found) {
+            imprime[index] = listadeespera[i];
+            index++;
+        }
+    }
+    int holdon = NUM_CARROS_CRIADOS - num_carros_reparados;
+    sort(imprime, imprime + holdon, compareCarrosByMarca);
 
+    cout << "Lista de carros na oficina (ETs + Lista de Espera)" << endl;
+
+    for (int i = 0; i < holdon; i++) {
+        cout << "Carro: ID: " << imprime[i].id << " | ";
+        cout << imprime[i].marca << "-" << imprime[i].modelo << " | ";
+        cout << "Prioritário: " << imprime[i].prioridade << " | ";
+        cout << "Tempo Reparação: " << imprime[i].tempo_reparacao << " | ";
+        cout << "Dias da ET: " << imprime[i].dias_ET << endl;
+    }
+    cout << "---------------------------------------------------" << endl;
+}
+
+
+void printAllCarsInRegRepCars(ET* estacoes) {
+    cout <<  "CARROS JÁ REPARADOS:" << "INFO MANUEL" << "APAGAR" << endl;
+    for (int i = 0; i < NUM_ETS; i++) {
+        cout << "ET " << i + 1 << ":" << endl;
+        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
+            cout << "Carro " << j + 1 << ": ";
+            cout << "ID: " << estacoes[i].regRepCars[j].id << " | ";
+            cout << estacoes[i].regRepCars[j].marca << "-" << estacoes[i].regRepCars[j].modelo << " | ";
+            cout << "Prioritário: " << estacoes[i].regRepCars[j].prioridade << " | ";
+            cout << "Tempo Reparação: " << estacoes[i].regRepCars[j].tempo_reparacao << " | ";
+            cout << "Dias na ET: " << estacoes[i].regRepCars[j].dias_ET << endl;
+        }
+        cout << endl;
+    }
+}
 
 void simulateDay() {
     bool continua = true;
