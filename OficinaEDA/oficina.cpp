@@ -41,6 +41,8 @@ void inicializarEstacoes(ET* estacoes, string* marcas) {
         estacoes[i].capacidade_atual = 0;
         estacoes[i].marca = marcas[rand() % NUM_MARCAS];
         estacoes[i].carros = new carro[estacoes[i].capacidade];
+        estacoes[i].regRepCars = new carro[LIMITE];
+        estacoes[i].faturacao = 0;
     }
 
     fileMarcas.close();
@@ -74,6 +76,8 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
         listadeespera[i].marca = marcas[rand() % NUM_ETS];
         listadeespera[i].dias_ET = 0;
         listadeespera[i].modelo = modelos[rand() % NUM_MODELOS];
+        listadeespera[i].custo_reparacao = rand() % 71 + 60;
+
 
         int decisao = rand() % 100;
         if (decisao > 5) {
@@ -205,7 +209,7 @@ void menu(ET* estacoes, carro* listadeespera) {
         cout << "Capacidade: " << estacoes[i].capacidade << " | ";
         cout << "Carros: " << estacoes[i].capacidade_atual << " | ";
         cout << "Marca: " << estacoes[i].marca << " | ";
-        cout << "Total de Faturação: " << endl;
+        cout << "Total de Faturação: " <<  estacoes[i].faturacao << " | " << endl;
 
         if (estacoes[i].capacidade_atual == 0) {
             cout << " ET não possui carros de momento" << endl;
@@ -221,6 +225,7 @@ void menu(ET* estacoes, carro* listadeespera) {
             }
         }
     }
+    cout << endl;
 
 }
 
@@ -275,6 +280,85 @@ int menuInicio() {
     return 0;
 }
 
-void ciclo(carro* listadeespera, string* modelos, string* marcas) {
-    criarCarros(listadeespera, modelos, marcas);
+void reparacaoCarros(ET* estacoes) {
+    int pen = 0;
+    srand(time(NULL));
+    int probRep = rand() % 100 + 1;
+    while (pen < NUM_ETS) {
+
+    }
+    
+
+}
+void reparar_carros(ET estacoes[], int num_estacoes) {
+    for (int i = 0; i < num_estacoes; i++) {
+        for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
+            int probabilidade = rand() % 100 + 1;
+            if (probabilidade <= 15) {
+                carro car = estacoes[i].carros[j];
+                estacoes[i].capacidade_atual--;
+                estacoes[i].capacidade++; //ATENCAO
+                for (int k = j; k < estacoes[i].capacidade_atual; k++) {
+                    estacoes[i].carros[k] = estacoes[i].carros[k + 1];
+                }
+                estacoes[i].regRepCars[j] = car;
+                cout << "O carro com id " << car.id << " foi reparado na ET " << estacoes[i].id << endl;
+                j--; // ATENÇAO
+            }
+        }
+    }
+    cout << endl;
+}
+
+void reparar_carros2(ET estacoes[], int num_estacoes) {
+    for (int i = 0; i < num_estacoes; i++) {
+        int num_carros_reparados = 0; 
+        for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
+            carro car = estacoes[i].carros[j];
+            if (car.tempo_reparacao <= car.dias_ET) {
+                int probabilidade = rand() % 100 + 1;
+                if (probabilidade <= 15) {
+                    estacoes[i].capacidade_atual--;
+                    for (int k = j; k < estacoes[i].capacidade_atual; k++) {
+                        estacoes[i].carros[k] = estacoes[i].carros[k + 1];
+                    }
+                    estacoes[i].regRepCars[num_carros_reparados++] = car;
+                    estacoes[i].faturacao += car.custo_reparacao;
+                    cout << "O carro com id " << car.id << " foi reparado na ET " << estacoes[i].id << endl;
+                }
+            }
+            else {
+                
+                estacoes[i].capacidade_atual--;
+                for (int k = j; k < estacoes[i].capacidade_atual; k++) {
+                    estacoes[i].carros[k] = estacoes[i].carros[k + 1];
+                }
+                estacoes[i].regRepCars[num_carros_reparados++] = car;
+                cout << "O carro com id " << car.id << " foi removido da ET " << estacoes[i].id << " por ter ultrapassado o tempo máximo de reparação" << endl;
+            }
+        }
+        
+    }
+}
+
+
+
+
+void simulateDay() {
+    bool continua = true;
+    while (continua) {
+        cout << "Pressione 's' seguido de Enter para simular um dia na OficinaEDA ou 0 para sair: ";
+        string Input;
+        getline(cin, Input);
+        if (Input == "s" || Input == "S") {
+            
+            cout << "Dia simulado com sucesso!\n";
+        }
+        else if (Input == "0") {
+            continua = false;
+        }
+        else {
+            cout << "Opção Inválida!\n";
+        }
+    }
 }

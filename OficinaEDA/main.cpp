@@ -21,11 +21,15 @@ int main() {
     carro* not_added_copy = new carro[LIMITE];
     ET* estacoes = new ET[NUM_ETS];
     
+    
     inicializarEstacoes(estacoes, marcas);
     obtemMarcasET(marcas,marcas_ET,estacoes);
     criarCarros(listadeespera, modelos, marcas_ET);
+    //criarCarros(listadeespera, modelos, marcas_ET);
     adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
-    adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
+    menu(estacoes, listadeespera);
+    reparar_carros(estacoes, NUM_ETS);
+
     //verNotAdded(not_added_copy);
    //verListaDeEspera(listadeespera);
    
