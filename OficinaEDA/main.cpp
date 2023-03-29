@@ -32,7 +32,7 @@ int main() {
     reparar_carros2(estacoes, NUM_ETS);
     printAllCarsInRegRepCars(estacoes);
     
-    criaimprimeOficina(estacoes,listadeespera,imprime);
+    imprimeOficina(estacoes,listadeespera,imprime);
 
    
     

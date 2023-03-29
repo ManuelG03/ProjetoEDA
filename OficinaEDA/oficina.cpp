@@ -216,10 +216,10 @@ void menu(ET* estacoes, carro* listadeespera) {
         cout << "Capacidade: " << estacoes[i].capacidade << " | ";
         cout << "Carros: " << estacoes[i].capacidade_atual << " | ";
         cout << "Marca: " << estacoes[i].marca << " | ";
-        cout << "Total de Faturação: " <<  estacoes[i].faturacao << "€" << endl;
+        cout << "Total de Faturação: " <<  estacoes[i].faturacao << "$" << endl;
 
         if (estacoes[i].capacidade_atual == 0) {
-            cout << " ET não possui carros de momento" << endl;
+            cout << "ET não possui carros de momento" << endl;
         }
         else {
             for (int h = 0; h < estacoes[i].capacidade_atual; h++)
@@ -379,7 +379,7 @@ void incrementar_dias_ET(ET* estacoes, int num_estacoes) {
     }
 }
 
-void criaimprimeOficina(ET* estacoes, carro* listadeespera, carro* imprime) {
+void imprimeOficina(ET* estacoes, carro* listadeespera, carro* imprime) {
     int RANGE = NUM_CARROS_CRIADOS;
     for (int i = 0; i < NUM_ETS; i++) {
         for (int j = 0; j < estacoes[i].carros_reparados; j++) {
@@ -395,25 +395,41 @@ void criaimprimeOficina(ET* estacoes, carro* listadeespera, carro* imprime) {
         }
     }
 
-    /*for (int i = 0; i < RANGE - 1; i++) {
-        for (int j = i + 1; j < RANGE; j++) {
-            if (listadeespera[i].marca > listadeespera[j].marca) {
-                carro temp = listadeespera[i];
-                listadeespera[i] = listadeespera[j];
-                listadeespera[j] = temp;
+    int escolha;
+    cout << "(1). Ordenar por marca, por ordem alfabética. \n(2). Ordenar por tempo de reparação" << endl;
+    cout << ">> ";
+    cin >> escolha;
+
+    if (escolha == 1) {
+
+        for (int i = 0; i < RANGE - 1; i++) {
+            for (int j = i + 1; j < RANGE; j++) {
+                if (listadeespera[i].marca > listadeespera[j].marca) {
+                    carro temp = listadeespera[i];
+                    listadeespera[i] = listadeespera[j];
+                    listadeespera[j] = temp;
+                }
             }
         }
-    }*/
+    } 
 
-    for (int i = 0; i < RANGE - 1; i++) {
-        for (int j = i + 1; j < RANGE; j++) {
-            if (listadeespera[i].tempo_reparacao > listadeespera[j].tempo_reparacao) {
-                carro temp = listadeespera[i];
-                listadeespera[i] = listadeespera[j];
-                listadeespera[j] = temp;
+    if (escolha == 2) {
+        for (int i = 0; i < RANGE - 1; i++) {
+            for (int j = i + 1; j < RANGE; j++) {
+                if (listadeespera[i].tempo_reparacao > listadeespera[j].tempo_reparacao) {
+                    carro temp = listadeespera[i];
+                    listadeespera[i] = listadeespera[j];
+                    listadeespera[j] = temp;
+                }
             }
         }
     }
+    
+    if (escolha != 1 && escolha != 2) {
+        cout << "A opção inserida é inválida! Tente novamente." << endl;
+        return;
+    }
+
 
     cout << "----------------------------------------" << endl;
     cout << "Lista de carros (ET + LISTA DE ESPERA) :" << endl;
@@ -432,7 +448,7 @@ void criaimprimeOficina(ET* estacoes, carro* listadeespera, carro* imprime) {
 
 
 void printAllCarsInRegRepCars(ET* estacoes) {
-    cout <<  "CARROS JÁ REPARADOS:" << "INFO MANUEL" << "APAGAR" << endl;
+    cout <<  "CARROS JÁ REPARADOS: " << "INFO MANUEL " << "APAGAR" << endl;
     for (int i = 0; i < NUM_ETS; i++) {
         cout << "ET " << i + 1 << ":" << endl;
         for (int j = 0; j < estacoes[i].carros_reparados; j++) {
@@ -447,7 +463,7 @@ void printAllCarsInRegRepCars(ET* estacoes) {
     }
 }
 
-void simulateDay() {
+void simulateDay(ET* estacoes,carro* listadeespera) {
     bool continua = true;
     while (continua) {
         cout << "Pressione 's' seguido de Enter para simular um dia na OficinaEDA ou 0 para sair: ";
@@ -456,6 +472,9 @@ void simulateDay() {
         if (Input == "s" || Input == "S") {
             
             cout << "Dia simulado com sucesso!\n";
+            incrementar_dias_ET(estacoes,NUM_ETS);
+            menu(estacoes, listadeespera);
+
         }
         else if (Input == "0") {
             continua = false;
