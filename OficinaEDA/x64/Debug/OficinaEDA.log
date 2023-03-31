@@ -1,3 +1,7 @@
-﻿  oficina.cpp
-C:\Users\manue\Desktop\react\ProjetoEDA\OficinaEDA\oficina.cpp(295,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
-  OficinaEDA.vcxproj -> C:\Users\manue\Desktop\react\ProjetoEDA\x64\Debug\OficinaEDA.exe
+﻿  ficheiro.cpp
+  main.cpp
+C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\main.cpp(15,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\main.cpp(39,5): error C2660: 'gravarOficina': função não recebe 0 argumentos
+C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\ficheiro.h(5,6): message : consulte a declaração de 'gravarOficina'
+C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\main.cpp(39,5): message : ao tentar corresponder a lista de argumentos '()'
+  Gerando Código...

@@ -1,6 +1,7 @@
 #pragma once
 
 using namespace std;
+
 struct carro {
     int id;
     string marca;

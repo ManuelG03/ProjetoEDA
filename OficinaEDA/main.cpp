@@ -6,6 +6,7 @@
 #include "constantes.h"
 #include "structs.h"
 #include "oficina.h"
+#include "ficheiro.h"
 
 using namespace std;
 
@@ -35,7 +36,7 @@ int main() {
     imprimeOficina(estacoes,listadeespera,imprime);
 
    
-    
+    gravarOficina();
     
     menu(estacoes, listadeespera);
     return 0;
