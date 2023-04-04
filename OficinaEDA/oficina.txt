@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ----------------------OFICINA----------------------
 ET: 1 | Mecânico: maria | Capacidade: 3 | Carros: 0 | Marca: Buick | Total de Faturação: 
 ET: 2 | Mecânico:  | Capacidade: 1 | Carros: 1 | Marca: Volvo | Total de Faturação: 
@@ -9,3 +10,46 @@ Carro: ID: 3 | Chrysler-CX-5 | Prioritário: Não | Tempo Reparação: 4 | Dias da E
 ET: 5 | Mecânico:  | Capacidade: 4 | Carros: 0 | Marca: Chrysler | Total de Faturação: 
 ET: 6 | Mecânico:  | Capacidade: 1 | Carros: 1 | Marca: Hyundai | Total de Faturação: 
 Carro: ID: 6 | Hyundai-Z4 | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
+=======
+Dados da oficina:
+
+ET: 1 | Mecânico: a | Capacidade: 2 | Carros: 2 | Marca: Mitsubishi | Total de Faturação: 0$
+Carro: ID: 3 | Mitsubishi-CT4 | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
+Carro: ID: 8 | Mitsubishi-Silverado | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
+--------------------------------------------------------------------
+ET: 2 | Mecânico: b | Capacidade: 3 | Carros: 2 | Marca: MINI | Total de Faturação: 0$
+Carro: ID: 2 | MINI-Portofino | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
+Carro: ID: 7 | MINI-Q50 | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
+--------------------------------------------------------------------
+ET: 3 | Mecânico: c | Capacidade: 3 | Carros: 1 | Marca: Chevrolet | Total de Faturação: 0$
+Carro: ID: 5 | Chevrolet-G80 | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
+--------------------------------------------------------------------
+ET: 4 | Mecânico: d | Capacidade: 2 | Carros: 2 | Marca: Lucid | Total de Faturação: 0$
+Carro: ID: 1 | Lucid-Colorado | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
+Carro: ID: 4 | Lucid-RZ | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
+--------------------------------------------------------------------
+ET: 5 | Mecânico: e | Capacidade: 2 | Carros: 0 | Marca: Bentley | Total de Faturação: 0$
+ET não possui carros de momento
+--------------------------------------------------------------------
+ET: 6 | Mecânico: f | Capacidade: 4 | Carros: 0 | Marca: GMC | Total de Faturação: 0$
+ET não possui carros de momento
+--------------------------------------------------------------------
+ET: 7 | Mecânico: g | Capacidade: 2 | Carros: 1 | Marca: Lexus | Total de Faturação: 0$
+Carro: ID: 6 | Lexus-Cayenne | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
+--------------------------------------------------------------------
+Carros reparados: 
+ET 1:
+
+ET 2:
+
+ET 3:
+
+ET 4:
+
+ET 5:
+
+ET 6:
+
+ET 7:
+
+>>>>>>> Stashed changes

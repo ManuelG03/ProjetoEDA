@@ -24,6 +24,11 @@ int main() {
     
     verListaDeEspera(listadeespera);
    
+<<<<<<< Updated upstream
+=======
+    gravarOficina(estacoes, listadeespera);
+    
+>>>>>>> Stashed changes
     menu(estacoes, listadeespera);
     menuInicio(estacoes, listadeespera);
 

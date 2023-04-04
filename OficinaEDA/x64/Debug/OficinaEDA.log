@@ -1,2 +1,11 @@
+<<<<<<< Updated upstream
 ﻿  oficina.cpp
+=======
+﻿  ficheiro.cpp
+  main.cpp
+C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\main.cpp(15,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  oficina.cpp
+C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\oficina.cpp(295,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  Gerando Código...
+>>>>>>> Stashed changes
   OficinaEDA.vcxproj -> C:\Users\joaoc\Documents\GitHub\ProjetoEDA\x64\Debug\OficinaEDA.exe
