@@ -321,6 +321,9 @@ void reparar_carros(ET* estacoes, int num_estacoes) {
 }
 
 void reparar_carros2(ET* estacoes, int num_estacoes) {
+    if (NUM_CARROS_CRIADOS == 0) {
+        return;
+    }
     for (int i = 0; i < num_estacoes; i++) {
         num_carros_reparados = 0;
         for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
@@ -463,7 +466,7 @@ void printAllCarsInRegRepCars(ET* estacoes) {
     }
 }
 
-void simulateDay(ET* estacoes,carro* listadeespera) {
+void simulateDay(ET* estacoes,carro* listadeespera, string* modelos, string* marcas_ET, carro* not_added_copy) {
     bool continua = true;
     while (continua) {
         cout << "Pressione 's' seguido de Enter para simular um dia na OficinaEDA ou 0 para sair: ";
@@ -472,15 +475,24 @@ void simulateDay(ET* estacoes,carro* listadeespera) {
         if (Input == "s" || Input == "S") {
             
             cout << "Dia simulado com sucesso!\n";
-            incrementar_dias_ET(estacoes,NUM_ETS);
+            reparar_carros2(estacoes, NUM_ETS);
+           
+            criarCarros(listadeespera, modelos, marcas_ET);
+            
+            adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
+            
+            incrementar_dias_ET(estacoes, NUM_ETS);
+            
             menu(estacoes, listadeespera);
+            
 
         }
-        else if (Input == "0") {
-            continua = false;
+        else if (Input == "g" || Input == "G") {
+            menuInicio();
         }
         else {
             cout << "Opção Inválida!\n";
+            continua = false;
         }
     }
 }

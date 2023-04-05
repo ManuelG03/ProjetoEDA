@@ -30,9 +30,12 @@ int main() {
     criarCarros(listadeespera, modelos, marcas_ET);
     adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
     reparar_carros2(estacoes, NUM_ETS);
-    printAllCarsInRegRepCars(estacoes);
+    criarCarros(listadeespera, modelos, marcas_ET);
+    adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
+    reparar_carros2(estacoes, NUM_ETS);
     
-    imprimeOficina(estacoes,listadeespera,imprime);
+    
+   
 
    
     
