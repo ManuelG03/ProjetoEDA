@@ -25,23 +25,20 @@ int main() {
     inicializarEstacoes(estacoes, marcas);
     obtemMarcasET(marcas,marcas_ET,estacoes);
 
+    simulateDay(estacoes,listadeespera,not_added_copy,modelos,marcas_ET);
 
-
-    criarCarros(listadeespera, modelos, marcas_ET);
+    /*criarCarros(listadeespera, modelos, marcas_ET);
     adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
     reparar_carros2(estacoes, NUM_ETS);
-<<<<<<< HEAD
     menu(estacoes, listadeespera);
-    verListaDeEspera(listadeespera);
     criarCarros(listadeespera, modelos, marcas_ET);
     adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
-    reparar_carros2(estacoes, NUM_ETS);
-=======
-    printAllCarsInRegRepCars(estacoes);
->>>>>>> parent of 8cd6965 (atten)
-    
-    imprimeOficina(estacoes,listadeespera,imprime);
+    reparar_carros2(estacoes, NUM_ETS);*/
 
+  
+
+    
+    
    
     
     
