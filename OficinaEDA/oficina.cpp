@@ -96,7 +96,7 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
     fileModelos.close();
 }
 
-void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro* not_added_copy) {
+void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro*& not_added_copy) {
     int num_carros_adicionados = 0;
     int i = 0;
     int f = 0;
@@ -262,7 +262,7 @@ void verNotAdded(carro* not_added) {
     cout << "---------------------------------------------------" << endl;
 }
 
-int menuInicio(ET* estacoes, carro* listadeespera, carro* not_added_copy) {
+int menuInicio(ET* estacoes, carro* listadeespera, carro* not_added) {
     int escolha;
     cout << "***** Bem Vindo Gestor ***** \n";
     cout << "(1).Reparação Manual \n";
@@ -289,7 +289,7 @@ int menuInicio(ET* estacoes, carro* listadeespera, carro* not_added_copy) {
         case 4: 
             break;
         case 5:
-            gravarOficina(estacoes, listadeespera, NUM_CARROS_CRIADOS, not_added_copy, num_not_added);
+            gravarOficina(estacoes, listadeespera, NUM_CARROS_CRIADOS, not_added, num_not_added);
             break;
         case 6:
             break;
