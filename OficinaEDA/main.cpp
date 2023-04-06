@@ -36,7 +36,7 @@ int main() {
     imprimeOficina(estacoes,listadeespera,imprime);
 
    
-    gravarOficina();
+    gravarOficina(estacoes,listadeespera);
     
     menu(estacoes, listadeespera);
     return 0;

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void gravarOficina(ET* estacoes, carro* listadeespera, carro* regRepCars) {
+void gravarOficina(ET* estacoes, carro* listadeespera) {
     ofstream outfile;
     outfile.open("oficina.txt");
     outfile << "Dados da oficina:" << endl;

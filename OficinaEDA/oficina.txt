@@ -1,0 +1,15 @@
+Dados da oficina:
+Carros reparados: 
+ET 1:
+
+ET 2:
+
+ET 3:
+Carro 1: ID: 8 | Tesla-LEAF | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+
+ET 4:
+
+ET 5:
+
+ET 6:
+
