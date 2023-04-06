@@ -27,6 +27,8 @@ int main() {
 
     simulateDay(estacoes,listadeespera,not_added_copy,modelos,marcas_ET);
 
+   
+
     /*criarCarros(listadeespera, modelos, marcas_ET);
     adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
     reparar_carros2(estacoes, NUM_ETS);
@@ -42,6 +44,6 @@ int main() {
    
     
     
-    menu(estacoes, listadeespera);
+   
     return 0;
 }
