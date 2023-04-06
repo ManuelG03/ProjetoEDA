@@ -27,6 +27,6 @@ int main() {
 
     simulateDay(estacoes,listadeespera,not_added_copy,modelos,marcas_ET);
     
-    menu(estacoes, listadeespera);
+    
     return 0;
 }
