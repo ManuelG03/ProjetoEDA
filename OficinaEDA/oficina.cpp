@@ -262,7 +262,7 @@ void verNotAdded(carro* not_added) {
     cout << "---------------------------------------------------" << endl;
 }
 
-int menuInicio(ET* estacoes, carro* listadeespera) {
+int menuInicio(ET* estacoes, carro* listadeespera, carro* not_added_copy) {
     int escolha;
     cout << "***** Bem Vindo Gestor ***** \n";
     cout << "(1).Reparação Manual \n";
@@ -289,7 +289,7 @@ int menuInicio(ET* estacoes, carro* listadeespera) {
         case 4: 
             break;
         case 5:
-            gravarOficina(estacoes, listadeespera); 
+            gravarOficina(estacoes, listadeespera, NUM_CARROS_CRIADOS, not_added_copy, num_not_added);
             break;
         case 6:
             break;
@@ -499,8 +499,7 @@ void simulateDay(ET* estacoes,carro* listadeespera, carro* not_added_copy, strin
 
         }
         else if (Input == "g" || Input == "G") {
-            menuInicio(estacoes, listadeespera);
-            
+            menuInicio(estacoes, listadeespera, not_added_copy);
         }
         else {
             cout << "Adeus!\n";

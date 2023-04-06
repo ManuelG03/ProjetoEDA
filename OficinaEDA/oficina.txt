@@ -1,12 +1,184 @@
-Dados da oficina:
-Carros reparados: 
+--------------------Lista de carros--------------------
+Carro : ID: 64 | Dodge-SQ7 | Prioritário: Sim | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 2 | Dodge-Z4 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 3 | GMC-G70 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 4 | Dodge-RDX | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 5 | GMC-Prologue | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 6 | GMC-Suburban | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 7 | Mercedes-Benz-Frontier | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 8 | GMC-Ocean | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 9 | GMC-CX-5 | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 10 | Dodge-Sentra | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 11 | Dodge-C-HR | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
+Carro : ID: 12 | Mercedes-Benz-Impreza | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 13 | GMC-Sentra | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 14 | Dodge-V60 | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 15 | Mercedes-Benz-Passport | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 16 | Dodge-Passport | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 17 | Mercedes-Benz-Canyon | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 18 | Dodge-Rogue | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 19 | Dodge-F8 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 20 | Mercedes-Benz-S7 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 21 | Lamborghini-Huracan | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 22 | GMC-Nautilus | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 23 | Dodge-RDX | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 24 | Dodge-S8 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 25 | Lamborghini-CT4 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 26 | Dodge-CX-90 | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 27 | Dodge-S60 | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 28 | GMC-CR-V | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 29 | Lamborghini-S60 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 30 | Dodge-Rogue | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 31 | GMC-Ocean | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 32 | Lamborghini-Express | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 33 | Dodge-F-TYPE | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 34 | Lamborghini-Q5 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 35 | Lamborghini-ZDX | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 36 | GMC-S3 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 37 | Dodge-GT-R | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 38 | Dodge-WRX | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 39 | Dodge-RAV4 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 40 | Dodge-CX-5 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 41 | Dodge-Taycan | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 42 | Mercedes-Benz-Kona | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 43 | Dodge-Q4 | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 44 | Dodge-Escalade | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 45 | Dodge-XC90 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 46 | Lamborghini-Bentayga | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 47 | Lamborghini-Kicks | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 48 | Dodge-Escalade | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 49 | Lamborghini-ID.4 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 50 | Lamborghini-Aventador | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 51 | Lamborghini-Terrain | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 52 | GMC-R1T | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 53 | GMC-Z4 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 54 | Dodge-G70 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 55 | Lamborghini-Express | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 56 | Mercedes-Benz-Phantom | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 57 | Dodge-Equinox | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 58 | Dodge-Model | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
+Carro : ID: 59 | GMC-G-Class | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 60 | Mercedes-Benz-Venza | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 61 | GMC-Suburban | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 62 | Lamborghini-Q7 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 63 | GMC-Escalade | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 1 | Dodge-EX90 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 65 | Mercedes-Benz-Wrangler | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 66 | Mercedes-Benz-F450 | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
+Carro : ID: 67 | GMC-Corsair | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 68 | Mercedes-Benz-MX-30 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 69 | GMC-Seltos | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 70 | Mercedes-Benz-i7 | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
+Carro : ID: 71 | Mercedes-Benz-Corvette | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 72 | Lamborghini-Terrain | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 73 | Mercedes-Benz-Encore | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 74 | Lamborghini-M4 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 75 | Mercedes-Benz-Urus | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
+Carro : ID: 76 | Mercedes-Benz-CLS | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 77 | Lamborghini-G70 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 78 | GMC-Ariya | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 79 | Dodge-I-PACE | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 80 | Lamborghini-GLA | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 81 | Mercedes-Benz-Carnival | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 82 | Dodge-Bronco | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 83 | Mercedes-Benz-ES | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 84 | Mercedes-Benz-UX | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 85 | Dodge-RC | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 86 | Mercedes-Benz-SQ7 | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 87 | GMC-Golf | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
+Carro : ID: 88 | Dodge-Defender | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 89 | GMC-Q50 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 90 | Lamborghini-Hummer | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 91 | Dodge-Wrangler | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 92 | Dodge-RX | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 93 | Lamborghini-Escalade | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
+Carro : ID: 94 | Lamborghini-Cullinan | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 95 | Dodge-Wrangler | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 96 | GMC-E-Class | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 97 | Mercedes-Benz-GLB | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 98 | Dodge-e-tron | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 99 | Lamborghini-Navigator | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 100 | Dodge-Trailblazer | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
+
+
+------------------Lista de espera------------------
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+Carro: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias da ET: -842 150 451
+
+
+--------------------Carros reparados--------------------
 ET 1:
+Carro 1: ID: 59 | GMC-G-Class | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 3
+Carro 2: ID: 52 | GMC-R1T | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 1
+Carro 3: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 4: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 5: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 6: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 7: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
 
 ET 2:
+Carro 1: ID: 64 | Dodge-SQ7 | Prioritário: Sim | Tempo Reparação: 2 | Dias na ET: 3
+Carro 2: ID: 39 | Dodge-RAV4 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 1
+Carro 3: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 4: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
 
 ET 3:
+Carro 1: ID: 26 | Dodge-CX-90 | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 5
+Carro 2: ID: 19 | Dodge-F8 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 3
 
 ET 4:
+Carro 1: ID: 60 | Mercedes-Benz-Venza | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 4
+Carro 2: ID: 68 | Mercedes-Benz-MX-30 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 1
+Carro 3: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 4: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 5: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 6: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 7: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 8: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
 
 ET 5:
+Carro 1: ID: 29 | Lamborghini-S60 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 7
+Carro 2: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 3: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 4: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+
+
 

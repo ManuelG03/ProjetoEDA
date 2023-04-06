@@ -27,6 +27,5 @@ int main() {
 
     simulateDay(estacoes,listadeespera,not_added_copy,modelos,marcas_ET);
     
-    
     return 0;
 }
