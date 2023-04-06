@@ -6,6 +6,7 @@
 #include "constantes.h"
 #include "structs.h"
 #include "string.h"
+#include "ficheiro.h"
 
 using namespace std;
 
@@ -254,14 +255,14 @@ void verNotAdded(carro* not_added) {
     for (int i = 0; i < num_not_added; i++) {
         cout << "Carro: ID: " << not_added[i].id << " | ";
         cout << not_added[i].marca << "-" << not_added[i].modelo << " | ";
-        cout << "Prioritario: " << not_added[i].prioridade << " | ";
+        cout << "Prioritário: " << not_added[i].prioridade << " | ";
         cout << "Tempo Reparação: " << not_added[i].tempo_reparacao << " | ";
         cout << "Dias da ET: " << not_added[i].dias_ET << endl;
     }
     cout << "---------------------------------------------------" << endl;
 }
 
-int menuInicio() {
+int menuInicio(ET* estacoes, carro* listadeespera) {
     int escolha;
     cout << "***** Bem Vindo Gestor ***** \n";
     cout << "(1).Reparação Manual \n";
@@ -279,11 +280,21 @@ int menuInicio() {
         cin >> escolha;
         switch (escolha)
         {
-        case 1:; break;
-        case 2:; break;
-        case 3:; break;
-        case 4:; break;
-        case 5:; break;
+        case 1: 
+            break;
+        case 2: 
+            break;
+        case 3:
+            break;
+        case 4: 
+            break;
+        case 5:
+            gravarOficina(estacoes, listadeespera); 
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
         default: cout << "Escolha Inválida!"; break;
         }
     } while (escolha > 6);
@@ -488,7 +499,7 @@ void simulateDay(ET* estacoes,carro* listadeespera, carro* not_added_copy, strin
 
         }
         else if (Input == "g" || Input == "G") {
-            menuInicio();
+            menuInicio(estacoes, listadeespera);
             
         }
         else {

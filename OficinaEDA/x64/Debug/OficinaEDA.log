@@ -1,3 +1,3 @@
 ﻿  oficina.cpp
-C:\Users\manue\Desktop\react\ProjetoEDA\OficinaEDA\oficina.cpp(295,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
-  OficinaEDA.vcxproj -> C:\Users\manue\Desktop\react\ProjetoEDA\x64\Debug\OficinaEDA.exe
+C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\oficina.cpp(306,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  OficinaEDA.vcxproj -> C:\Users\joaoc\Documents\GitHub\ProjetoEDA\x64\Debug\OficinaEDA.exe

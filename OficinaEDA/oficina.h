@@ -13,7 +13,7 @@ void menu(ET* estacoes, carro* listadeespera);
 
 void verListaDeEspera(carro* listadeespera);
 
-int menuInicio();
+int menuInicio(ET* estacoes, carro* listadeespera);
 
 void verNotAdded(carro* not_added);
 
