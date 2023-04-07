@@ -301,35 +301,35 @@ int menuInicio(ET* estacoes, carro* listadeespera, carro* not_added) {
     return 0;
 }
 
-void reparacaoCarros(ET* estacoes) {
-    int pen = 0;
-    srand(time(NULL));
-    int probRep = rand() % 100 + 1;
-    while (pen < NUM_ETS) {
-
-    }
-    
-
-}
-void reparar_carros(ET* estacoes, int num_estacoes) {
-    for (int i = 0; i < num_estacoes; i++) {
-        for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
-            int probabilidade = rand() % 100 + 1;
-            if (probabilidade <= 15) {
-                carro car = estacoes[i].carros[j];
-                estacoes[i].capacidade_atual--;
-                estacoes[i].capacidade++; //ATENCAO
-                for (int k = j; k < estacoes[i].capacidade_atual; k++) {
-                    estacoes[i].carros[k] = estacoes[i].carros[k + 1];
-                }
-                estacoes[i].regRepCars[j] = car;
-                cout << "O carro com id " << car.id << " foi reparado na ET " << estacoes[i].id << endl;
-                j--; // ATENÇAO
-            }
-        }
-    }
-    cout << endl;
-}
+//void reparacaoCarros(ET* estacoes) {
+//    int pen = 0;
+//    srand(time(NULL));
+//    int probRep = rand() % 100 + 1;
+//    while (pen < NUM_ETS) {
+//
+//    }
+//    
+//
+//}
+//void reparar_carros(ET* estacoes, int num_estacoes) {
+//    for (int i = 0; i < num_estacoes; i++) {
+//        for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
+//            int probabilidade = rand() % 100 + 1;
+//            if (probabilidade <= 15) {
+//                carro car = estacoes[i].carros[j];
+//                estacoes[i].capacidade_atual--;
+//                estacoes[i].capacidade++; //ATENCAO
+//                for (int k = j; k < estacoes[i].capacidade_atual; k++) {
+//                    estacoes[i].carros[k] = estacoes[i].carros[k + 1];
+//                }
+//                estacoes[i].regRepCars[j] = car;
+//                cout << "O carro com id " << car.id << " foi reparado na ET " << estacoes[i].id << endl;
+//                j--; // ATENÇAO
+//            }
+//        }
+//    }
+//    cout << endl;
+//}
 
 void reparar_carros2(ET* estacoes, int num_estacoes) {
     if (NUM_CARROS_CRIADOS == 0) {
@@ -342,26 +342,27 @@ void reparar_carros2(ET* estacoes, int num_estacoes) {
             if (car->dias_ET <= car->tempo_reparacao) {
                 int probabilidade = rand() % 100 + 1;
                 if (probabilidade <= 15) {
-                    estacoes[i].regRepCars[num_carros_reparados++] = *car;
+                    estacoes[i].regRepCars[estacoes[i].carros_reparados++] = *car;
+                    num_carros_reparados++;
                     estacoes[i].faturacao += car->custo_reparacao;
-                    estacoes[i].carros_reparados++;
                     cout << "O carro com o ID " << car->id << " foi reparado na ET " << estacoes[i].id << "." << endl;
                 }
             }
             else {
-                estacoes[i].regRepCars[num_carros_reparados++] = *car;
+                estacoes[i].regRepCars[estacoes[i].carros_reparados++] = *car;
+                num_carros_reparados++;
                 cout << "O carro com o ID " << car->id << " foi removido da ET " << estacoes[i].id << " por ter ultrapassado o tempo máximo de reparação." << endl;
             }
         }
 
         int nova_capacidade_atual = estacoes[i].capacidade_atual - num_carros_reparados;
-        carro* new_carros = new carro[10];
+        carro* new_carros = new carro[25];
         int new_index = 0;
 
         for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
             carro* car = &estacoes[i].carros[j];
             bool carro_removido = false;
-            for (int k = 0; k < num_carros_reparados; k++) {
+            for (int k = 0; k < estacoes[i].carros_reparados; k++) { 
                 if (car->id == estacoes[i].regRepCars[k].id) {
                     carro_removido = true;
                     break;
@@ -379,10 +380,6 @@ void reparar_carros2(ET* estacoes, int num_estacoes) {
     }
     cout << endl;
 }
-
-
-
-
 
 void incrementar_dias_ET(ET* estacoes, int num_estacoes) {
     if (NUM_CARROS_CRIADOS == 0) {
@@ -463,21 +460,21 @@ void imprimeOficina(ET* estacoes, carro* listadeespera, carro* imprime) {
 
 
 
-void printAllCarsInRegRepCars(ET* estacoes) {
-    cout <<  "CARROS JÁ REPARADOS: " << "INFO MANUEL " << "APAGAR" << endl;
-    for (int i = 0; i < NUM_ETS; i++) {
-        cout << "ET " << i + 1 << ":" << endl;
-        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
-            cout << "Carro " << j + 1 << ": ";
-            cout << "ID: " << estacoes[i].regRepCars[j].id << " | ";
-            cout << estacoes[i].regRepCars[j].marca << "-" << estacoes[i].regRepCars[j].modelo << " | ";
-            cout << "Prioritário: " << estacoes[i].regRepCars[j].prioridade << " | ";
-            cout << "Tempo Reparação: " << estacoes[i].regRepCars[j].tempo_reparacao << " | ";
-            cout << "Dias na ET: " << estacoes[i].regRepCars[j].dias_ET << endl;
-        }
-        cout << endl;
-    }
-}
+//void printAllCarsInRegRepCars(ET* estacoes) {
+//    cout <<  "CARROS JÁ REPARADOS: " << "INFO MANUEL " << "APAGAR" << endl;
+//    for (int i = 0; i < NUM_ETS; i++) {
+//        cout << "ET " << i + 1 << ":" << endl;
+//        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
+//            cout << "Carro " << j + 1 << ": ";
+//            cout << "ID: " << estacoes[i].regRepCars[j].id << " | ";
+//            cout << estacoes[i].regRepCars[j].marca << "-" << estacoes[i].regRepCars[j].modelo << " | ";
+//            cout << "Prioritário: " << estacoes[i].regRepCars[j].prioridade << " | ";
+//            cout << "Tempo Reparação: " << estacoes[i].regRepCars[j].tempo_reparacao << " | ";
+//            cout << "Dias na ET: " << estacoes[i].regRepCars[j].dias_ET << endl;
+//        }
+//        cout << endl;
+//    }
+//}
 
 void simulateDay(ET* estacoes,carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET) {
     bool continua = true;

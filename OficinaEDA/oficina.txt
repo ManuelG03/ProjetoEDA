@@ -1,307 +1,59 @@
---------------------Lista de carros--------------------
-Carro : ID: 70 | McLaren-Pacifica | Prioritário: Sim | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 63 | Chevrolet-GR | Prioritário: Sim | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 67 | McLaren-e-tron | Prioritário: Sim | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 86 | Kia-CX-30 | Prioritário: Sim | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 91 | Nissan-RS | Prioritário: Sim | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 93 | Chevrolet-MDX | Prioritário: Sim | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 110 | McLaren-M8 | Prioritário: Sim | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 108 | Kia-Silverado | Prioritário: Sim | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 126 | McLaren-Outlander | Prioritário: Sim | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 135 | Chevrolet-Tahoe | Prioritário: Sim | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 145 | Kia-NSX | Prioritário: Sim | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 12 | McLaren-Mirai | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 13 | Kia-Phantom | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 14 | Nissan-X2 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 15 | McLaren-Atlas | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 16 | Nissan-BRZ | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 17 | MAZDA-RAV4 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 18 | McLaren-Santa | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 19 | Nissan-e-tron | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 20 | Kia-RS | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 21 | Kia-X1 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 22 | McLaren-i7 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 23 | Chevrolet-HR-V | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 24 | Nissan-GV80 | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 25 | Nissan-RC | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 26 | Nissan-Model | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 27 | Chevrolet-Legacy | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 28 | Chevrolet-Cybertruck | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 29 | Chevrolet-XC40 | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 30 | Nissan-GT-R | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 31 | Kia-Stelvio | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 32 | Kia-GLA | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 33 | Kia-Tundra | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 34 | MAZDA-Blazer | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 35 | McLaren-S3 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 36 | MAZDA-Colorado | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 37 | Nissan-Portofino | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 38 | Chevrolet-NEXO | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 39 | Chevrolet-M5 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 40 | McLaren-Navigator | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 41 | McLaren-F250 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 42 | Chevrolet-Passport | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 43 | Nissan-A4 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 44 | Nissan-S90 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 45 | Nissan-MDX | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 46 | Kia-A8 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 47 | McLaren-Prologue | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 48 | Kia-Escalade | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 49 | Kia-SF90 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 50 | Chevrolet-Mustang | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 51 | Kia-Accent | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 52 | McLaren-Rio | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 53 | McLaren-Sentra | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 1 | MAZDA-Charger | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 55 | MAZDA-Titan | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 56 | McLaren-GLC | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 57 | McLaren-Transit | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 58 | MAZDA-iX | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 59 | Chevrolet-E-Transit | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 60 | MAZDA-Metris | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 61 | McLaren-Taos | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 54 | Chevrolet-A7 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 2 | McLaren-S5 | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 64 | McLaren-CR-V | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 65 | MAZDA-Venue | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 66 | Chevrolet-Tucson | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 3 | Nissan-Ghost | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 68 | MAZDA-Countryman | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 69 | MAZDA-Envision | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 62 | Chevrolet-Sonata | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 71 | Nissan-DBX | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 72 | McLaren-Colorado | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 73 | Kia-Telluride | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 74 | Nissan-Niro | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 75 | Nissan-Kicks | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 76 | Kia-Tahoe | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 77 | Kia-DBX | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 78 | McLaren-Crown | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 79 | Nissan-Odyssey | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 80 | MAZDA-GX | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 81 | MAZDA-Ocean | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 82 | Nissan-GLB | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 83 | MAZDA-Rio | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 7 | MAZDA-Nautilus | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 85 | MAZDA-CX-9 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 4 | McLaren-CLS | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 87 | MAZDA-Ghibli | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 88 | McLaren-Tahoe | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 89 | Kia-Envision | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 90 | Kia-LEAF | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 5 | Chevrolet-Compass | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 92 | Nissan-Mirai | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 6 | Kia-Tahoe | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 94 | Kia-Sienna | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 95 | McLaren-Crown | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 96 | Chevrolet-Roma | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 84 | Kia-e-tron | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 98 | Kia-Bolt | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 99 | MAZDA-ES | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 100 | McLaren-Nautilus | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 101 | Nissan-Highlander | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 102 | MAZDA-Highlander | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 103 | Kia-IONIQ | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 104 | Nissan-DBS | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 105 | Nissan-Compass | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 106 | Kia-Arteon | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 107 | McLaren-CT4 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 8 | McLaren-Encore | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 109 | Chevrolet-MX-30 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 97 | Nissan-GR86 | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 111 | Chevrolet-Artura | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 112 | MAZDA-GT-R | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 113 | Kia-Venza | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 114 | Kia-A4 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 115 | Kia-Sienna | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 116 | Nissan-Giulia | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 117 | MAZDA-Canyon | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 118 | Chevrolet-A-Class | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 119 | McLaren-Bentayga | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 120 | McLaren-RS | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 121 | Chevrolet-Mirai | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 122 | MAZDA-F450 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 123 | Kia-Stelvio | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 124 | MAZDA-X2 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 125 | McLaren-M2 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 9 | Kia-Sonata | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 127 | MAZDA-GR | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 128 | Nissan-A-Class | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 129 | Chevrolet-GT | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 130 | McLaren-NSX | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 131 | Chevrolet-Accord | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 132 | Nissan-Range | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 133 | MAZDA-X3 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 134 | Nissan-Crosstrek | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 10 | McLaren-Terrain | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 136 | McLaren-Bentayga | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 137 | Kia-A7 | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 138 | Kia-Eclipse | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 139 | Kia-ProMaster | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 140 | Nissan-A7 | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 141 | MAZDA-Avalon | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 142 | Chevrolet-Odyssey | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 143 | MAZDA-Terrain | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 144 | Kia-BRZ | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 11 | Kia-Telluride | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 146 | Nissan-GT-R | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
-Carro : ID: 147 | Nissan-Metris | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 148 | MAZDA-Tahoe | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 149 | Nissan-Hornet | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 150 | Kia-CT4 | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 151 | McLaren-NEXO | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 152 | MAZDA-F-TYPE | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 153 | MAZDA-Camaro | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 154 | Kia-Niro | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 155 | McLaren-EV9 | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 156 | McLaren-Discovery | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 157 | Kia-Aventador | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 158 | Kia-Sonata | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 159 | Nissan-Ghibli | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 160 | Kia-Hummer | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
+----------------------------------------Lista de carros----------------------------------------
+Carro : ID: 1 | Chrysler-X3 | Prioritário: Sim | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 4 | Audi-XF | Prioritário: Sim | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 21 | Audi-Artura | Prioritário: Sim | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 2 | Chrysler-Explorer | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 3 | Audi-TT | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 5 | Honda-Corolla | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 6 | Lucid-DB11 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 7 | Audi-S60 | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
+Carro : ID: 8 | Lucid-SQ8 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 9 | Lucid-G-Class | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
+Carro : ID: 10 | Subaru-Macan | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 11 | Chrysler-Celestiq | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 12 | Honda-HR-V | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 13 | Subaru-Palisade | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 14 | Subaru-E-Transit | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 15 | Lucid-LEAF | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 16 | Honda-Continental | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 17 | Audi-Legacy | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 18 | Subaru-GLC | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 19 | Audi-X6 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 20 | Chrysler-Camry | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 22 | Lucid-M4 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 23 | Honda-F150 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 24 | Audi-Q3 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 25 | Honda-LX | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 0
+Carro : ID: 26 | Audi-Hummer | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
+Carro : ID: 27 | Honda-Maxima | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
+Carro : ID: 28 | Honda-UX | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
+Carro : ID: 29 | Audi-Aventador | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+Carro : ID: 30 | Subaru-Q3 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
 
 
-------------------Lista de espera------------------
-Carro: ID: 37 | Nissan-Portofino | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 38 | Chevrolet-NEXO | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 39 | Chevrolet-M5 | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 42 | Chevrolet-Passport | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 43 | Nissan-A4 | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 44 | Nissan-S90 | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 45 | Nissan-MDX | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 50 | Chevrolet-Mustang | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 59 | Chevrolet-E-Transit | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 54 | Chevrolet-A7 | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 65 | MAZDA-Venue | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 66 | Chevrolet-Tucson | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 68 | MAZDA-Countryman | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 69 | MAZDA-Envision | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 62 | Chevrolet-Sonata | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 71 | Nissan-DBX | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 74 | Nissan-Niro | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 75 | Nissan-Kicks | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 78 | McLaren-Crown | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 79 | Nissan-Odyssey | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
-Carro: ID: 80 | MAZDA-GX | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 81 | MAZDA-Ocean | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 82 | Nissan-GLB | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 83 | MAZDA-Rio | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 85 | MAZDA-CX-9 | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 87 | MAZDA-Ghibli | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
-Carro: ID: 88 | McLaren-Tahoe | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 89 | Kia-Envision | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 90 | Kia-LEAF | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 92 | Nissan-Mirai | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 94 | Kia-Sienna | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 95 | McLaren-Crown | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 96 | Chevrolet-Roma | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 84 | Kia-e-tron | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 98 | Kia-Bolt | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 99 | MAZDA-ES | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 100 | McLaren-Nautilus | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 101 | Nissan-Highlander | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 102 | MAZDA-Highlander | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 103 | Kia-IONIQ | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 104 | Nissan-DBS | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 105 | Nissan-Compass | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 106 | Kia-Arteon | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 107 | McLaren-CT4 | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 109 | Chevrolet-MX-30 | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 97 | Nissan-GR86 | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 111 | Chevrolet-Artura | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
-Carro: ID: 112 | MAZDA-GT-R | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 113 | Kia-Venza | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 114 | Kia-A4 | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 115 | Kia-Sienna | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 116 | Nissan-Giulia | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 117 | MAZDA-Canyon | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
-Carro: ID: 118 | Chevrolet-A-Class | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 119 | McLaren-Bentayga | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
-Carro: ID: 120 | McLaren-RS | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 121 | Chevrolet-Mirai | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 122 | MAZDA-F450 | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 123 | Kia-Stelvio | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 124 | MAZDA-X2 | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 125 | McLaren-M2 | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 127 | MAZDA-GR | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 128 | Nissan-A-Class | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 129 | Chevrolet-GT | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 130 | McLaren-NSX | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 131 | Chevrolet-Accord | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 132 | Nissan-Range | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 133 | MAZDA-X3 | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 134 | Nissan-Crosstrek | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 136 | McLaren-Bentayga | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 137 | Kia-A7 | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 138 | Kia-Eclipse | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 139 | Kia-ProMaster | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 140 | Nissan-A7 | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 141 | MAZDA-Avalon | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 142 | Chevrolet-Odyssey | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 143 | MAZDA-Terrain | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 144 | Kia-BRZ | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 146 | Nissan-GT-R | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
-Carro: ID: 147 | Nissan-Metris | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 148 | MAZDA-Tahoe | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 149 | Nissan-Hornet | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 150 | Kia-CT4 | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
-Carro: ID: 151 | McLaren-NEXO | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 152 | MAZDA-F-TYPE | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-Carro: ID: 153 | MAZDA-Camaro | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
-Carro: ID: 154 | Kia-Niro | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 155 | McLaren-EV9 | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
-Carro: ID: 156 | McLaren-Discovery | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 157 | Kia-Aventador | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 158 | Kia-Sonata | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 159 | Nissan-Ghibli | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
-Carro: ID: 160 | Kia-Hummer | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
+--------------------------------------Lista de espera--------------------------------------
+Carro: ID: 20 | Chrysler-Camry | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
+Carro: ID: 24 | Audi-Q3 | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
+Carro: ID: 25 | Honda-LX | Prioritário: Não | Tempo Reparação: 6 | Dias da ET: 0
+Carro: ID: 26 | Audi-Hummer | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
+Carro: ID: 27 | Honda-Maxima | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
+Carro: ID: 28 | Honda-UX | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
+Carro: ID: 29 | Audi-Aventador | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
+Carro: ID: 30 | Subaru-Q3 | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
 
 
---------------------Carros reparados--------------------
+----------------------------------------Carros reparados----------------------------------------
 ET 1:
-Carro 1: ID: 135 | Chevrolet-Tahoe | Prioritário: Sim | Tempo Reparação: 3 | Dias na ET: 1
-Carro 2: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 3: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
 
 ET 2:
-Carro 1: ID: 91 | Nissan-RS | Prioritário: Sim | Tempo Reparação: 5 | Dias na ET: 2
-Carro 2: ID: 25 | Nissan-RC | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 2
-Carro 3: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 4: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 5: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
 
 ET 3:
-Carro 1: ID: 77 | Kia-DBX | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 1
-Carro 2: ID: 48 | Kia-Escalade | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 4
-Carro 3: ID: 49 | Kia-SF90 | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 4
-Carro 4: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 5: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 6: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 7: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 8: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 9: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 10: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
+Carro 1: ID: 4 | Audi-XF | Prioritário: Sim | Tempo Reparação: 2 | Dias na ET: 2
+Carro 2: ID: 7 | Audi-S60 | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 2
 
 ET 4:
-Carro 1: ID: 55 | MAZDA-Titan | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 5
-Carro 2: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 3: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
 
 ET 5:
-Carro 1: ID: 47 | McLaren-Prologue | Prioritário: Não | Tempo Reparação: 6 | Dias na ET: 6
-Carro 2: ID: 53 | McLaren-Sentra | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 4
-Carro 3: ID: 56 | McLaren-GLC | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 4
-Carro 4: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 5: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 6: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 7: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 8: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 9: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 10: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 11: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 12: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 13: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-Carro 14: ID: -842 150 451 | - | Prioritário:  | Tempo Reparação: -842 150 451 | Dias na ET: -842 150 451
-
-
+Carro 1: ID: 8 | Lucid-SQ8 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 1
+Carro 2: ID: 6 | Lucid-DB11 | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 2
 

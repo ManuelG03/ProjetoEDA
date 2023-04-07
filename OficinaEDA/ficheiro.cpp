@@ -11,7 +11,17 @@ void gravarOficina(ET* estacoes, carro* listadeespera, int NUM_CARROS_CRIADOS, c
     ofstream outfile;
     outfile.open("oficina.txt");
 
-    outfile << "--------------------Lista de carros--------------------" << endl;
+    outfile << "----------------------------------------Lista de carros----------------------------------------" << endl;
+    for (int i = 0; i < NUM_CARROS_CRIADOS - 1; i++) {
+        for (int j = i + 1; j < NUM_CARROS_CRIADOS; j++) {
+            if (listadeespera[i].marca > listadeespera[j].marca) {
+                carro temp = listadeespera[i];
+                listadeespera[i] = listadeespera[j];
+                listadeespera[j] = temp;
+            }
+        }
+    }
+
     for (int i = 0; i < NUM_CARROS_CRIADOS; i++) {
         carro car_waiting = listadeespera[i];
         outfile << "Carro " << ": ";
@@ -21,9 +31,9 @@ void gravarOficina(ET* estacoes, carro* listadeespera, int NUM_CARROS_CRIADOS, c
         outfile << "Tempo Reparação: " << car_waiting.tempo_reparacao << " | ";
         outfile << "Dias na ET: " << car_waiting.dias_ET << endl;
     }
-    outfile << endl << endl;
+    outfile << endl << endl << endl;
 
-    outfile << "------------------Lista de espera------------------" << endl;
+    outfile << "--------------------------------------Lista de espera--------------------------------------" << endl;
     for (int i = 0; i < num_not_added; i++) {
         outfile << "Carro: ID: " << not_added[i].id << " | ";
         outfile << not_added[i].marca << "-" << not_added[i].modelo << " | ";
@@ -31,9 +41,9 @@ void gravarOficina(ET* estacoes, carro* listadeespera, int NUM_CARROS_CRIADOS, c
         outfile << "Tempo Reparação: " << not_added[i].tempo_reparacao << " | ";
         outfile << "Dias da ET: " << not_added[i].dias_ET << endl;
     }
-    outfile << endl << endl;
+    outfile << endl << endl << endl;
 
-    outfile << "--------------------Carros reparados--------------------" << endl;
+    outfile << "----------------------------------------Carros reparados----------------------------------------" << endl;
     for (int i = 0; i < NUM_ETS; i++) {
         outfile << "ET " << i + 1 << ":" << endl;
         for (int j = 0; j < estacoes[i].carros_reparados; j++) {
@@ -46,7 +56,6 @@ void gravarOficina(ET* estacoes, carro* listadeespera, int NUM_CARROS_CRIADOS, c
         }
         outfile << endl;
     }
-    outfile << endl << endl;
 
     outfile.close();
 }
