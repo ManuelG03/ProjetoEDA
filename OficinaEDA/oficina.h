@@ -27,6 +27,6 @@ void reparar_carros2(ET* estacoes, int num_estacoes);
 	
 void incrementar_dias_ET(ET* estacoes, int num_estacoes);
 
-void imprimeOficina(ET* estacoes, carro* listadeespera, carro* imprime);
+void imprimeOficina(ET* estacoes, carro* listadeespera);
 
 void printAllCarsInRegRepCars(ET* estacoes);
