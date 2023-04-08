@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <regex>
+#include <string>
 #include "oficina.h"
 #include "structs.h"
 #include "constantes.h"
@@ -43,16 +45,6 @@ void gravarOficina(ET* estacoes, carro* listadeespera, int NUM_CARROS_CRIADOS, c
 
 
     outfile << "-----------------------------------------------Lista de carros-----------------------------------------------" << endl;
-    for (int i = 0; i < NUM_CARROS_CRIADOS - 1; i++) {
-        for (int j = i + 1; j < NUM_CARROS_CRIADOS; j++) {
-            if (listadeespera[i].id > listadeespera[j].id) {
-                carro temp = listadeespera[i];
-                listadeespera[i] = listadeespera[j];
-                listadeespera[j] = temp;
-            }
-        }
-    }
-
     for (int i = 0; i < NUM_CARROS_CRIADOS; i++) {
         outfile << "Carro " << ": ";
         outfile << "ID: " << listadeespera[i].id << " | ";
@@ -94,6 +86,29 @@ void gravarOficina(ET* estacoes, carro* listadeespera, int NUM_CARROS_CRIADOS, c
     outfile.close();
 }
 
-void carregarOficina(string path) {
+void carregarOficina() {
+    string linha;
+    regex pattern(":\\s*([^|]+)");
+    smatch match;
+    string output;
 
+    fstream file("oficina.txt");
+    if (file.is_open()) {
+        while (getline(file, linha)) {
+            if (linha[0] != '-') {
+                while (regex_search(linha, match, pattern)) {
+                    output += match[1].str() + " ";
+                    linha = match.suffix().str();
+                }
+            }
+        }
+    }
+
+    else {
+        cout << "Erro ao abrir o ficheiro" << endl;
+    }
+
+    cout << output;
+
+    file.close();
 }
