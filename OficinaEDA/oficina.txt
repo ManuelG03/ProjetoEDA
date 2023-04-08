@@ -1,58 +1,99 @@
------------------------------------------------Estações de Trabalho-----------------------------------------------
-ET: 1 | Mecânico: asd | Capacidade: 0 | Carros: 3 | Marca: Fisker | Total de Faturação: 0$
-Carro: ID: 9 | Fisker-XC60 | Prioritário: Sim | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 2 | Fisker-Transit | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 5 | Fisker-Telluride | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
-----------------------------------------------------------------------------------------------------
-ET: 2 | Mecânico: asd | Capacidade: 0 | Carros: 3 | Marca: Lamborghini | Total de Faturação: 0$
-Carro: ID: 1 | Lamborghini-M3 | Prioritário: Não | Tempo Reparação: 7 | Dias da ET: 0
-Carro: ID: 3 | Lamborghini-Kona | Prioritário: Não | Tempo Reparação: 2 | Dias da ET: 0
-Carro: ID: 4 | Lamborghini-XT6 | Prioritário: Não | Tempo Reparação: 4 | Dias da ET: 0
-----------------------------------------------------------------------------------------------------
-ET: 3 | Mecânico: asd | Capacidade: 5 | Carros: 0 | Marca: Ram | Total de Faturação: 0$
-ET não possui carros de momento
-----------------------------------------------------------------------------------------------------
-ET: 4 | Mecânico: asd | Capacidade: 3 | Carros: 0 | Marca: Mercedes-Benz | Total de Faturação: 0$
-ET não possui carros de momento
-----------------------------------------------------------------------------------------------------
-ET: 5 | Mecânico: asd | Capacidade: 1 | Carros: 1 | Marca: Porsche | Total de Faturação: 0$
-Carro: ID: 6 | Porsche-Aviator | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-----------------------------------------------------------------------------------------------------
-ET: 6 | Mecânico: sda | Capacidade: 4 | Carros: 1 | Marca: Lamborghini | Total de Faturação: 0$
-Carro: ID: 8 | Lamborghini-Navigator | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
+1
+sad
+0
+2
+Lucid
+0
+1
+Lucid-Acadia
+Não
+2
+1
+11
+Lucid-TT
+Não
+4
+0
 
+2
+ads
+1
+3
+Polestar
+211
+4
+Polestar-Tonale
+Não
+2
+1
+9
+Polestar-Tacoma
+Não
+3
+0
+13
+Polestar-Tahoe
+Não
+7
+0
 
+3
+asd
+1
+3
+Alfa Romeo
+0
+5
+Alfa Romeo-Challenger
+Não
+7
+1
+18
+Alfa Romeo-X4
+Sim
+4
+0
+14
+Alfa Romeo-ID.4
+Não
+2
+0
 
------------------------------------------------Lista de carros-----------------------------------------------
-Carro : ID: 9 | Fisker-XC60 | Prioritário: Sim | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 1 | Lamborghini-M3 | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 2 | Fisker-Transit | Prioritário: Não | Tempo Reparação: 7 | Dias na ET: 0
-Carro : ID: 3 | Lamborghini-Kona | Prioritário: Não | Tempo Reparação: 2 | Dias na ET: 0
-Carro : ID: 4 | Lamborghini-XT6 | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 5 | Fisker-Telluride | Prioritário: Não | Tempo Reparação: 4 | Dias na ET: 0
-Carro : ID: 6 | Porsche-Aviator | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 7 | Fisker-GV70 | Prioritário: Não | Tempo Reparação: 5 | Dias na ET: 0
-Carro : ID: 8 | Lamborghini-Navigator | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
-Carro : ID: 10 | Lamborghini-Crosstrek | Prioritário: Não | Tempo Reparação: 3 | Dias na ET: 0
+4
+sad
+3
+2
+BMW
+110
+8
+BMW-DBX
+Não
+5
+1
+12
+BMW-Camaro
+Não
+6
+0
 
-
-
-----------------------------------------------Lista de espera---------------------------------------------- - 
-Carro: ID: 7 | Fisker-GV70 | Prioritário: Não | Tempo Reparação: 5 | Dias da ET: 0
-Carro: ID: 10 | Lamborghini-Crosstrek | Prioritário: Não | Tempo Reparação: 3 | Dias da ET: 0
-
-
-
------------------------------------------------Carros reparados-----------------------------------------------
-ET 1:
-
-ET 2:
-
-ET 3:
-
-ET 4:
-
-ET 5:
-
-ET 6:
-
+5
+sad
+1
+3
+Maserati
+0
+2
+Maserati-GV70
+Não
+6
+1
+10
+Maserati-GX
+Não
+7
+0
+15
+Maserati-Camaro
+Não
+6
+0

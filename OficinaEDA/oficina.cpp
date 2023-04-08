@@ -21,6 +21,8 @@ int HOLD_nca;
 
 
 void inicializarEstacoes(ET* estacoes, string* marcas) {
+    locale::global(locale(""));
+
     string file = "marcas.txt";
     ifstream fileMarcas(file);
     string marca;
@@ -292,6 +294,7 @@ int menuInicio(ET* estacoes, carro* listadeespera, carro* not_added) {
             gravarOficina(estacoes, listadeespera, NUM_CARROS_CRIADOS, not_added, num_not_added);
             break;
         case 6:
+            carregarOficina();
             break;
         case 7:
             //imprimeOficina(estacoes, listadeespera);
