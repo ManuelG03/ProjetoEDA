@@ -1,12 +1,28 @@
 6
 1
-Nenhum carro foi reparado
+3
+Lincoln
+Metris
+Não
+5
+1
 2
 Nenhum carro foi reparado
 3
 Nenhum carro foi reparado
 4
-Nenhum carro foi reparado
+6
+Mitsubishi
+Tucson
+Não
+2
+2
+12
+Mitsubishi
+Maverick
+Não
+2
+2
 5
 Nenhum carro foi reparado
 6

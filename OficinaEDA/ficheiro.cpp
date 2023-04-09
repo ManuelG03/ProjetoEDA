@@ -104,27 +104,27 @@ void gravarCarros(carro* listadeespera, int num_carros_criados) {
     fileCarros.close();
 }
 
-//void carregarCarros(carro* listadeespera) {
-//    fstream fileCarros;
-//    fileCarros.open("carros.txt");
-//
-//    int num_carros_criados;
-//    fileCarros >> num_carros_criados;
-//
-//    delete[] listadeespera;
-//    carro* listadeespera = new carro[num_carros_criados];
-//
-//    for (int i = 0; i < num_carros_criados; i++) {
-//        fileCarros >> listadeespera[i].id;
-//        getline(fileCarros, listadeespera[i].marca);
-//        getline(fileCarros, listadeespera[i].modelo);
-//        getline(fileCarros, listadeespera[i].prioridade);
-//        fileCarros >> listadeespera[i].tempo_reparacao;
-//        fileCarros >> listadeespera[i].dias_ET;
-//    }
-//
-//    fileCarros.close();
-//}
+void carregarCarros(carro* listadeespera) {
+    fstream fileCarros;
+    fileCarros.open("carros.txt");
+
+    int num_carros_criados;
+    fileCarros >> num_carros_criados;
+
+    delete[] listadeespera;
+    listadeespera = new carro[num_carros_criados];
+
+    for (int i = 0; i < num_carros_criados; i++) {
+        fileCarros >> listadeespera[i].id;
+        getline(fileCarros, listadeespera[i].marca);
+        getline(fileCarros, listadeespera[i].modelo);
+        getline(fileCarros, listadeespera[i].prioridade);
+        fileCarros >> listadeespera[i].tempo_reparacao;
+        fileCarros >> listadeespera[i].dias_ET;
+    }
+
+    fileCarros.close();
+}
 
 void gravarListaDeEspera(carro* not_added, int num_not_added) {
     ofstream fileListaDeEspera;
@@ -144,27 +144,27 @@ void gravarListaDeEspera(carro* not_added, int num_not_added) {
     fileListaDeEspera.close();
 }
 
-//void carregarListaDeEspera(carro* not_added) {
-//    fstream fileListaDeEspera;
-//    fileListaDeEspera.open("listaDeEspera.txt");
-//
-//    int num_not_added;
-//    fileListaDeEspera >> num_not_added;
-//
-//    delete[] not_added;
-//    carro* not_added = new carro[num_not_added];
-//
-//    for (int i = 0; i < num_not_added; i++) {
-//        fileListaDeEspera >> not_added[i].id;
-//        getline(fileListaDeEspera, not_added[i].marca);
-//        getline(fileListaDeEspera, not_added[i].modelo);
-//        getline(fileListaDeEspera, not_added[i].prioridade);
-//        fileListaDeEspera >> not_added[i].tempo_reparacao;
-//        fileListaDeEspera >> not_added[i].dias_ET;
-//    }
-//
-//    fileListaDeEspera.close();
-//}
+void carregarListaDeEspera(carro* not_added) {
+    fstream fileListaDeEspera;
+    fileListaDeEspera.open("listaDeEspera.txt");
+
+    int num_not_added;
+    fileListaDeEspera >> num_not_added;
+
+    delete[] not_added;
+    not_added = new carro[num_not_added];
+
+    for (int i = 0; i < num_not_added; i++) {
+        fileListaDeEspera >> not_added[i].id;
+        getline(fileListaDeEspera, not_added[i].marca);
+        getline(fileListaDeEspera, not_added[i].modelo);
+        getline(fileListaDeEspera, not_added[i].prioridade);
+        fileListaDeEspera >> not_added[i].tempo_reparacao;
+        fileListaDeEspera >> not_added[i].dias_ET;
+    }
+
+    fileListaDeEspera.close();
+}
 
 void gravarCarrosReparados(ET* estacoes) {
     ofstream fileCarrosReparados;
@@ -190,30 +190,37 @@ void gravarCarrosReparados(ET* estacoes) {
     fileCarrosReparados.close();
 }
 
-//void carregarCarrosReparados(ET* estacoes) {
-//    fstream fileCarrosReparados;
-//    fileCarrosReparados.open("carrosReparados.txt");
-//
-//    int NUM_ETS;
-//    fileCarrosReparados >> NUM_ETS;
-//
-//    delete[] estacoes;
-//    carro* estacoes = new carro[NUM_ETS];
-//
-//    for (int i = 0; i < NUM_ETS; i++) {
-//        fileCarrosReparados >> estacoes[i].id;
-//        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
-//            fileCarrosReparados >> estacoes[i].regRepCars[j].id;
-//            getline(fileCarrosReparados, estacoes[i].regRepCars[j].marca);
-//            getline(fileCarrosReparados, estacoes[i].regRepCars[j].modelo);
-//            getline(fileCarrosReparados, estacoes[i].regRepCars[j].prioridade);
-//            fileCarrosReparados >> estacoes[i].regRepCars[j].tempo_reparacao;
-//            fileCarrosReparados >> estacoes[i].regRepCars[j].dias_ET;
-//        }
-//    }
-//
-//    fileCarrosReparados.close();
-//}
+void carregarCarrosReparados(ET* estacoes) {
+    fstream fileCarrosReparados;
+    fileCarrosReparados.open("carrosReparados.txt");
+
+    string linha;
+    int NUM_ETS;
+    fileCarrosReparados >> NUM_ETS;
+
+    delete[] estacoes;
+    estacoes = new ET[NUM_ETS];
+
+    for (int i = 0; i < NUM_ETS; i++) {
+        fileCarrosReparados >> estacoes[i].id;
+        getline(fileCarrosReparados, linha);
+        if (linha == "Nenhum carro foi reparado") {
+            estacoes[i].carros_reparados = 0;
+        }
+        else {
+            for (int j = 0; j < estacoes[i].carros_reparados; j++) {
+                fileCarrosReparados >> estacoes[i].regRepCars[j].id;
+                getline(fileCarrosReparados, estacoes[i].regRepCars[j].marca);
+                getline(fileCarrosReparados, estacoes[i].regRepCars[j].modelo);
+                getline(fileCarrosReparados, estacoes[i].regRepCars[j].prioridade);
+                fileCarrosReparados >> estacoes[i].regRepCars[j].tempo_reparacao;
+                fileCarrosReparados >> estacoes[i].regRepCars[j].dias_ET;
+            }
+        }
+    }
+
+    fileCarrosReparados.close();
+}
 
 void gravarEstacoes(ET* estacoes) {
     ofstream fileEstacoes;
@@ -253,8 +260,9 @@ void gravarOficina(carro* listadeespera, int num_carros_criados, carro* not_adde
     gravarEstacoes(estacoes);
 }
 
-//void carregarOficina(carro* listadeespera, carro* not_added, ET* estacoes) {
-//    carregarCarros(listadeespera);
-//    carregarListaDeEspera(not_added);
-//    carregarCarrosReparados(estacoes);
-//}
+void carregarOficina(carro* listadeespera, carro* not_added, ET* estacoes) {
+    carregarCarros(listadeespera);
+    carregarListaDeEspera(not_added);
+    carregarCarrosReparados(estacoes);
+    //carregarEstacoes(estacoes);
+}
