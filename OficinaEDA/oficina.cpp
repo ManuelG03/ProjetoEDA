@@ -481,8 +481,11 @@ void printAllCarsInRegRepCars(ET* estacoes) {
     }
 }
 
-int menuInicio() {
-    int escolha;
+void menuInicial() {
+    bool sair = false;
+    char escolha = ' ';
+
+    do {
     cout << "***** Bem Vindo Gestor ***** \n";
     cout << "(1).Reparação Manual \n";
     cout << "(2).Atualizar tempo de reparação \n";
@@ -491,35 +494,38 @@ int menuInicio() {
     cout << "(5).Gravar Oficina \n";
     cout << "(6).Carregar Oficina \n";
     cout << "(7).Imprimir Oficina \n";
-
-
-    do
-    {
-        cout << "Selecione a sua opção:";
+    cout << "(0).Voltar" << endl;
+    cout << "Selecione a sua opção:";
         cin >> escolha;
         switch (escolha)
         {
-        case 1: banana(); break;
-        case 2:; break;
-        case 3:; break;
-        case 4:; break;
-        case 5:; break;
-        default: cout << "Escolha Inválida!"; break;
+        case '1': banana(); 
+                break;
+        case '2':; break;
+        case '3':; break;
+        case '4':; break;
+        case '5':; break;
+        case '0': cout << "Selecionou a opção voltar! " << endl;
+                  sair = true;
+                  break;
+        default: cout << "Escolha Inválida!";
+                 break;
         }
-    } while (escolha > 6);
-    return 0;
+    } while (!sair);
+    cin.ignore();
 }
 
 void simulateDay(ET* estacoes,carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET) {
-    bool continua = true;
-    while (continua) {
+    char opcao = ' ';
+    bool sair = false;
+
+    do {
         cout << endl;
         cout << "(s): Simular um dia " << endl;
         cout << "(g): Painel de gestão" << endl;
-        cout << "(L): SAIR" << endl;
-        char Input;
-        cin >> Input;
-        switch (Input) {
+        cout << "(0): SAIR" << endl;
+        cin >> opcao;
+        switch (opcao) {
         case 's':
         case 'S':
             cout << "Dia simulado com sucesso!\n";
@@ -532,13 +538,15 @@ void simulateDay(ET* estacoes,carro* listadeespera, carro* not_added_copy, strin
             break;
         case 'g':
         case 'G':
-            menuInicio();
+            menuInicial();
             break;
-        case 'L':
-        case 'l':
-            cout << "Adeus!\n";
-            return;
+        case '0':
+            sair = true;
+            cout << "Até á proxima!\n";
+            break;
+        default:
+            cout << "Escolha inválida!" << endl;
             break;
         }
-    }
+    } while (!sair);
 }
