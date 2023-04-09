@@ -289,9 +289,10 @@ int menuInicio(ET* estacoes, carro* listadeespera, carro* not_added) {
         case 4: 
             break;
         case 5:
-            gravarOficina(estacoes, listadeespera, NUM_CARROS_CRIADOS, not_added, num_not_added);
+            gravarOficina(listadeespera, NUM_CARROS_CRIADOS, not_added, num_not_added, estacoes);
             break;
         case 6:
+            //carregarOficina(listadeespera, not_added);
             break;
         case 7:
             //imprimeOficina(estacoes, listadeespera);

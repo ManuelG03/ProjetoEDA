@@ -1,3 +1,5 @@
 #pragma once
 
-void gravarOficina(ET* estacoes, carro* listadeespera, int NUM_CARROS_CRIADOS, carro* not_added, int num_not_added);
+void gravarOficina(carro* listadeespera, int num_carros_criados, carro* not_added, int num_not_added, ET* estacoes);
+
+void carregarOficina(carro* listadeespera, carro* not_added);
