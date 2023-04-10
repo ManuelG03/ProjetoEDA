@@ -473,60 +473,61 @@ void imprimeOficina(ET* estacoes, carro* listadeespera) {
 //    }
 //}
 
-int menuInicio(ET* estacoes, carro* listadeespera, carro* not_added) {
-    int escolha;
-    cout << "***** Bem Vindo Gestor ***** \n";
-    cout << "(1).Reparação Manual \n";
-    cout << "(2).Atualizar tempo de reparação \n";
-    cout << "(3).Adicionar Prioridade\n";
-    cout << "(4).Remover Mecânico\n";
-    cout << "(5).Gravar Oficina \n";
-    cout << "(6).Carregar Oficina \n";
-    cout << "(7).Imprimir Oficina \n";
+void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added) {
+    bool sair = false;
+    char escolha = ' ';
 
-
-    do
-    {
+    do {
+        cout << "***** Bem Vindo Gestor ***** \n";
+        cout << "(1).Reparação Manual \n";
+        cout << "(2).Atualizar tempo de reparação \n";
+        cout << "(3).Adicionar Prioridade\n";
+        cout << "(4).Remover Mecânico\n";
+        cout << "(5).Gravar Oficina \n";
+        cout << "(6).Carregar Oficina \n";
+        cout << "(7).Imprimir Oficina \n";
+        cout << "(0).Voltar" << endl;
         cout << "Selecione a sua opção:";
         cin >> escolha;
         switch (escolha)
         {
-        case 1:
+        case '1':;
             break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
+        case '2':; break;
+        case '3':; break;
+        case '4':; break;
+        case '5':
             gravarOficina(listadeespera, NUM_CARROS_CRIADOS, not_added, num_not_added, estacoes);
             break;
-        case 6:
+        case '6':
             carregarOficina(listadeespera, not_added, estacoes);
             break;
         case 7:
             imprimeOficina(estacoes, listadeespera);
             break;
-
-
-        default: cout << "Escolha Inválida!"; break;
+        case '0': cout << "Selecionou a opção voltar! " << endl;
+            sair = true;
+            break;
+        default: cout << "Escolha Inválida!";
+            break;
         }
-    } while (escolha > 6);
-    return 0;
+    } while (!sair);
+    cin.ignore();
 }
 
-void simulateDay(ET* estacoes,carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET) {
-    bool continua = true;
-    while (continua) {
+void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET) {
+    char opcao = ' ';
+    bool sair = false;
+
+    do {
         cout << endl;
         cout << "(s): Simular um dia " << endl;
         cout << "(g): Painel de gestão" << endl;
         cout << "(0): SAIR" << endl;
-        string Input;
-        getline(cin, Input);
-        if (Input == "s" || Input == "S") {
-            
+        cin >> opcao;
+        switch (opcao) {
+        case 's':
+        case 'S':
             cout << "Dia simulado com sucesso!\n";
             incrementar_dias_ET(estacoes, NUM_ETS);
             reparar_carros2(estacoes, NUM_ETS);
@@ -534,14 +535,18 @@ void simulateDay(ET* estacoes,carro* listadeespera, carro* not_added_copy, strin
             adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
             menu(estacoes, listadeespera);
             //imprimeOficina(estacoes, listadeespera);
-
+            break;
+        case 'g':
+        case 'G':
+            menuInicial(estacoes, listadeespera, not_added_copy);
+            break;
+        case '0':
+            sair = true;
+            cout << "Até á proxima!\n";
+            break;
+        default:
+            cout << "Escolha inválida!" << endl;
+            break;
         }
-        else if (Input == "g" || Input == "G") {
-            menuInicio(estacoes, listadeespera, not_added_copy);
-        }
-        else {
-            cout << "Adeus!\n";
-            continua = false;
-        }
-    }
+    } while (!sair);
 }
