@@ -502,7 +502,7 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added) {
         case '6':
             carregarOficina(listadeespera, not_added, estacoes);
             break;
-        case 7:
+        case '7':
             imprimeOficina(estacoes, listadeespera);
             break;
         case '0': cout << "Selecionou a opção voltar! " << endl;
