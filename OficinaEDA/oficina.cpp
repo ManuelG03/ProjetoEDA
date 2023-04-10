@@ -534,7 +534,6 @@ void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             criarCarros(listadeespera, modelos, marcas_ET);
             adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
             menu(estacoes, listadeespera);
-            //imprimeOficina(estacoes, listadeespera);
             break;
         case 'g':
         case 'G':
@@ -542,7 +541,7 @@ void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             break;
         case '0':
             sair = true;
-            cout << "Até á proxima!\n";
+            cout << "Até à proxima!\n";
             break;
         default:
             cout << "Escolha inválida!" << endl;

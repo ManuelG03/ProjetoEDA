@@ -10,7 +10,7 @@
 using namespace std;
 
 int main() {
-    std::locale::global(locale(""));
+    locale::global(locale(""));
     srand(time(NULL));
 
     string* marcas = new string[NUM_MARCAS];

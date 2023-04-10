@@ -8,84 +8,6 @@
 
 using namespace std;
 
-//void gravarOficina(ET* estacoes, carro* listadeespera, int NUM_CARROS_CRIADOS, carro* not_added, int num_not_added) {
-//    ofstream outfile;
-//    outfile.open("oficina.txt");
-//
-//    outfile << "-----------------------------------------------Estações de Trabalho-----------------------------------------------" << endl;
-//    for (int i = 0; i < NUM_ETS; i++)
-//    {
-//        outfile << "ET: " << estacoes[i].id << " | ";
-//        outfile << "Mecânico: " << estacoes[i].mecanico << " | ";
-//        outfile << "Capacidade: " << estacoes[i].capacidade << " | ";
-//        outfile << "Carros: " << estacoes[i].capacidade_atual << " | ";
-//        outfile << "Marca: " << estacoes[i].marca << " | ";
-//        outfile << "Total de Faturação: " << estacoes[i].faturacao << "$" << endl;
-//
-//        if (estacoes[i].capacidade_atual == 0) {
-//            outfile << "ET não possui carros de momento" << endl;
-//        }
-//        else {
-//            for (int h = 0; h < estacoes[i].capacidade_atual; h++)
-//            {
-//                outfile << "Carro: ID: " << estacoes[i].carros[h].id << " | ";
-//                outfile << estacoes[i].carros[h].marca << "-" << estacoes[i].carros[h].modelo << " | ";
-//                outfile << "Prioritário: " << estacoes[i].carros[h].prioridade << " | ";
-//                outfile << "Tempo Reparação: " << estacoes[i].carros[h].tempo_reparacao << " | ";
-//                outfile << "Dias da ET: " << estacoes[i].carros[h].dias_ET << endl;
-//            }
-//        }
-//        if (i < NUM_ETS - 1) {
-//            outfile << "----------------------------------------------------------------------------------------------------" << endl;
-//        }
-//    }
-//    outfile << endl << endl << endl;
-//
-//
-//
-//    outfile << "-----------------------------------------------Lista de carros-----------------------------------------------" << endl;
-//
-//    for (int i = 0; i < NUM_CARROS_CRIADOS; i++) {
-//        outfile << "Carro " << ": ";
-//        outfile << "ID: " << listadeespera[i].id << " | ";
-//        outfile << listadeespera[i].marca << "-" << listadeespera[i].modelo << " | ";
-//        outfile << "Prioritário: " << listadeespera[i].prioridade << " | ";
-//        outfile << "Tempo Reparação: " << listadeespera[i].tempo_reparacao << " | ";
-//        outfile << "Dias na ET: " << listadeespera[i].dias_ET << endl;
-//    }
-//    outfile << endl << endl << endl;
-//
-//
-//
-//    outfile << "----------------------------------------------Lista de espera---------------------------------------------- - " << endl;
-//    for (int i = 0; i < num_not_added; i++) {
-//        outfile << "Carro: ID: " << not_added[i].id << " | ";
-//        outfile << not_added[i].marca << "-" << not_added[i].modelo << " | ";
-//        outfile << "Prioritário: " << not_added[i].prioridade << " | ";
-//        outfile << "Tempo Reparação: " << not_added[i].tempo_reparacao << " | ";
-//        outfile << "Dias da ET: " << not_added[i].dias_ET << endl;
-//    }
-//    outfile << endl << endl << endl;
-//
-//
-//
-//    outfile << "-----------------------------------------------Carros reparados-----------------------------------------------" << endl;
-//    for (int i = 0; i < NUM_ETS; i++) {
-//        outfile << "ET " << i + 1 << ":" << endl;
-//        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
-//            outfile << "Carro " << j + 1 << ": ";
-//            outfile << "ID: " << estacoes[i].regRepCars[j].id << " | ";
-//            outfile << estacoes[i].regRepCars[j].marca << "-" << estacoes[i].regRepCars[j].modelo << " | ";
-//            outfile << "Prioritário: " << estacoes[i].regRepCars[j].prioridade << " | ";
-//            outfile << "Tempo Reparação: " << estacoes[i].regRepCars[j].tempo_reparacao << " | ";
-//            outfile << "Dias na ET: " << estacoes[i].regRepCars[j].dias_ET << endl;
-//        }
-//        outfile << endl;
-//    }
-//
-//    outfile.close();
-//}
-
 void gravarCarros(carro* listadeespera, int num_carros_criados) {
     ofstream fileCarros;
     fileCarros.open("carros.txt");
@@ -124,25 +46,25 @@ void carregarCarros(carro* listadeespera) {
     }
 
     fileCarros.close();
-}
+} 
 
-void gravarListaDeEspera(carro* not_added, int num_not_added) {
+void gravarListaDeEspera(carro* not_added, int num_not_added) { //Função que grava as informações dos carros presentes na lista de espera
     ofstream fileListaDeEspera;
     fileListaDeEspera.open("listaDeEspera.txt");
 
-    fileListaDeEspera << num_not_added << endl;
+    fileListaDeEspera << num_not_added << endl; //Gravar o número de carros presentes na lista de espera
 
     for (int i = 0; i < num_not_added; i++) {
-        fileListaDeEspera << not_added[i].id << endl;
-        fileListaDeEspera << not_added[i].marca << endl;
-        fileListaDeEspera << not_added[i].modelo << endl;
-        fileListaDeEspera << not_added[i].prioridade << endl;
-        fileListaDeEspera << not_added[i].tempo_reparacao << endl;
-        fileListaDeEspera << not_added[i].dias_ET << endl;
+        fileListaDeEspera << not_added[i].id << endl; //Gravar o id de cada carro da lista de espera
+        fileListaDeEspera << not_added[i].marca << endl; //Gravar a marca de cada carro da lista de espera
+        fileListaDeEspera << not_added[i].modelo << endl; //Gravar o modelo de cada carro da lista de espera
+        fileListaDeEspera << not_added[i].prioridade << endl; //Gravar a prioridade de cada carro da lista de espera
+        fileListaDeEspera << not_added[i].tempo_reparacao << endl; //Gravar o tempo de reparação de cada carro da lista de espera
+        fileListaDeEspera << not_added[i].dias_ET << endl; //Gravar a quantidade de dias que o carro esteve na ET de cada carro da lista de espera
     }
 
     fileListaDeEspera.close();
-}
+} 
 
 void carregarListaDeEspera(carro* not_added) {
     fstream fileListaDeEspera;
@@ -164,67 +86,14 @@ void carregarListaDeEspera(carro* not_added) {
     }
 
     fileListaDeEspera.close();
-}
-
-void gravarCarrosReparados(ET* estacoes) {
-    ofstream fileCarrosReparados;
-    fileCarrosReparados.open("carrosReparados.txt");
-
-    fileCarrosReparados << NUM_ETS << endl;
-
-    for (int i = 0; i < NUM_ETS; i++) {
-        fileCarrosReparados << estacoes[i].id << endl;
-        if (estacoes[i].carros_reparados == 0) {
-            fileCarrosReparados << "Nenhum carro foi reparado" << endl;
-        }
-        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
-            fileCarrosReparados << estacoes[i].regRepCars[j].id << endl;
-            fileCarrosReparados << estacoes[i].regRepCars[j].marca << endl;
-            fileCarrosReparados << estacoes[i].regRepCars[j].modelo << endl;
-            fileCarrosReparados << estacoes[i].regRepCars[j].prioridade << endl;
-            fileCarrosReparados << estacoes[i].regRepCars[j].tempo_reparacao << endl;
-            fileCarrosReparados << estacoes[i].regRepCars[j].dias_ET << endl;
-        }
-    }
-
-    fileCarrosReparados.close();
-}
-
-void carregarCarrosReparados(ET* estacoes) {
-    fstream fileCarrosReparados;
-    fileCarrosReparados.open("carrosReparados.txt");
-
-    string linha;
-    int NUM_ETS;
-    fileCarrosReparados >> NUM_ETS;
-
-    delete[] estacoes;
-    estacoes = new ET[NUM_ETS];
-
-    for (int i = 0; i < NUM_ETS; i++) {
-        fileCarrosReparados >> estacoes[i].id;
-        getline(fileCarrosReparados, linha);
-        if (linha == "Nenhum carro foi reparado") {
-            estacoes[i].carros_reparados = 0;
-        }
-        else {
-            for (int j = 0; j < estacoes[i].carros_reparados; j++) {
-                fileCarrosReparados >> estacoes[i].regRepCars[j].id;
-                getline(fileCarrosReparados, estacoes[i].regRepCars[j].marca);
-                getline(fileCarrosReparados, estacoes[i].regRepCars[j].modelo);
-                getline(fileCarrosReparados, estacoes[i].regRepCars[j].prioridade);
-                fileCarrosReparados >> estacoes[i].regRepCars[j].tempo_reparacao;
-                fileCarrosReparados >> estacoes[i].regRepCars[j].dias_ET;
-            }
-        }
-    }
-
-    fileCarrosReparados.close();
-}
+} 
 
 void gravarEstacoes(ET* estacoes) {
     ofstream fileEstacoes;
     fileEstacoes.open("estacoes.txt");
+
+    ofstream fileCarrosReparados;
+    fileCarrosReparados.open("carrosReparados.txt");
 
     fileEstacoes << NUM_ETS << endl;
 
@@ -236,33 +105,86 @@ void gravarEstacoes(ET* estacoes) {
         fileEstacoes << estacoes[i].capacidade_atual << endl;
         fileEstacoes << estacoes[i].marca << endl;
         fileEstacoes << estacoes[i].faturacao << endl;
-        if (estacoes[i].capacidade_atual == 0) {
-            fileEstacoes << "ET não possui carros de momento" << endl;
+        for (int h = 0; h < estacoes[i].capacidade_atual; h++)
+        {
+            fileEstacoes << estacoes[i].carros[h].id << endl;
+            fileEstacoes << estacoes[i].carros[h].marca << endl;
+            fileEstacoes << estacoes[i].carros[h].modelo << endl;
+            fileEstacoes << estacoes[i].carros[h].prioridade << endl;
+            fileEstacoes << estacoes[i].carros[h].tempo_reparacao << endl;
+            fileEstacoes << estacoes[i].carros[h].dias_ET << endl;
         }
-        else {
-            for (int h = 0; h < estacoes[i].capacidade_atual; h++)
-            {
-                fileEstacoes << estacoes[i].carros[h].id << endl;
-                fileEstacoes << estacoes[i].carros[h].marca << endl;
-                fileEstacoes << estacoes[i].carros[h].modelo << endl;
-                fileEstacoes << estacoes[i].carros[h].prioridade << endl;
-                fileEstacoes << estacoes[i].carros[h].tempo_reparacao << endl;
-                fileEstacoes << estacoes[i].carros[h].dias_ET << endl;
-            }
+        fileCarrosReparados << estacoes[i].carros_reparados << endl;
+        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
+            fileCarrosReparados << estacoes[i].regRepCars[j].id << endl;
+            fileCarrosReparados << estacoes[i].regRepCars[j].marca << endl;
+            fileCarrosReparados << estacoes[i].regRepCars[j].modelo << endl;
+            fileCarrosReparados << estacoes[i].regRepCars[j].prioridade << endl;
+            fileCarrosReparados << estacoes[i].regRepCars[j].tempo_reparacao << endl;
+            fileCarrosReparados << estacoes[i].regRepCars[j].dias_ET << endl;
         }
     }
+
+    fileEstacoes.close();
+
+    fileCarrosReparados.close();
+}
+
+void carregarEstacoes(ET* estacoes) {
+    fstream fileEstacoes;
+    fileEstacoes.open("estacoes.txt");
+
+    fstream fileCarrosReparados;
+    fileCarrosReparados.open("carrosReparados.txt");
+
+    int NUM_ETS;
+    fileEstacoes >> NUM_ETS;
+
+    delete[] estacoes;
+    estacoes = new ET[NUM_ETS];
+
+    for (int i = 0; i < NUM_ETS; i++)
+    {
+        fileEstacoes >> estacoes[i].id;
+        getline(fileEstacoes, estacoes[i].mecanico);
+        fileEstacoes >> estacoes[i].capacidade;
+        fileEstacoes >> estacoes[i].capacidade_atual;
+        getline(fileEstacoes, estacoes[i].marca);
+        fileEstacoes >> estacoes[i].faturacao;
+        for (int h = 0; h < estacoes[i].capacidade_atual; h++)
+        {
+            fileEstacoes >> estacoes[i].carros[h].id;
+            getline(fileEstacoes, estacoes[i].carros[h].marca);
+            getline(fileEstacoes, estacoes[i].carros[h].modelo);
+            getline(fileEstacoes, estacoes[i].carros[h].prioridade);
+            fileEstacoes >> estacoes[i].carros[h].tempo_reparacao;
+            fileEstacoes >> estacoes[i].carros[h].dias_ET;
+        }
+        fileCarrosReparados >> estacoes[i].carros_reparados;
+        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
+            fileCarrosReparados >> estacoes[i].regRepCars[j].id;
+            getline(fileCarrosReparados, estacoes[i].regRepCars[j].marca);
+            getline(fileCarrosReparados, estacoes[i].regRepCars[j].modelo);
+            getline(fileCarrosReparados, estacoes[i].regRepCars[j].prioridade);
+            fileCarrosReparados >> estacoes[i].regRepCars[j].tempo_reparacao;
+            fileCarrosReparados >> estacoes[i].regRepCars[j].dias_ET;
+        }
+    }
+
+    fileEstacoes.close();
+
+    fileCarrosReparados.close();
 }
 
 void gravarOficina(carro* listadeespera, int num_carros_criados, carro* not_added, int num_not_added, ET* estacoes) {
     gravarCarros(listadeespera, num_carros_criados);
     gravarListaDeEspera(not_added, num_not_added);
-    gravarCarrosReparados(estacoes);
     gravarEstacoes(estacoes);
 }
 
 void carregarOficina(carro* listadeespera, carro* not_added, ET* estacoes) {
-    carregarCarros(listadeespera);
+    carregarEstacoes(estacoes);
     carregarListaDeEspera(not_added);
-    carregarCarrosReparados(estacoes);
-    //carregarEstacoes(estacoes);
+    carregarCarros(listadeespera);
+    
 }

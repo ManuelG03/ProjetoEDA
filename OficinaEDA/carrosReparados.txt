@@ -1,29 +1,25 @@
-6
 1
 3
-Lincoln
-Metris
+Ram
+XT4
 Não
 5
 1
+0
+0
 2
-Nenhum carro foi reparado
+8
+Nissan
+A8
+Não
 3
-Nenhum carro foi reparado
-4
-6
-Mitsubishi
-Tucson
+1
+15
+Nissan
+Camry
 Não
 2
-2
-12
-Mitsubishi
-Maverick
-Não
-2
-2
-5
-Nenhum carro foi reparado
-6
-Nenhum carro foi reparado
+1
+0
+0
+0
