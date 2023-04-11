@@ -330,108 +330,162 @@ void incrementar_dias_ET(ET* estacoes, int num_estacoes) {
     }
 }
 
-void imprimeOficina(ET* estacoes, carro* listadeespera) {
-    carro* listadeespera_copy = new carro[NUM_CARROS_CRIADOS];
-    for (int i = 0; i < NUM_CARROS_CRIADOS; i++) {
-        listadeespera_copy[i] = listadeespera[i];
-    }
+//void imprimeOficina(ET* estacoes, carro* listadeespera) {
+//    carro* listadeespera_copy = new carro[NUM_CARROS_CRIADOS];
+//    for (int i = 0; i < NUM_CARROS_CRIADOS; i++) {
+//        listadeespera_copy[i] = listadeespera[i];
+//    }
+//
+//    int RANGE = NUM_CARROS_CRIADOS;
+//    for (int i = 0; i < NUM_ETS; i++) {
+//        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
+//            carro car_reparado = estacoes[i].regRepCars[j];
+//            for (int k = 0; k < RANGE; k++) {
+//                if (listadeespera_copy[k].id == car_reparado.id) {
+//                    for (int l = k; l < RANGE - 1; l++) {
+//                        listadeespera_copy[l] = listadeespera_copy[l + 1];
+//                    }
+//                    RANGE--;
+//                }
+//            }
+//        }
+//    }
+//
+//    int escolha;
+//    cout << "(1). Ordenar por marca, por ordem alfabética. \n(2). Ordenar por tempo de reparação" << endl;
+//    cout << ">> ";
+//    cin >> escolha;
+//
+//
+//    carro* newList = new carro[RANGE];
+//    int newListIndex = 0;
+//    for (int i = 0; i < RANGE; i++) {
+//        bool carInRepCars = false;
+//        bool carAdded = false;
+//        for (int j = 0; j < NUM_ETS; j++) {
+//            for (int k = 0; k < estacoes[j].carros_reparados; k++) {
+//                if (listadeespera_copy[i].id == estacoes[j].regRepCars[k].id) {
+//                    carInRepCars = true;
+//                    break;
+//                }
+//            }
+//            if (carInRepCars) {
+//                break;
+//            }
+//        }
+//        if (!carInRepCars) {
+//            for (int j = 0; j < newListIndex; j++) {
+//                if (listadeespera_copy[i].id == newList[j].id) {
+//                    carAdded = true;
+//                    break;
+//                }
+//            }
+//            //adiciona a newlist se ainda nao foi
+//            if (!carAdded) {
+//                newList[newListIndex] = listadeespera_copy[i];
+//                newListIndex++;
+//            }
+//        }
+//    }
+//
+//    if (escolha == 1) {
+//        for (int i = 0; i < newListIndex - 1; i++) {
+//            for (int j = i + 1; j < newListIndex; j++) {
+//                if (newList[i].marca > newList[j].marca) {
+//                    carro temp = newList[i];
+//                    newList[i] = newList[j];
+//                    newList[j] = temp;
+//                }
+//            }
+//        }
+//    }
+//
+//    if (escolha == 2) {
+//        for (int i = 0; i < newListIndex - 1; i++) {
+//            for (int j = i + 1; j < newListIndex; j++) {
+//                if (newList[i].tempo_reparacao > newList[j].tempo_reparacao) {
+//                    carro temp = newList[i];
+//                    newList[i] = newList[j];
+//                    newList[j] = temp;
+//                }
+//            }
+//        }
+//    }
+//
+//
+//    if (escolha != 1 && escolha != 2) {
+//        return;
+//    }
+//
+//
+//
+//    cout << "----------------------------------------" << endl;
+//    cout << "Lista de carros (ET + LISTA DE ESPERA) :" << endl;
+//    for (int i = 0; i < newListIndex; i++) {
+//        cout << "ID: " << newList[i].id << " | ";
+//        cout << newList[i].marca << "-" << newList[i].modelo << " | ";
+//        cout << "Prioritário: " << newList[i].prioridade << " | ";
+//        cout << "Tempo Reparação: " << newList[i].tempo_reparacao << " | ";
+//        cout << "Dias na ET: " << newList[i].dias_ET << endl;
+//    }
+//    delete[] newList;
+//    cout << endl;
+//}
 
-    int RANGE = NUM_CARROS_CRIADOS;
-    for (int i = 0; i < NUM_ETS; i++) {
-        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
-            carro car_reparado = estacoes[i].regRepCars[j];
-            for (int k = 0; k < RANGE; k++) {
-                if (listadeespera_copy[k].id == car_reparado.id) {
-                    for (int l = k; l < RANGE - 1; l++) {
-                        listadeespera_copy[l] = listadeespera_copy[l + 1];
-                    }
-                    RANGE--;
-                }
-            }
-        }
-    }
-
-    int escolha;
-    cout << "(1). Ordenar por marca, por ordem alfabética. \n(2). Ordenar por tempo de reparação" << endl;
-    cout << ">> ";
-    cin >> escolha;
-
-
-    carro* newList = new carro[RANGE];
-    int newListIndex = 0;
-    for (int i = 0; i < RANGE; i++) {
-        bool carInRepCars = false;
-        bool carAdded = false;
-        for (int j = 0; j < NUM_ETS; j++) {
-            for (int k = 0; k < estacoes[j].carros_reparados; k++) {
-                if (listadeespera_copy[i].id == estacoes[j].regRepCars[k].id) {
-                    carInRepCars = true;
-                    break;
-                }
-            }
-            if (carInRepCars) {
-                break;
-            }
-        }
-        if (!carInRepCars) {
-            for (int j = 0; j < newListIndex; j++) {
-                if (listadeespera_copy[i].id == newList[j].id) {
-                    carAdded = true;
-                    break;
-                }
-            }
-            //adiciona a newlist se ainda nao foi
-            if (!carAdded) {
-                newList[newListIndex] = listadeespera_copy[i];
-                newListIndex++;
-            }
-        }
-    }
-
-    if (escolha == 1) {
-        for (int i = 0; i < newListIndex - 1; i++) {
-            for (int j = i + 1; j < newListIndex; j++) {
-                if (newList[i].marca > newList[j].marca) {
-                    carro temp = newList[i];
-                    newList[i] = newList[j];
-                    newList[j] = temp;
-                }
-            }
-        }
-    }
-
-    if (escolha == 2) {
-        for (int i = 0; i < newListIndex - 1; i++) {
-            for (int j = i + 1; j < newListIndex; j++) {
-                if (newList[i].tempo_reparacao > newList[j].tempo_reparacao) {
-                    carro temp = newList[i];
-                    newList[i] = newList[j];
-                    newList[j] = temp;
-                }
-            }
-        }
-    }
-
-
-    if (escolha != 1 && escolha != 2) {
-        return;
-    }
-
-
-
-    cout << "----------------------------------------" << endl;
-    cout << "Lista de carros (ET + LISTA DE ESPERA) :" << endl;
-    for (int i = 0; i < newListIndex; i++) {
-        cout << "ID: " << newList[i].id << " | ";
-        cout << newList[i].marca << "-" << newList[i].modelo << " | ";
-        cout << "Prioritário: " << newList[i].prioridade << " | ";
-        cout << "Tempo Reparação: " << newList[i].tempo_reparacao << " | ";
-        cout << "Dias na ET: " << newList[i].dias_ET << endl;
-    }
-    delete[] newList;
-    cout << endl;
-}
-
+//void imprimeOficina(ET* estacoes, carro* listadeespera, carro* not_added, int num_carros_criados) {
+//    cout << "Carros carregados do arquivo: " << endl;
+//    for (int i = 0; i < num_carros_criados; i++) {
+//        cout << "ID: " << listadeespera[i].id << endl;
+//        cout << "Marca: " << listadeespera[i].marca << endl;
+//        cout << "Modelo: " << listadeespera[i].modelo << endl;
+//        cout << "Prioridade: " << listadeespera[i].prioridade << endl;
+//        cout << "Tempo de reparação: " << listadeespera[i].tempo_reparacao << endl;
+//        cout << "Dias na ET: " << listadeespera[i].dias_ET << endl;
+//        cout << endl;
+//    }
+//
+//    cout << "Number of not added cars: " << num_not_added << endl;
+//    for (int i = 0; i < num_not_added; i++) {
+//        cout << "Car " << i + 1 << endl;
+//        cout << "\tID: " << not_added[i].id << endl;
+//        cout << "\tMarca: " << not_added[i].marca << endl;
+//        cout << "\tModelo: " << not_added[i].modelo << endl;
+//        cout << "\tPrioridade: " << not_added[i].prioridade << endl;
+//        cout << "\tTempo de Reparação: " << not_added[i].tempo_reparacao << endl;
+//        cout << "\tDias em espera: " << not_added[i].dias_ET << endl;
+//    }
+//
+//    for (int i = 0; i < NUM_ETS; i++) {
+//        cout << "estação id: " << estacoes[i].id << "\n";
+//        cout << "mecanico: " << estacoes[i].mecanico << "\n";
+//        cout << "capacidade: " << estacoes[i].capacidade << "\n";
+//        cout << "capacidade_atual: " << estacoes[i].capacidade_atual << "\n";
+//        cout << "marca: " << estacoes[i].marca << "\n";
+//        cout << "faturacao: " << estacoes[i].faturacao << "\n";
+//
+//        for (int h = 0; h < estacoes[i].capacidade_atual; h++) {
+//            cout << "carro id: " << estacoes[i].carros[h].id << "\n";
+//            cout << "marca: " << estacoes[i].carros[h].marca << "\n";
+//            cout << "modelo: " << estacoes[i].carros[h].modelo << "\n";
+//            cout << "prioridade: " << estacoes[i].carros[h].prioridade << "\n";
+//            cout << "tempo_reparacao: " << estacoes[i].carros[h].tempo_reparacao << "\n";
+//            cout << "dias_ET: " << estacoes[i].carros[h].dias_ET << "\n";
+//        }
+//
+//        cout << "carros_reparados: " << estacoes[i].carros_reparados << "\n";
+//        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
+//            cout << "carro " << j + 1 << ":\n";
+//            cout << "id: " << estacoes[i].regRepCars[j].id << "\n";
+//            cout << "marca: " << estacoes[i].regRepCars[j].marca << "\n";
+//            cout << "modelo: " << estacoes[i].regRepCars[j].modelo << "\n";
+//            cout << "prioridade: " << estacoes[i].regRepCars[j].prioridade << "\n";
+//            cout << "tempo_reparacao: " << estacoes[i].regRepCars[j].tempo_reparacao << "\n";
+//            cout << "dias_ET: " << estacoes[i].regRepCars[j].dias_ET << "\n";
+//        }
+//
+//        cout << "\n";
+//    }
+//}
 
 
 //void printAllCarsInRegRepCars(ET* estacoes) {
@@ -480,7 +534,7 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added) {
             carregarOficina(listadeespera, not_added, estacoes);
             break;
         case '7':
-            imprimeOficina(estacoes, listadeespera);
+            imprimeOficina(estacoes, listadeespera, not_added, NUM_CARROS_CRIADOS);
             break;
         case '0': cout << "Selecionou a opção voltar! " << endl;
             sair = true;
