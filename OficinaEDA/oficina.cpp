@@ -83,10 +83,7 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
 
 
         int decisao = rand() % 100;
-        if (decisao > 5) {
-            listadeespera[i].prioridade = "Não";
-        }
-        else listadeespera[i].prioridade = "Sim";
+        listadeespera[i].prioridade = (decisao <= 5);
 
         id_lista++;
     }
@@ -197,7 +194,7 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro*& not_added_co
 }
 
 bool comparaCarros(const carro& a, const carro& b) {
-    if (a.prioridade == "Sim" && b.prioridade != "Sim") {
+    if (a.prioridade && !b.prioridade) {
         return true;
     }
 
@@ -227,7 +224,12 @@ void menu(ET* estacoes, carro* listadeespera) {
             {
                 cout << "Carro: ID: " << estacoes[i].carros[h].id << " | ";
                 cout << estacoes[i].carros[h].marca << "-" << estacoes[i].carros[h].modelo << " | ";
-                cout << "Prioritário: " << estacoes[i].carros[h].prioridade << " | ";
+                if (estacoes[i].carros[h].prioridade) {
+                    cout << "Prioritário: Sim" << " | ";
+                }
+                else{
+                    cout << "Prioritário: Não" << " | ";
+                }
                 cout << "Tempo Reparação: " << estacoes[i].carros[h].tempo_reparacao << " | ";
                 cout << "Dias da ET: " << estacoes[i].carros[h].dias_ET << endl;
             }
@@ -255,42 +257,17 @@ void verNotAdded(carro* not_added) {
     for (int i = 0; i < num_not_added; i++) {
         cout << "Carro: ID: " << not_added[i].id << " | ";
         cout << not_added[i].marca << "-" << not_added[i].modelo << " | ";
-        cout << "Prioritário: " << not_added[i].prioridade << " | ";
+        if (not_added[i].prioridade) {
+            cout << "Prioritário: Sim" << " | ";
+        }
+        else {
+            cout << "Prioritário: Não" << " | ";
+        }
         cout << "Tempo Reparação: " << not_added[i].tempo_reparacao << " | ";
         cout << "Dias da ET: " << not_added[i].dias_ET << endl;
     }
     cout << "---------------------------------------------------" << endl;
 }
-
-//void reparacaoCarros(ET* estacoes) {
-//    int pen = 0;
-//    srand(time(NULL));
-//    int probRep = rand() % 100 + 1;
-//    while (pen < NUM_ETS) {
-//
-//    }
-//    
-//
-//}
-//void reparar_carros(ET* estacoes, int num_estacoes) {
-//    for (int i = 0; i < num_estacoes; i++) {
-//        for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
-//            int probabilidade = rand() % 100 + 1;
-//            if (probabilidade <= 15) {
-//                carro car = estacoes[i].carros[j];
-//                estacoes[i].capacidade_atual--;
-//                estacoes[i].capacidade++; //ATENCAO
-//                for (int k = j; k < estacoes[i].capacidade_atual; k++) {
-//                    estacoes[i].carros[k] = estacoes[i].carros[k + 1];
-//                }
-//                estacoes[i].regRepCars[j] = car;
-//                cout << "O carro com id " << car.id << " foi reparado na ET " << estacoes[i].id << endl;
-//                j--; // ATENÇAO
-//            }
-//        }
-//    }
-//    cout << endl;
-//}
 
 void reparar_carros2(ET* estacoes, int num_estacoes) {
     if (NUM_CARROS_CRIADOS == 0) {

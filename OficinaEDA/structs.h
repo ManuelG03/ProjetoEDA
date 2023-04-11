@@ -8,7 +8,7 @@ struct carro {
     int tempo_reparacao;
     int custo_reparacao;
     int dias_ET;
-    string prioridade;
+    bool prioridade;
 };
 
 struct ET {
