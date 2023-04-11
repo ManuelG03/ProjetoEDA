@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="constantes.cpp" />
+    <ClCompile Include="ficheiro.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="oficina.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="constantes.h" />
+    <ClInclude Include="ficheiro.h" />
     <ClInclude Include="oficina.h" />
     <ClInclude Include="structs.h" />
   </ItemGroup>

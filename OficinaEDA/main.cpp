@@ -10,7 +10,7 @@
 using namespace std;
 
 int main() {
-    std::locale::global(locale(""));
+    locale::global(locale(""));
     srand(time(NULL));
 
     string* marcas = new string[NUM_MARCAS];
@@ -25,18 +25,7 @@ int main() {
     inicializarEstacoes(estacoes, marcas);
     obtemMarcasET(marcas,marcas_ET,estacoes);
 
-
-
-    criarCarros(listadeespera, modelos, marcas_ET);
-    adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
-    reparar_carros2(estacoes, NUM_ETS);
-    printAllCarsInRegRepCars(estacoes);
+    simulateDay(estacoes,listadeespera,not_added_copy,modelos,marcas_ET);
     
-    imprimeOficina(estacoes,listadeespera,imprime);
-
-   
-    
-    
-    menu(estacoes, listadeespera);
     return 0;
 }

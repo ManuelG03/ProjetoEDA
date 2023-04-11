@@ -12,7 +12,7 @@ struct carro {
 };
 
 struct ET {
-    int id;
+    int id; 
     int capacidade;
     string mecanico;
     string marca;
