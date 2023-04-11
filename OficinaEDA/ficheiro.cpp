@@ -229,15 +229,15 @@ void carregarEstacoes(ET* estacoes) {
         estacoes[i].id = stoi(linha); 
         getline(fileEstacoes, estacoes[i].mecanico); 
         getline(fileEstacoes, linha); 
-        estacoes[i].capacidade = stoi(linha); 
-        getline(fileEstacoes, linha); 
+        estacoes[i].capacidade = stoi(linha);
+        getline(fileEstacoes, linha);
         estacoes[i].capacidade_atual = stoi(linha); 
         getline(fileEstacoes, estacoes[i].marca);  
         getline(fileEstacoes, linha); 
-        estacoes[i].faturacao = stoi(linha); 
+        estacoes[i].faturacao = stoi(linha);
 
-        estacoes[i].carros = new carro[estacoes[i].capacidade];
-        for (int h = 0; h < estacoes[i].capacidade_atual; h++)
+        estacoes[i].carros = new carro[estacoes[i].capacidade_atual];
+        for (int h = 0; h < estacoes[i].capacidade_atual; h++)  
         {
             getline(fileEstacoes, linha); 
             estacoes[i].carros[h].id = stoi(linha); 
@@ -269,7 +269,7 @@ void carregarEstacoes(ET* estacoes) {
     fileEstacoes.close();
     fileCarrosReparados.close();
     
-    printEstacoes(estacoes, NUM_ETS);
+    //printEstacoes(estacoes, NUM_ETS);
 }
 
 
