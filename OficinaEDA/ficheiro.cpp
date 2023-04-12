@@ -8,17 +8,17 @@
 
 using namespace std;
 
-void gravarCarros(carro* listadeespera, int num_carros_criados) {
+void gravarCarros(carro* listadeespera, int num_carros_criados) { //Função que grava as informações dos carros todos inicializados na oficina
     ofstream fileCarros;
-    fileCarros.open("carros.txt");
+    fileCarros.open("carros.txt"); //Abrir o ficheiro carros.txt
 
-    fileCarros << num_carros_criados << endl;
+    fileCarros << num_carros_criados << endl; //Gravar o número de carros inicializados na oficina
 
     for (int i = 0; i < num_carros_criados; i++) {
-        fileCarros << listadeespera[i].id << endl;
-        fileCarros << listadeespera[i].marca << endl;
-        fileCarros << listadeespera[i].modelo << endl;
-        if (listadeespera[i].prioridade) {
+        fileCarros << listadeespera[i].id << endl; //Gravar o id de cada carro inicializado
+        fileCarros << listadeespera[i].marca << endl; //Gravar a marca de cada carro inicializado
+        fileCarros << listadeespera[i].modelo << endl; //Gravar o modelo de cada carro inicializado
+        if (listadeespera[i].prioridade) { //Gravar a prioridade de cada carro da lista de espera com a condição
             fileCarros << "Sim" << endl;
         }
         else {
@@ -77,7 +77,7 @@ carro* carregarCarros(carro* listadeespera) {
 
     fileCarros.close();
 
-    //printCarros(listadeespera, num_carros_criados);
+    //printCarros(listadeespera, num_carros_criados); //Dá print aos carros carregados logo após o carregamento
 
     return listadeespera;
 } 
@@ -94,7 +94,7 @@ void gravarListaDeEspera(carro* not_added, int num_not_added) { //Função que gra
         fileListaDeEspera << not_added[i].id << endl; //Gravar o id de cada carro da lista de espera
         fileListaDeEspera << not_added[i].marca << endl; //Gravar a marca de cada carro da lista de espera
         fileListaDeEspera << not_added[i].modelo << endl; //Gravar o modelo de cada carro da lista de espera
-        if (not_added[i].prioridade) { //Gravar a prioridade de cada carro da lista de espera
+        if (not_added[i].prioridade) { //Gravar a prioridade de cada carro da lista de espera com a condição
             fileListaDeEspera << "Sim" << endl;
         }
         else {
@@ -319,7 +319,7 @@ ET* carregarEstacoes(ET* estacoes) {
     fileEstacoes.close();
     fileCarrosReparados.close();
     
-    //printEstacoes(estacoes, NUM_ETS);
+    printEstacoes(estacoes, NUM_ETS);
 
     return estacoes;
 }

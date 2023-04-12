@@ -21,11 +21,8 @@ void obtemMarcasET(string* marcas, string* marcas_ET, ET* estacoes);
 
 void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET);
 
-
 void reparar_carros2(ET* estacoes, int num_estacoes);
 	
 void incrementar_dias_ET(ET* estacoes, int num_estacoes);
-
-void imprimeOficina(ET* estacoes, carro* listadeespera);
 
 void printAllCarsInRegRepCars(ET* estacoes);

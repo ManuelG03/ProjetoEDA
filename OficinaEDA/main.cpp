@@ -19,7 +19,6 @@ int main() {
     carro* listadeespera = new carro[LIMITE];
     carro* not_added = new carro[LIMITE];
     carro* not_added_copy = new carro[LIMITE];
-    carro* imprime = new carro[LIMITE];
     ET* estacoes = new ET[NUM_ETS];
     
     inicializarEstacoes(estacoes, marcas);
