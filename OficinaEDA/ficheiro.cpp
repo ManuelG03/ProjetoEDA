@@ -10,38 +10,25 @@ using namespace std;
 
 void gravarCarros(carro* listadeespera, int num_carros_criados) { //Função que grava as informações dos carros todos inicializados na oficina
     ofstream fileCarros;
-    fileCarros.open("carros.txt"); //Abrir o ficheiro carros.txt
+    fileCarros.open("carros.txt");                                //Abrir o ficheiro carros.txt
 
-    fileCarros << num_carros_criados << endl; //Gravar o número de carros inicializados na oficina
+    fileCarros << num_carros_criados << endl;                     //Gravar o número de carros inicializados na oficina
 
     for (int i = 0; i < num_carros_criados; i++) {
-        fileCarros << listadeespera[i].id << endl; //Gravar o id de cada carro inicializado
-        fileCarros << listadeespera[i].marca << endl; //Gravar a marca de cada carro inicializado
-        fileCarros << listadeespera[i].modelo << endl; //Gravar o modelo de cada carro inicializado
-        if (listadeespera[i].prioridade) { //Gravar a prioridade de cada carro da lista de espera com a condição
-            fileCarros << "Sim" << endl;
+        fileCarros << listadeespera[i].id << endl;                //Gravar o id de cada carro inicializado
+        fileCarros << listadeespera[i].marca << endl;             //Gravar a marca de cada carro inicializado
+        fileCarros << listadeespera[i].modelo << endl;            //Gravar o modelo de cada carro inicializado
+        if (listadeespera[i].prioridade) {                        //Gravar a prioridade de cada carro da lista de espera com a condição
+            fileCarros << "Sim" << endl;                          //Se é true é gravado "Sim"
         }
         else {
-            fileCarros << "Nao" << endl;
+            fileCarros << "Nao" << endl;                          //Se é false é gravado "Nao"
         }
-        fileCarros << listadeespera[i].tempo_reparacao << endl;
-        fileCarros << listadeespera[i].dias_ET << endl;
+        fileCarros << listadeespera[i].tempo_reparacao << endl;   //Gravar o tempo de reparação de cada carro inicializado
+        fileCarros << listadeespera[i].dias_ET << endl;           //Gravar a quantidade de dias que o carro esteve na estação de trabalho de cada carro 
     }
 
-    fileCarros.close();
-}
-
-void printCarros(carro* listadeespera, int num_carros_criados) {
-    cout << "Carros carregados do arquivo: " << endl;
-    for (int i = 0; i < num_carros_criados; i++) {
-        cout << "ID: " << listadeespera[i].id << endl;
-        cout << "Marca: " << listadeespera[i].marca << endl;
-        cout << "Modelo: " << listadeespera[i].modelo << endl;
-        cout << "Prioridade: " << listadeespera[i].prioridade << endl;
-        cout << "Tempo de reparação: " << listadeespera[i].tempo_reparacao << endl;
-        cout << "Dias na ET: " << listadeespera[i].dias_ET << endl;
-        cout << endl;
-    }
+    fileCarros.close();                                           //Fechar o ficheiro carros.txt
 }
 
 carro* carregarCarros(carro* listadeespera) {
@@ -77,47 +64,32 @@ carro* carregarCarros(carro* listadeespera) {
 
     fileCarros.close();
 
-    //printCarros(listadeespera, num_carros_criados); //Dá print aos carros carregados logo após o carregamento
-
     return listadeespera;
 } 
 
-void gravarListaDeEspera(carro* not_added, int num_not_added) { //Função que grava as informações dos carros presentes na lista de espera
+void gravarListaDeEspera(carro* not_added, int num_not_added) {    //Função que grava as informações dos carros presentes na lista de espera
     ofstream fileListaDeEspera;
-    fileListaDeEspera.open("listaDeEspera.txt"); //Abrir o ficheiro listaDeEspera.txt
+    fileListaDeEspera.open("listaDeEspera.txt");                   //Abrir o ficheiro listaDeEspera.txt
 
     string linha;
 
-    fileListaDeEspera << num_not_added << endl; //Gravar o número de carros presentes na lista de espera
+    fileListaDeEspera << num_not_added << endl;                    //Gravar o número de carros presentes na lista de espera
 
     for (int i = 0; i < num_not_added; i++) {
-        fileListaDeEspera << not_added[i].id << endl; //Gravar o id de cada carro da lista de espera
-        fileListaDeEspera << not_added[i].marca << endl; //Gravar a marca de cada carro da lista de espera
-        fileListaDeEspera << not_added[i].modelo << endl; //Gravar o modelo de cada carro da lista de espera
-        if (not_added[i].prioridade) { //Gravar a prioridade de cada carro da lista de espera com a condição
-            fileListaDeEspera << "Sim" << endl;
+        fileListaDeEspera << not_added[i].id << endl;              //Gravar o id de cada carro da lista de espera
+        fileListaDeEspera << not_added[i].marca << endl;           //Gravar a marca de cada carro da lista de espera
+        fileListaDeEspera << not_added[i].modelo << endl;          //Gravar o modelo de cada carro da lista de espera
+        if (not_added[i].prioridade) {                             //Gravar a prioridade de cada carro da lista de espera com a condição
+            fileListaDeEspera << "Sim" << endl;                    //Se é true é gravado "Sim"
         }
         else {
-            fileListaDeEspera << "Nao" << endl;
+            fileListaDeEspera << "Nao" << endl;                    //Se é false é gravado "Nao"
         }
         fileListaDeEspera << not_added[i].tempo_reparacao << endl; //Gravar o tempo de reparação de cada carro da lista de espera
-        fileListaDeEspera << not_added[i].dias_ET << endl; //Gravar a quantidade de dias que o carro esteve na ET de cada carro da lista de espera
+        fileListaDeEspera << not_added[i].dias_ET << endl;         //Gravar a quantidade de dias que o carro esteve na estação de trabalho de cada carro da lista de espera
     }
 
-    fileListaDeEspera.close();
-} 
-
-void printListaDeEspera(carro* not_added, int num_not_added) {
-    cout << "Number of not added cars: " << num_not_added << endl;
-    for (int i = 0; i < num_not_added; i++) {
-        cout << "Car " << i + 1 << endl;
-        cout << "\tID: " << not_added[i].id << endl;
-        cout << "\tMarca: " << not_added[i].marca << endl;
-        cout << "\tModelo: " << not_added[i].modelo << endl;
-        cout << "\tPrioridade: " << not_added[i].prioridade << endl;
-        cout << "\tTempo de Reparação: " << not_added[i].tempo_reparacao << endl;
-        cout << "\tDias em espera: " << not_added[i].dias_ET << endl;
-    }
+    fileListaDeEspera.close();                                     //Fechar o ficheiro listaDeEspera.txt
 }
 
 carro* carregarListaDeEspera(carro* not_added) {
@@ -157,92 +129,59 @@ carro* carregarListaDeEspera(carro* not_added) {
     return not_added;
 } 
 
-void gravarEstacoes(ET* estacoes) {
+void gravarEstacoes(ET* estacoes) {                                                   //Função que grava as informações dos carros presentes nas estações de trabalho e os carros reparados das mesmas
     ofstream fileEstacoes;
-    fileEstacoes.open("estacoes.txt");
+    fileEstacoes.open("estacoes.txt");                                                //Abrir o ficheiro estacoes.txt
 
     ofstream fileCarrosReparados;
-    fileCarrosReparados.open("carrosReparados.txt");
+    fileCarrosReparados.open("carrosReparados.txt");                                  //Abrir o ficheiro carrosReparados.txt
 
-    fileEstacoes << NUM_ETS << endl;
+    fileEstacoes << NUM_ETS << endl;                                                  //Gravar o número de estações de trabalho presentes na oficina
 
     for (int i = 0; i < NUM_ETS; i++)
     {
-        fileEstacoes << estacoes[i].id << endl;
-        fileEstacoes << estacoes[i].mecanico << endl;
-        fileEstacoes << estacoes[i].capacidade << endl;
-        fileEstacoes << estacoes[i].capacidade_atual << endl;
-        fileEstacoes << estacoes[i].marca << endl;
-        fileEstacoes << estacoes[i].faturacao << endl;
+        fileEstacoes << estacoes[i].id << endl;                                       //Gravar no estacoes.txt o id de cada estação
+        fileEstacoes << estacoes[i].mecanico << endl;                                 //Gravar no estacoes.txt o mecânico de cada estação
+        fileEstacoes << estacoes[i].capacidade << endl;                               //Gravar no estacoes.txt a capacidade de cada estação
+        fileEstacoes << estacoes[i].capacidade_atual << endl;                         //Gravar no estacoes.txt a capacidade atual de cada estação
+        fileEstacoes << estacoes[i].marca << endl;                                    //Gravar no estacoes.txt a marca de cada estação
+        fileEstacoes << estacoes[i].faturacao << endl;                                //Gravar no estacoes.txt a faturação de cada estação
 
         for (int h = 0; h < estacoes[i].capacidade_atual; h++)
         {
-            fileEstacoes << estacoes[i].carros[h].id << endl;
-            fileEstacoes << estacoes[i].carros[h].marca << endl;
-            fileEstacoes << estacoes[i].carros[h].modelo << endl;
-            if (estacoes[i].carros[h].prioridade) {
-                fileEstacoes << "Sim" << endl;
+            fileEstacoes << estacoes[i].carros[h].id << endl;                         //Gravar no estacoes.txt o id de cada carro presente em cada estação
+            fileEstacoes << estacoes[i].carros[h].marca << endl;                      //Gravar no estacoes.txt a marca de cada carro presente em cada estação
+            fileEstacoes << estacoes[i].carros[h].modelo << endl;                     //Gravar no estacoes.txt o modelo de cada carro presente em cada estação
+            if (estacoes[i].carros[h].prioridade) {                                   //Gravar no estacoes.txt a prioridade de cada carro presente em cada estação
+                fileEstacoes << "Sim" << endl;                                        //Se é true é gravado "Sim"
             }
             else {
-                fileEstacoes << "Nao" << endl;
+                fileEstacoes << "Nao" << endl;                                        //Se é false é gravado "Nao"
             }
-            fileEstacoes << estacoes[i].carros[h].tempo_reparacao << endl;
-            fileEstacoes << estacoes[i].carros[h].dias_ET << endl;
+            fileEstacoes << estacoes[i].carros[h].tempo_reparacao << endl;            //Gravar no estacoes.txt o tempo de reparação de cada carro presente em cada estação
+            fileEstacoes << estacoes[i].carros[h].dias_ET << endl;                    //Gravar no estacoes.txt a quantidade de dias que o carro esteve na estação de trabalho de cada carro presente em cada estação
         }
 
-        fileCarrosReparados << estacoes[i].carros_reparados << endl;
-        for (int j = 0; j < estacoes[i].carros_reparados; j++) 
+        fileCarrosReparados << estacoes[i].carros_reparados << endl;                  //Gravar no carrosReparados.txt o número de carros reparados de cada estação de trabalho
+        for (int j = 0; j < estacoes[i].carros_reparados; j++)
         {
-            fileCarrosReparados << estacoes[i].regRepCars[j].id << endl;
-            fileCarrosReparados << estacoes[i].regRepCars[j].marca << endl;
-            fileCarrosReparados << estacoes[i].regRepCars[j].modelo << endl;
-            if (estacoes[i].regRepCars[j].prioridade) {
-                fileCarrosReparados << "Sim" << endl;
+            fileCarrosReparados << estacoes[i].regRepCars[j].id << endl;              //Gravar no carrosReparados.txt o id de cada carro reparado de cada estação de trabalho
+            fileCarrosReparados << estacoes[i].regRepCars[j].marca << endl;           //Gravar no carrosReparados.txt a marca de cada carro reparado de cada estação de trabalho
+            fileCarrosReparados << estacoes[i].regRepCars[j].modelo << endl;          //Gravar no carrosReparados.txt o modelo de cada carro reparado de cada estação de trabalho
+            if (estacoes[i].regRepCars[j].prioridade) {                               //Gravar no carrosReparados.txt a prioridade de cada carro reparado de cada estação de trabalho
+                fileCarrosReparados << "Sim" << endl;                                 //Se é true é gravado "Sim"
             }
             else {
-                fileCarrosReparados << "Nao" << endl;
+                fileCarrosReparados << "Nao" << endl;                                 //Se é false é gravado "Nao"
             }
-            fileCarrosReparados << estacoes[i].regRepCars[j].tempo_reparacao << endl;
-            fileCarrosReparados << estacoes[i].regRepCars[j].dias_ET << endl;
+            fileCarrosReparados << estacoes[i].regRepCars[j].tempo_reparacao << endl; //Gravar no carrosReparados.txt o tempo de reparação de cada carro reparado de cada estação de trabalho
+            fileCarrosReparados << estacoes[i].regRepCars[j].dias_ET << endl;         //Gravar no carrosReparados.txt a quantidade de dias que o carro esteve na estação de trabalho de cada carro reparado de cada estação de trabalho
         }
     }
 
-    fileEstacoes.close();
+    fileEstacoes.close();                                                             //Fechar o ficheiro estacoes.txt
 
-    fileCarrosReparados.close();
-}
-
-void printEstacoes(ET* estacoes, int NUM_ETS) {
-    for (int i = 0; i < NUM_ETS; i++) {
-        cout << "estação id: " << estacoes[i].id << "\n";
-        cout << "mecanico: " << estacoes[i].mecanico << "\n";
-        cout << "capacidade: " << estacoes[i].capacidade << "\n";
-        cout << "capacidade_atual: " << estacoes[i].capacidade_atual << "\n";
-        cout << "marca: " << estacoes[i].marca << "\n";
-        cout << "faturacao: " << estacoes[i].faturacao << "\n";
-
-        /*for (int h = 0; h < estacoes[i].capacidade_atual; h++) {
-            cout << "carro id: " << estacoes[i].carros[h].id << "\n";
-            cout << "marca: " << estacoes[i].carros[h].marca << "\n";
-            cout << "modelo: " << estacoes[i].carros[h].modelo << "\n";
-            cout << "prioridade: " << estacoes[i].carros[h].prioridade << "\n";
-            cout << "tempo_reparacao: " << estacoes[i].carros[h].tempo_reparacao << "\n";
-            cout << "dias_et: " << estacoes[i].carros[h].dias_ET << "\n";
-        }*/
-
-        cout << "carros_reparados: " << estacoes[i].carros_reparados << "\n";
-        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
-            cout << "carro " << j + 1 << ":\n";
-            cout << "id: " << estacoes[i].regRepCars[j].id << "\n";
-            cout << "marca: " << estacoes[i].regRepCars[j].marca << "\n";
-            cout << "modelo: " << estacoes[i].regRepCars[j].modelo << "\n";
-            cout << "prioridade: " << estacoes[i].regRepCars[j].prioridade << "\n";
-            cout << "tempo_reparacao: " << estacoes[i].regRepCars[j].tempo_reparacao << "\n";
-            cout << "dias_et: " << estacoes[i].regRepCars[j].dias_ET << "\n";
-        }
-
-        cout << "\n";
-    }
+    fileCarrosReparados.close();                                                      //Fechar o ficheiro carrosReparados.txt
 }
 
 ET* carregarEstacoes(ET* estacoes) {
@@ -323,7 +262,6 @@ ET* carregarEstacoes(ET* estacoes) {
 
     return estacoes;
 }
-
 
 void gravarOficina(carro* listadeespera, int num_carros_criados, carro* not_added, int num_not_added, ET* estacoes) {
     gravarEstacoes(estacoes);

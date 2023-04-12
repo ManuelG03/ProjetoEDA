@@ -528,7 +528,6 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added) {
             gravarOficina(listadeespera, NUM_CARROS_CRIADOS, not_added, num_not_added, estacoes);
             break;
         case '6':
-            //carregarOficina(listadeespera, not_added, estacoes);
             estacoes = carregarEstacoes(estacoes);
             not_added = carregarListaDeEspera(not_added);
             listadeespera = carregarCarros(listadeespera);
@@ -539,7 +538,7 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added) {
         case '0': cout << "Selecionou a opção voltar! " << endl;
             sair = true;
             break;
-        default: cout << "Escolha Inválida!";
+        default: cout << "Escolha Inválida!" << endl;
             break;
         }
     } while (!sair);
