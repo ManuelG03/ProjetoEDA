@@ -44,7 +44,7 @@ void printCarros(carro* listadeespera, int num_carros_criados) {
     }
 }
 
-void carregarCarros(carro* listadeespera) {
+carro* carregarCarros(carro* listadeespera) {
     ifstream fileCarros;
     fileCarros.open("carros.txt");
 
@@ -78,6 +78,8 @@ void carregarCarros(carro* listadeespera) {
     fileCarros.close();
 
     //printCarros(listadeespera, num_carros_criados);
+
+    return listadeespera;
 } 
 
 void gravarListaDeEspera(carro* not_added, int num_not_added) { //Função que grava as informações dos carros presentes na lista de espera
@@ -118,7 +120,7 @@ void printListaDeEspera(carro* not_added, int num_not_added) {
     }
 }
 
-void carregarListaDeEspera(carro* not_added) {
+carro* carregarListaDeEspera(carro* not_added) {
     ifstream fileListaDeEspera;
     fileListaDeEspera.open("listaDeEspera.txt");
     string linha;
@@ -151,6 +153,8 @@ void carregarListaDeEspera(carro* not_added) {
     fileListaDeEspera.close();
 
     //printListaDeEspera(not_added, num_not_added);
+
+    return not_added;
 } 
 
 void gravarEstacoes(ET* estacoes) {
@@ -187,7 +191,8 @@ void gravarEstacoes(ET* estacoes) {
         }
 
         fileCarrosReparados << estacoes[i].carros_reparados << endl;
-        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
+        for (int j = 0; j < estacoes[i].carros_reparados; j++) 
+        {
             fileCarrosReparados << estacoes[i].regRepCars[j].id << endl;
             fileCarrosReparados << estacoes[i].regRepCars[j].marca << endl;
             fileCarrosReparados << estacoes[i].regRepCars[j].modelo << endl;
@@ -216,14 +221,14 @@ void printEstacoes(ET* estacoes, int NUM_ETS) {
         cout << "marca: " << estacoes[i].marca << "\n";
         cout << "faturacao: " << estacoes[i].faturacao << "\n";
 
-        for (int h = 0; h < estacoes[i].capacidade_atual; h++) {
+        /*for (int h = 0; h < estacoes[i].capacidade_atual; h++) {
             cout << "carro id: " << estacoes[i].carros[h].id << "\n";
             cout << "marca: " << estacoes[i].carros[h].marca << "\n";
             cout << "modelo: " << estacoes[i].carros[h].modelo << "\n";
             cout << "prioridade: " << estacoes[i].carros[h].prioridade << "\n";
             cout << "tempo_reparacao: " << estacoes[i].carros[h].tempo_reparacao << "\n";
-            cout << "dias_ET: " << estacoes[i].carros[h].dias_ET << "\n";
-        }
+            cout << "dias_et: " << estacoes[i].carros[h].dias_ET << "\n";
+        }*/
 
         cout << "carros_reparados: " << estacoes[i].carros_reparados << "\n";
         for (int j = 0; j < estacoes[i].carros_reparados; j++) {
@@ -233,14 +238,14 @@ void printEstacoes(ET* estacoes, int NUM_ETS) {
             cout << "modelo: " << estacoes[i].regRepCars[j].modelo << "\n";
             cout << "prioridade: " << estacoes[i].regRepCars[j].prioridade << "\n";
             cout << "tempo_reparacao: " << estacoes[i].regRepCars[j].tempo_reparacao << "\n";
-            cout << "dias_ET: " << estacoes[i].regRepCars[j].dias_ET << "\n";
+            cout << "dias_et: " << estacoes[i].regRepCars[j].dias_ET << "\n";
         }
 
         cout << "\n";
     }
 }
 
-void carregarEstacoes(ET* estacoes) {
+ET* carregarEstacoes(ET* estacoes) {
     ifstream fileEstacoes;
     fileEstacoes.open("estacoes.txt");
     ifstream fileCarrosReparados;
@@ -251,7 +256,6 @@ void carregarEstacoes(ET* estacoes) {
     int NUM_ETS;
     getline(fileEstacoes, linha);
     NUM_ETS = stoi(linha);
-    cout << NUM_ETS << endl;
 
     delete[] estacoes;
     estacoes = new ET[NUM_ETS];
@@ -260,57 +264,40 @@ void carregarEstacoes(ET* estacoes) {
     {
         getline(fileEstacoes, linha);
         estacoes[i].id = stoi(linha); 
-        cout << estacoes[i].id << endl;
         getline(fileEstacoes, estacoes[i].mecanico); 
-        cout << estacoes[i].mecanico << endl;
         getline(fileEstacoes, linha); 
         estacoes[i].capacidade = stoi(linha);
-        cout << estacoes[i].capacidade << endl;
         getline(fileEstacoes, linha);
         estacoes[i].capacidade_atual = stoi(linha); 
-        cout << estacoes[i].capacidade_atual << endl;
         getline(fileEstacoes, estacoes[i].marca);
-        cout << estacoes[i].marca << endl;
         getline(fileEstacoes, linha); 
         estacoes[i].faturacao = stoi(linha);
-        cout << estacoes[i].faturacao << endl;
 
-        estacoes[i].carros = new carro[estacoes[i].capacidade_atual];
+        estacoes[i].carros = new carro[estacoes[i].capacidade];
         for (int h = 0; h < estacoes[i].capacidade_atual; h++)  
         {
             getline(fileEstacoes, linha); 
             estacoes[i].carros[h].id = stoi(linha); 
-            cout << estacoes[i].carros[h].id << endl;
             getline(fileEstacoes, estacoes[i].carros[h].marca);
-            cout << estacoes[i].carros[h].marca << endl;
             getline(fileEstacoes, estacoes[i].carros[h].modelo); 
-            cout << estacoes[i].carros[h].modelo << endl;
             getline(fileEstacoes, linha);
-            cout << linha << endl;
             if (linha == "Sim") {
                 estacoes[i].carros[h].prioridade = true;
             }
             else if (linha == "Nao") {
                 estacoes[i].carros[h].prioridade = false;
             }
-            if (estacoes[i].carros[h].prioridade) {
-                cout << "Sim" << endl;
-            }
-            else {
-                cout << "Nao" << endl;
-            }
             getline(fileEstacoes, linha); 
             estacoes[i].carros[h].tempo_reparacao = stoi(linha);
-            cout << estacoes[i].carros[h].tempo_reparacao << endl;
             getline(fileEstacoes, linha); 
             estacoes[i].carros[h].dias_ET = stoi(linha);
-            cout << estacoes[i].carros[h].dias_ET << endl;
         }
 
         estacoes[i].regRepCars = new carro[LIMITE];
         getline(fileCarrosReparados, linha);
         estacoes[i].carros_reparados = stoi(linha); 
-        for (int j = 0; j < estacoes[i].carros_reparados; j++) {
+        for (int j = 0; j < estacoes[i].carros_reparados; j++) 
+        {
             getline(fileCarrosReparados, linha); 
             estacoes[i].regRepCars[j].id = stoi(linha);
             getline(fileCarrosReparados, estacoes[i].regRepCars[j].marca);
@@ -333,6 +320,8 @@ void carregarEstacoes(ET* estacoes) {
     fileCarrosReparados.close();
     
     //printEstacoes(estacoes, NUM_ETS);
+
+    return estacoes;
 }
 
 
@@ -343,7 +332,7 @@ void gravarOficina(carro* listadeespera, int num_carros_criados, carro* not_adde
 }
 
 void carregarOficina(carro* listadeespera, carro* not_added, ET* estacoes) {
-    carregarEstacoes(estacoes);
-    carregarListaDeEspera(not_added);
-    carregarCarros(listadeespera);
+    estacoes = carregarEstacoes(estacoes);
+    not_added = carregarListaDeEspera(not_added);
+    listadeespera = carregarCarros(listadeespera);
 }
