@@ -115,7 +115,7 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro*& not_added_co
         bool reny = false;
         for (int j = 0; j < NUM_ETS; j++) {
             if (estacoes[j].marca == listadeespera[i].marca) {
-                if (estacoes[j].capacidade > 0) {
+                if (estacoes[j].capacidade - estacoes[j].capacidade_atual > 0) {
                     //bool car_id_exists = false;
                     for (int k = 0; k < num_car_ids; k++) {
                         if (listadeespera[i].id == car_ids[k]) {
@@ -126,7 +126,6 @@ void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro*& not_added_co
                     }
                     if (!car_id_exists) {
                         estacoes[j].carros[estacoes[j].capacidade_atual] = listadeespera[i];
-                        estacoes[j].capacidade--;
                         estacoes[j].capacidade_atual++;
                         num_carros_adicionados++;
                         car_added = true;
@@ -285,7 +284,7 @@ void reparar_carros(ET* estacoes, int num_estacoes) {
             if (probabilidade <= 15) {
                 carro car = estacoes[i].carros[j];
                 estacoes[i].capacidade_atual--;
-                estacoes[i].capacidade++; //ATENCAO
+                //estacoes[i].capacidade++; //ATENCAO
                 for (int k = j; k < estacoes[i].capacidade_atual; k++) {
                     estacoes[i].carros[k] = estacoes[i].carros[k + 1];
                 }
@@ -343,7 +342,7 @@ void reparar_carros2(ET* estacoes, int num_estacoes) {
         delete[] estacoes[i].carros;
         estacoes[i].carros = new_carros;
         estacoes[i].capacidade_atual = nova_capacidade_atual;
-        estacoes[i].capacidade += num_carros_reparados;
+        //estacoes[i].capacidade += num_carros_reparados;
     }
     cout << endl;
 }
