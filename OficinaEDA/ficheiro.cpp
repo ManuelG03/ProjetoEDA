@@ -332,7 +332,7 @@ void gravarOficina(carro* listadeespera, int num_carros_criados, carro* not_adde
 }
 
 void carregarOficina(carro* listadeespera, carro* not_added, ET* estacoes) {
-    estacoes = carregarEstacoes(estacoes);
-    not_added = carregarListaDeEspera(not_added);
-    listadeespera = carregarCarros(listadeespera);
+    carregarEstacoes(estacoes);
+    carregarListaDeEspera(not_added);
+    carregarCarros(listadeespera);
 }
