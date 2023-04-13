@@ -42,7 +42,7 @@ carro* carregarCarros(carro* listadeespera) {
     num_carros_criados = stoi(linha);
 
     delete[] listadeespera;
-    listadeespera = new carro[num_carros_criados];
+    listadeespera = new carro[LIMITE];
 
     for (int i = 0; i < num_carros_criados; i++) {
         getline(fileCarros, linha);
@@ -293,8 +293,6 @@ ET* carregarEstacoes(ET* estacoes) {
 int numEstacoes() {
     ifstream fileEstacoes;
     fileEstacoes.open("estacoes.txt");
-    ifstream fileCarrosReparados;
-    fileCarrosReparados.open("carrosReparados.txt");
 
     string linha;
 

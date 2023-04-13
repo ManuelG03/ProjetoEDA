@@ -3,7 +3,7 @@
 
 void inicializarEstacoes(ET* estacoes, string* marcas);
 
-void criarCarros(carro* listadeespera, string* modelos, string* marcas);
+void criarCarros(carro* listadeespera, string* modelos, string* marcas_ET);
 
 void adicionarCarrosETs(carro* listadeespera, ET* estacoes, carro*& not_added_copy);
 

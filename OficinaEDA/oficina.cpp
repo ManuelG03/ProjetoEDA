@@ -59,7 +59,7 @@ void obtemMarcasET(string* marcas, string* marcas_ET, ET* estacoes) {
     }
 }
 
-void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
+void criarCarros(carro* listadeespera, string* modelos, string* marcas_ET) {
 
     string file2 = "modelos.txt";
     ifstream fileModelos(file2);
@@ -76,11 +76,10 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
     for (int i = NUM_CARROS_CRIADOS; i < NUM_CARROS_CRIADOS + 10; i++) {
         listadeespera[i].id = id_lista + 1;
         listadeespera[i].tempo_reparacao = rand() % 6 + 2;
-        listadeespera[i].marca = marcas[rand() % 7];
+        listadeespera[i].marca = marcas_ET[rand() % NUM_ETS];
         listadeespera[i].dias_ET = 0;
         listadeespera[i].modelo = modelos[rand() % NUM_MODELOS];
         listadeespera[i].custo_reparacao = rand() % 71 + 60;
-
 
         int decisao = rand() % 100;
         listadeespera[i].prioridade = (decisao <= 5);
@@ -573,8 +572,8 @@ void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             incrementar_dias_ET(estacoes, NUM_ETS);
             reparar_carros2(estacoes, NUM_ETS);
             criarCarros(listadeespera, modelos, marcas_ET);
-            adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
-            menu(estacoes, listadeespera);
+            /*adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
+            menu(estacoes, listadeespera);*/
             break;
         case 'g':
         case 'G':
