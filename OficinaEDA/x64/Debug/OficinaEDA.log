@@ -1,3 +1,4 @@
 ﻿  oficina.cpp
 C:\Users\manue\Desktop\react\ProjetoEDA\OficinaEDA\oficina.cpp(272,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+C:\Users\manue\Desktop\react\ProjetoEDA\OficinaEDA\oficina.cpp(490,38): warning C4834: descartando o valor retornado da função com o atributo 'nodiscard'
   OficinaEDA.vcxproj -> C:\Users\manue\Desktop\react\ProjetoEDA\x64\Debug\OficinaEDA.exe

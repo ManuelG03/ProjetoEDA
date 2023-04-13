@@ -480,7 +480,25 @@ void printAllCarsInRegRepCars(ET* estacoes) {
     }
 }
 
-void menuInicial() {
+void alteraPrioridade(carro* altera) {
+    cout << "Introduza o ID do véiculo cuja prioridade pretende alterar: ";
+    int id;
+    cin >> id;
+    for (int i = 0; i < NUM_CARROS_CRIADOS; i++) {
+        if (altera[i].id == id) {
+            if (altera[i].prioridade == "Não") {
+                altera[i].prioridade == "Sim";
+                cout << "Prioridade do carro com ID " << altera[i].id << " alterada com sucesso.";
+            }
+            else {
+                cout << "O carro com o ID " << altera[i].id << "já é prioritário.";
+            }
+        }
+        
+    }
+}
+
+void menuInicial(carro* not_added) {
     bool sair = false;
     char escolha = ' ';
 
@@ -501,7 +519,7 @@ void menuInicial() {
         case '1': banana(); 
                 break;
         case '2':; break;
-        case '3':; break;
+        case '3': alteraPrioridade(not_added); break;
         case '4':; break;
         case '5':; break;
         case '0': cout << "Selecionou a opção voltar! " << endl;
@@ -537,7 +555,7 @@ void simulateDay(ET* estacoes,carro* listadeespera, carro* not_added_copy, strin
             break;
         case 'g':
         case 'G':
-            menuInicial();
+            menuInicial(not_added_copy);
             break;
         case '0':
             sair = true;

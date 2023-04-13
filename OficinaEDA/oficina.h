@@ -13,7 +13,9 @@ void menu(ET* estacoes, carro* listadeespera);
 
 void verListaDeEspera(carro* listadeespera);
 
-void menuInicial();
+void menuInicial(carro* not_added);
+
+void alteraPrioridade(carro* altera);
 
 void verNotAdded(carro* not_added);
 
