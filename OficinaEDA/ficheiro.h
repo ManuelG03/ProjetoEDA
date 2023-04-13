@@ -9,3 +9,9 @@ carro* carregarCarros(carro* listadeespera);
 carro* carregarListaDeEspera(carro* not_added);
 
 ET* carregarEstacoes(ET* estacoes);
+
+int numCarrosCriados();
+
+int numListaDeEspera();
+
+int numEstacoes();

@@ -67,7 +67,22 @@ carro* carregarCarros(carro* listadeespera) {
     return listadeespera;
 } 
 
-void gravarListaDeEspera(carro* not_added_copy, int num_not_added) {    //Função que grava as informações dos carros presentes na lista de espera
+int numCarrosCriados() {
+    ifstream fileCarros;
+    fileCarros.open("carros.txt");
+
+    string linha;
+
+    int num_carros_criados;
+    getline(fileCarros, linha);
+    num_carros_criados = stoi(linha);
+
+    fileCarros.close();
+
+    return num_carros_criados;
+}
+
+void gravarListaDeEspera(carro* not_added, int num_not_added) {    //Função que grava as informações dos carros presentes na lista de espera
     ofstream fileListaDeEspera;
     fileListaDeEspera.open("listaDeEspera.txt");                   //Abrir o ficheiro listaDeEspera.txt
 
@@ -76,58 +91,72 @@ void gravarListaDeEspera(carro* not_added_copy, int num_not_added) {    //Função
     fileListaDeEspera << num_not_added << endl;                    //Gravar o número de carros presentes na lista de espera
 
     for (int i = 0; i < num_not_added; i++) {
-        fileListaDeEspera << not_added_copy[i].id << endl;              //Gravar o id de cada carro da lista de espera
-        fileListaDeEspera << not_added_copy[i].marca << endl;           //Gravar a marca de cada carro da lista de espera
-        fileListaDeEspera << not_added_copy[i].modelo << endl;          //Gravar o modelo de cada carro da lista de espera
-        if (not_added_copy[i].prioridade) {                             //Gravar a prioridade de cada carro da lista de espera com a condição
+        fileListaDeEspera << not_added[i].id << endl;              //Gravar o id de cada carro da lista de espera
+        fileListaDeEspera << not_added[i].marca << endl;           //Gravar a marca de cada carro da lista de espera
+        fileListaDeEspera << not_added[i].modelo << endl;          //Gravar o modelo de cada carro da lista de espera
+        if (not_added[i].prioridade) {                             //Gravar a prioridade de cada carro da lista de espera com a condição
             fileListaDeEspera << "Sim" << endl;                    //Se é true é gravado "Sim"
         }
         else {
             fileListaDeEspera << "Nao" << endl;                    //Se é false é gravado "Nao"
         }
-        fileListaDeEspera << not_added_copy[i].tempo_reparacao << endl; //Gravar o tempo de reparação de cada carro da lista de espera
-        fileListaDeEspera << not_added_copy[i].dias_ET << endl;         //Gravar a quantidade de dias que o carro esteve na estação de trabalho de cada carro da lista de espera
+        fileListaDeEspera << not_added[i].tempo_reparacao << endl; //Gravar o tempo de reparação de cada carro da lista de espera
+        fileListaDeEspera << not_added[i].dias_ET << endl;         //Gravar a quantidade de dias que o carro esteve na estação de trabalho de cada carro da lista de espera
     }
 
     fileListaDeEspera.close();                                     //Fechar o ficheiro listaDeEspera.txt
 }
 
-carro* carregarListaDeEspera(carro* not_added_copy) {
+carro* carregarListaDeEspera(carro* not_added) {
     ifstream fileListaDeEspera;
     fileListaDeEspera.open("listaDeEspera.txt");
+
     string linha;
 
     int num_not_added;
     getline(fileListaDeEspera, linha);
     num_not_added = stoi(linha);
 
-    delete[] not_added_copy;
-    not_added_copy = new carro[num_not_added];
+    delete[] not_added;
+    not_added = new carro[num_not_added];
 
     for (int i = 0; i < num_not_added; i++) {
         getline(fileListaDeEspera, linha);
-        not_added_copy[i].id = stoi(linha);
-        getline(fileListaDeEspera, not_added_copy[i].marca);
-        getline(fileListaDeEspera, not_added_copy[i].modelo);
+        not_added[i].id = stoi(linha);
+        getline(fileListaDeEspera, not_added[i].marca);
+        getline(fileListaDeEspera, not_added[i].modelo);
         getline(fileListaDeEspera, linha);
         if (linha == "Sim") {
-            not_added_copy[i].prioridade = true;
+            not_added[i].prioridade = true;
         }
         else if (linha == "Nao") {
-            not_added_copy[i].prioridade = false;
+            not_added[i].prioridade = false;
         }
         getline(fileListaDeEspera, linha);
-        not_added_copy[i].tempo_reparacao = stoi(linha);
+        not_added[i].tempo_reparacao = stoi(linha);
         getline(fileListaDeEspera, linha); 
-        not_added_copy[i].dias_ET = stoi(linha);
+        not_added[i].dias_ET = stoi(linha);
     }
 
     fileListaDeEspera.close();
 
-    //printListaDeEspera(not_added, num_not_added);
-
-    return not_added_copy;
+    return not_added;
 } 
+
+int numListaDeEspera() {
+    ifstream fileListaDeEspera;
+    fileListaDeEspera.open("listaDeEspera.txt");
+
+    string linha;
+
+    int num_not_added;
+    getline(fileListaDeEspera, linha);
+    num_not_added = stoi(linha);
+
+    fileListaDeEspera.close();
+
+    return num_not_added;
+}
 
 void gravarEstacoes(ET* estacoes) {                                                   //Função que grava as informações dos carros presentes nas estações de trabalho e os carros reparados das mesmas
     ofstream fileEstacoes;
@@ -261,14 +290,31 @@ ET* carregarEstacoes(ET* estacoes) {
     return estacoes;
 }
 
-void gravarOficina(carro* listadeespera, int num_carros_criados, carro* not_added_copy, int num_not_added, ET* estacoes) {
-    gravarEstacoes(estacoes);
-    gravarCarros(listadeespera, num_carros_criados);
-    gravarListaDeEspera(not_added_copy, num_not_added);
+int numEstacoes() {
+    ifstream fileEstacoes;
+    fileEstacoes.open("estacoes.txt");
+    ifstream fileCarrosReparados;
+    fileCarrosReparados.open("carrosReparados.txt");
+
+    string linha;
+
+    int NUM_ETS;
+    getline(fileEstacoes, linha);
+    NUM_ETS = stoi(linha);
+
+    fileEstacoes.close();
+
+    return NUM_ETS;
 }
 
-void carregarOficina(carro* listadeespera, carro* not_added_copy, ET* estacoes) {
+void gravarOficina(carro* listadeespera, int num_carros_criados, carro* not_added, int num_not_added, ET* estacoes) {
+    gravarEstacoes(estacoes);
+    gravarCarros(listadeespera, num_carros_criados);
+    gravarListaDeEspera(not_added, num_not_added);
+}
+
+void carregarOficina(carro* listadeespera, carro* not_added, ET* estacoes) {
     carregarEstacoes(estacoes);
-    carregarListaDeEspera(not_added_copy);
+    carregarListaDeEspera(not_added);
     carregarCarros(listadeespera);
 }
