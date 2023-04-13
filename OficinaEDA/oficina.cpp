@@ -78,14 +78,13 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
         cout << "1";
         listadeespera[i].tempo_reparacao = rand() % 6 + 2;
         cout << "2";
-        listadeespera[i].marca = marcas[rand() % 4];
+        listadeespera[i].marca = marcas[rand() % NUM_ETS];
         cout << "3";
         listadeespera[i].dias_ET = 0;
         cout << "4";
         listadeespera[i].modelo = modelos[rand() % NUM_MODELOS];
         cout << "5";
         listadeespera[i].custo_reparacao = rand() % 71 + 60;
-
 
         int decisao = rand() % 100;
         listadeespera[i].prioridade = (decisao <= 5);
@@ -580,8 +579,8 @@ void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             incrementar_dias_ET(estacoes, NUM_ETS);
             reparar_carros2(estacoes, NUM_ETS);
             criarCarros(listadeespera, modelos, marcas_ET);
-            //adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
-            //menu(estacoes, listadeespera);
+            adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
+            menu(estacoes, listadeespera);
             break;
         case 'g':
         case 'G':
