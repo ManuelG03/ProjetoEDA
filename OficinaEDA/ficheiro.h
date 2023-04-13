@@ -15,3 +15,5 @@ int numCarrosCriados();
 int numListaDeEspera();
 
 int numEstacoes();
+
+string* obtemMarcasETnova(string* marcas_ET, ET* estacoes ,int NUM_ETS2);

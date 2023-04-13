@@ -42,7 +42,7 @@ carro* carregarCarros(carro* listadeespera) {
     num_carros_criados = stoi(linha);
 
     delete[] listadeespera;
-    listadeespera = new carro[num_carros_criados];
+    listadeespera = new carro[LIMITE];
 
     for (int i = 0; i < num_carros_criados; i++) {
         getline(fileCarros, linha);
@@ -293,8 +293,7 @@ ET* carregarEstacoes(ET* estacoes) {
 int numEstacoes() {
     ifstream fileEstacoes;
     fileEstacoes.open("estacoes.txt");
-    ifstream fileCarrosReparados;
-    fileCarrosReparados.open("carrosReparados.txt");
+  
 
     string linha;
 
@@ -305,6 +304,14 @@ int numEstacoes() {
     fileEstacoes.close();
 
     return NUM_ETS;
+}
+
+string* obtemMarcasETnova(string* marcas_ET, ET* estacoes, int NUM_ETS2) {
+    cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>" << NUM_ETS2;
+    for (int i = 0; i < NUM_ETS2; i++) {
+        marcas_ET[i] = estacoes[i].marca;
+    }
+    return marcas_ET;
 }
 
 void gravarOficina(carro* listadeespera, int num_carros_criados, carro* not_added, int num_not_added, ET* estacoes) {

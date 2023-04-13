@@ -60,7 +60,7 @@ void obtemMarcasET(string* marcas, string* marcas_ET, ET* estacoes) {
 }
 
 void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
-
+    cout << marcas[0] << marcas[1] << marcas[2] << marcas[3] << marcas[4] << marcas[5] << marcas[6] << marcas[7];
     string file2 = "modelos.txt";
     ifstream fileModelos(file2);
 
@@ -75,10 +75,15 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
 
     for (int i = NUM_CARROS_CRIADOS; i < NUM_CARROS_CRIADOS + 10; i++) {
         listadeespera[i].id = id_lista + 1;
+        cout << "1";
         listadeespera[i].tempo_reparacao = rand() % 6 + 2;
-        listadeespera[i].marca = marcas[rand() % 7];
+        cout << "2";
+        listadeespera[i].marca = marcas[rand() % 4];
+        cout << "3";
         listadeespera[i].dias_ET = 0;
+        cout << "4";
         listadeespera[i].modelo = modelos[rand() % NUM_MODELOS];
+        cout << "5";
         listadeespera[i].custo_reparacao = rand() % 71 + 60;
 
 
@@ -539,6 +544,8 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             estacoes = carregarEstacoes(estacoes);
             not_added_copy = carregarListaDeEspera(not_added_copy);
             listadeespera = carregarCarros(listadeespera);
+            marcas_ET = obtemMarcasETnova(marcas_ET, estacoes, NUM_ETS);
+            cout << marcas_ET[0] << marcas_ET[1] << marcas_ET[2] << marcas_ET[3] << marcas_ET[4] << marcas_ET[5] << marcas_ET[6];
             break;
         case '7':
             imprimeOficina(estacoes, listadeespera, not_added_copy);
@@ -573,8 +580,8 @@ void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             incrementar_dias_ET(estacoes, NUM_ETS);
             reparar_carros2(estacoes, NUM_ETS);
             criarCarros(listadeespera, modelos, marcas_ET);
-            adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
-            menu(estacoes, listadeespera);
+            //adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
+            //menu(estacoes, listadeespera);
             break;
         case 'g':
         case 'G':

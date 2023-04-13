@@ -26,3 +26,4 @@ void reparar_carros2(ET* estacoes, int num_estacoes);
 void incrementar_dias_ET(ET* estacoes, int num_estacoes);
 
 void printAllCarsInRegRepCars(ET* estacoes);
+
