@@ -8,154 +8,158 @@
 
 using namespace std;
 
-void gravarCarros(carro* listadeespera, int num_carros_criados) { //Função que grava as informações dos carros todos inicializados na oficina
+void gravarCarros(carro* carrosCriados, int num_carros_criados) { //Função que grava as informações dos carros todos inicializados na oficina
     ofstream fileCarros;
     fileCarros.open("carros.txt");                                //Abrir o ficheiro carros.txt
 
     fileCarros << num_carros_criados << endl;                     //Gravar o número de carros inicializados na oficina
 
     for (int i = 0; i < num_carros_criados; i++) {
-        fileCarros << listadeespera[i].id << endl;                //Gravar o id de cada carro inicializado
-        fileCarros << listadeespera[i].marca << endl;             //Gravar a marca de cada carro inicializado
-        fileCarros << listadeespera[i].modelo << endl;            //Gravar o modelo de cada carro inicializado
-        if (listadeespera[i].prioridade) {                        //Gravar a prioridade de cada carro da lista de espera com a condição
+        fileCarros << carrosCriados[i].id << endl;                //Gravar o id de cada carro inicializado
+        fileCarros << carrosCriados[i].marca << endl;             //Gravar a marca de cada carro inicializado
+        fileCarros << carrosCriados[i].modelo << endl;            //Gravar o modelo de cada carro inicializado
+        if (carrosCriados[i].prioridade) {                        //Gravar a prioridade de cada carro da lista de espera com a condição
             fileCarros << "Sim" << endl;                          //Se é true é gravado "Sim"
         }
         else {
             fileCarros << "Nao" << endl;                          //Se é false é gravado "Nao"
         }
-        fileCarros << listadeespera[i].tempo_reparacao << endl;   //Gravar o tempo de reparação de cada carro inicializado
-        fileCarros << listadeespera[i].dias_ET << endl;           //Gravar a quantidade de dias que o carro esteve na estação de trabalho de cada carro 
+        fileCarros << carrosCriados[i].tempo_reparacao << endl;   //Gravar o tempo de reparação de cada carro inicializado
+        fileCarros << carrosCriados[i].dias_ET << endl;           //Gravar a quantidade de dias que o carro esteve na estação de trabalho de cada carro 
     }
 
     fileCarros.close();                                           //Fechar o ficheiro carros.txt
 }
 
-carro* carregarCarros(carro* listadeespera) {
+carro* carregarCarros(carro* carrosCriados) {
     ifstream fileCarros;
-    fileCarros.open("carros.txt");
+    fileCarros.open("carros.txt");                 //Abrir o ficheiro carros.txt
 
     string linha;
 
-    int num_carros_criados;
-    getline(fileCarros, linha);
-    num_carros_criados = stoi(linha);
+    int num_carros_criados;                        //Criação da variável para o número de carros criados presentes no ficheiro
+    getline(fileCarros, linha);                    //Buscar à primeira linha do ficheiro a string para o número de carros criados
+    num_carros_criados = stoi(linha);              //Stoi para converter a string em int e atribuir à variável esse valor
 
-    delete[] listadeespera;
-    listadeespera = new carro[LIMITE];
+    delete[] carrosCriados;                        //Apagar o conteúdo do carrosCriados
+    carrosCriados = new carro[LIMITE];             //Criar para o carrosCriados um array do tipo carro com LIMITE de tamanho
 
-    for (int i = 0; i < num_carros_criados; i++) {
+    for (int i = 0; i < num_carros_criados; i++) { //Buscar linha a linha e converter as strings necessárias para int e atribuir os valores para o array carrosCriados
         getline(fileCarros, linha);
-        listadeespera[i].id = stoi(linha);
-        getline(fileCarros, listadeespera[i].marca);
-        getline(fileCarros, listadeespera[i].modelo);
+        carrosCriados[i].id = stoi(linha);
+        getline(fileCarros, carrosCriados[i].marca);
+        getline(fileCarros, carrosCriados[i].modelo);
         getline(fileCarros, linha);
         if (linha == "Sim") {
-            listadeespera[i].prioridade = true;
+            carrosCriados[i].prioridade = true;
         }
         else if (linha == "Nao") {
-            listadeespera[i].prioridade = false;
+            carrosCriados[i].prioridade = false;
         }
         getline(fileCarros, linha);
-        listadeespera[i].tempo_reparacao = stoi(linha);
+        carrosCriados[i].tempo_reparacao = stoi(linha);
         getline(fileCarros, linha);
-        listadeespera[i].dias_ET = stoi(linha);
+        carrosCriados[i].dias_ET = stoi(linha);
     }
 
-    fileCarros.close();
+    fileCarros.close();                            //Fechar o ficheiro carros.txt
 
-    return listadeespera;
-} 
+    return carrosCriados;                          //Retornar o array carrosCriados
+}
 
 int numCarrosCriados() {
     ifstream fileCarros;
-    fileCarros.open("carros.txt");
+    fileCarros.open("carros.txt");    //Abrir o ficheiro carros.txt
 
     string linha;
 
-    int num_carros_criados;
-    getline(fileCarros, linha);
-    num_carros_criados = stoi(linha);
+    int num_carros_criados;           //Criação da variável para o número de carros criados presentes no ficheiro
+    getline(fileCarros, linha);       //Buscar à primeira linha do ficheiro a string para o número de carros criados
+    num_carros_criados = stoi(linha); //Stoi para converter a string em int e atribuir à variável esse valor
 
-    fileCarros.close();
+    fileCarros.close();               //Fechar o ficheiro carros.txt
 
-    return num_carros_criados;
+    return num_carros_criados;        //Retornar o valor de num_carros_criados
 }
 
-void gravarListaDeEspera(carro* not_added, int num_not_added) {    //Função que grava as informações dos carros presentes na lista de espera
+void gravarListaDeEspera(carro* listaDeEspera, int num_lista_espera) { //Função que grava as informações dos carros presentes na lista de espera
     ofstream fileListaDeEspera;
-    fileListaDeEspera.open("listaDeEspera.txt");                   //Abrir o ficheiro listaDeEspera.txt
+    fileListaDeEspera.open("listaDeEspera.txt");                       //Abrir o ficheiro listaDeEspera.txt
 
     string linha;
 
-    fileListaDeEspera << num_not_added << endl;                    //Gravar o número de carros presentes na lista de espera
+    fileListaDeEspera << num_lista_espera << endl;                     //Gravar o número de carros presentes na lista de espera
 
-    for (int i = 0; i < num_not_added; i++) {
-        fileListaDeEspera << not_added[i].id << endl;              //Gravar o id de cada carro da lista de espera
-        fileListaDeEspera << not_added[i].marca << endl;           //Gravar a marca de cada carro da lista de espera
-        fileListaDeEspera << not_added[i].modelo << endl;          //Gravar o modelo de cada carro da lista de espera
-        if (not_added[i].prioridade) {                             //Gravar a prioridade de cada carro da lista de espera com a condição
-            fileListaDeEspera << "Sim" << endl;                    //Se é true é gravado "Sim"
+    for (int i = 0; i < num_lista_espera; i++) {
+        fileListaDeEspera << listaDeEspera[i].id << endl;              //Gravar o id de cada carro da lista de espera
+        fileListaDeEspera << listaDeEspera[i].marca << endl;           //Gravar a marca de cada carro da lista de espera
+        fileListaDeEspera << listaDeEspera[i].modelo << endl;          //Gravar o modelo de cada carro da lista de espera
+        if (listaDeEspera[i].prioridade) {                             //Gravar a prioridade de cada carro da lista de espera com a condição
+            fileListaDeEspera << "Sim" << endl;                        //Se é true é gravado "Sim"
         }
         else {
-            fileListaDeEspera << "Nao" << endl;                    //Se é false é gravado "Nao"
+            fileListaDeEspera << "Nao" << endl;                        //Se é false é gravado "Nao"
         }
-        fileListaDeEspera << not_added[i].tempo_reparacao << endl; //Gravar o tempo de reparação de cada carro da lista de espera
-        fileListaDeEspera << not_added[i].dias_ET << endl;         //Gravar a quantidade de dias que o carro esteve na estação de trabalho de cada carro da lista de espera
+        fileListaDeEspera << listaDeEspera[i].tempo_reparacao << endl; //Gravar o tempo de reparação de cada carro da lista de espera
+        fileListaDeEspera << listaDeEspera[i].dias_ET << endl;         //Gravar a quantidade de dias que o carro esteve na estação de trabalho de cada carro da lista de espera
     }
 
-    fileListaDeEspera.close();                                     //Fechar o ficheiro listaDeEspera.txt
+    fileListaDeEspera.close();                                         //Fechar o ficheiro listaDeEspera.txt
 }
 
-carro* carregarListaDeEspera(carro* not_added) {
+carro* carregarListaDeEspera(carro* listaDeEspera) {
     ifstream fileListaDeEspera;
-    fileListaDeEspera.open("listaDeEspera.txt");
+    fileListaDeEspera.open("listaDeEspera.txt"); //Abrir o ficheiro listaDeEspera.txt
 
     string linha;
 
-    int num_not_added;
-    getline(fileListaDeEspera, linha);
-    num_not_added = stoi(linha);
+    int num_lista_espera;                        //Criação da variável para o número de carros na lista de espera presentes no ficheiro
+    getline(fileListaDeEspera, linha);           //Buscar à primeira linha do ficheiro a string para o número de carros na lista de espera
+    num_lista_espera = stoi(linha);              //Stoi para converter a string em int e atribuir à variável esse valor
 
-    delete[] not_added;
-    not_added = new carro[num_not_added];
+    delete[] listaDeEspera;                      //Apagar o conteúdo da listaDeEspera
+    listaDeEspera = new carro[num_lista_espera]; //Criar para o carrosCriados um array do tipo carro com num_lista_espera de tamanho
 
-    for (int i = 0; i < num_not_added; i++) {
+    for (int i = 0; i < num_lista_espera; i++) { //Buscar linha a linha e converter as strings necessárias para int e atribuir os valores para o array listaDeEspera
         getline(fileListaDeEspera, linha);
-        not_added[i].id = stoi(linha);
-        getline(fileListaDeEspera, not_added[i].marca);
-        getline(fileListaDeEspera, not_added[i].modelo);
+        listaDeEspera[i].id = stoi(linha);
+        getline(fileListaDeEspera, listaDeEspera[i].marca);
+        getline(fileListaDeEspera, listaDeEspera[i].modelo);
         getline(fileListaDeEspera, linha);
         if (linha == "Sim") {
-            not_added[i].prioridade = true;
+            listaDeEspera[i].prioridade = true;
         }
         else if (linha == "Nao") {
-            not_added[i].prioridade = false;
+            listaDeEspera[i].prioridade = false;
         }
         getline(fileListaDeEspera, linha);
-        not_added[i].tempo_reparacao = stoi(linha);
-        getline(fileListaDeEspera, linha); 
-        not_added[i].dias_ET = stoi(linha);
+        listaDeEspera[i].tempo_reparacao = stoi(linha);
+        getline(fileListaDeEspera, linha);
+        listaDeEspera[i].dias_ET = stoi(linha);
     }
 
-    fileListaDeEspera.close();
+    fileListaDeEspera.close();                   //Fechar o ficheiro listaDeEspera.txt
 
-    return not_added;
-} 
+    return listaDeEspera;                        //Retornar o array listaDeEspera
+}
 
 int numListaDeEspera() {
     ifstream fileListaDeEspera;
-    fileListaDeEspera.open("listaDeEspera.txt");
+    fileListaDeEspera.open("listaDeEspera.txt"); //Abrir o ficheiro listaDeEspera.txt
 
     string linha;
 
-    int num_not_added;
+    int num_lista_espera; //Criação da variável para o número de carros na lista de espera presentes no ficheiro
     getline(fileListaDeEspera, linha);
-    num_not_added = stoi(linha);
+    num_lista_espera = stoi(linha);
 
-    fileListaDeEspera.close();
+    //Criação da variável para o número de carros na lista de espera presentes no ficheiro
+    //Buscar à primeira linha do ficheiro a string para o número de carros na lista de espera
+    //Stoi para converter a string em int e atribuir à variável esse valor
 
-    return num_not_added;
+    fileListaDeEspera.close(); //Fechar o ficheiro listaDeEspera.txt
+
+    return num_lista_espera;
 }
 
 void gravarEstacoes(ET* estacoes) {                                                   //Função que grava as informações dos carros presentes nas estações de trabalho e os carros reparados das mesmas
@@ -309,18 +313,18 @@ int numEstacoes() {
 string* obtemMarcasETnova(string* marcas_ET, ET* estacoes, int NUM_ETS2) {
     for (int i = 0; i < NUM_ETS2; i++) {
         marcas_ET[i] = estacoes[i].marca;
-    }
+    }\
     return marcas_ET;
 }
 
-void gravarOficina(carro* listadeespera, int num_carros_criados, carro* not_added, int num_not_added, ET* estacoes) {
+void gravarOficina(carro* carrosCriados, int num_carros_criados, carro* listaDeEspera, int num_lista_espera, ET* estacoes) {
     gravarEstacoes(estacoes);
-    gravarCarros(listadeespera, num_carros_criados);
-    gravarListaDeEspera(not_added, num_not_added);
+    gravarCarros(carrosCriados, num_carros_criados);
+    gravarListaDeEspera(listaDeEspera, num_lista_espera);
 }
 
-void carregarOficina(carro* listadeespera, carro* not_added, ET* estacoes) {
+void carregarOficina(carro* carrosCriados, carro* listaDeEspera, ET* estacoes) {
     carregarEstacoes(estacoes);
-    carregarListaDeEspera(not_added);
-    carregarCarros(listadeespera);
+    carregarListaDeEspera(listaDeEspera);
+    carregarCarros(carrosCriados);
 }

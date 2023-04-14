@@ -6,7 +6,7 @@ void carregarOficina(carro* listadeespera, carro* not_added, ET* estacoes);
 
 carro* carregarCarros(carro* listadeespera);
 
-carro* carregarListaDeEspera(carro* not_added);
+carro* carregarListaDeEspera(carro* listaDeEspera);
 
 ET* carregarEstacoes(ET* estacoes);
 
