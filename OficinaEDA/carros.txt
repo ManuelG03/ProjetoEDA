@@ -1,61 +1,121 @@
-10
-21
-Lucid
-M3
-Nao
-3
-0
-22
-Honda
-Palisade
-Nao
-7
-0
-23
-Volkswagen
-Colorado
-Nao
-5
-0
-24
-Volkswagen
-Macan
-Nao
-5
-0
-25
-Mercedes-Benz
-Ghost
-Nao
-3
-0
-26
-Volkswagen
-Veloster
+20
+-842 150 451
+
+
+Sim
+-842 150 451
+-842 150 451
+-842 150 451
+
+
+Sim
+-842 150 451
+-842 150 451
+-842 150 451
+
+
+Sim
+-842 150 451
+-842 150 451
+-842 150 451
+
+
+Sim
+-842 150 451
+-842 150 451
+-842 150 451
+
+
+Sim
+-842 150 451
+-842 150 451
+-842 150 451
+
+
+Sim
+-842 150 451
+-842 150 451
+-842 150 451
+
+
+Sim
+-842 150 451
+-842 150 451
+-842 150 451
+
+
+Sim
+-842 150 451
+-842 150 451
+-842 150 451
+
+
+Sim
+-842 150 451
+-842 150 451
+-842 150 451
+
+
+Sim
+-842 150 451
+-842 150 451
+31
+Volvo
+X4
 Nao
 6
 0
-27
-Mercedes-Benz
-Tiguan
+32
+Audi
+CX-9
+Nao
+2
+0
+33
+Volvo
+Avalon
+Nao
+7
+0
+34
+Honda
+X3
+Nao
+6
+0
+35
+Volkswagen
+XC40
+Nao
+6
+0
+36
+Honda
+Cayenne
+Nao
+7
+0
+37
+Honda
+LS
 Nao
 4
 0
-28
+38
 Honda
-Encore
+Blazer
 Nao
-4
+2
 0
-29
-Honda
-ID.Buzz
+39
+Toyota
+Model
 Nao
-5
+7
 0
-30
-Hyundai
-QX50
+40
+Volvo
+Venue
 Nao
 2
 0

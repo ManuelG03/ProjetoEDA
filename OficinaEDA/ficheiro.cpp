@@ -307,7 +307,6 @@ int numEstacoes() {
 }
 
 string* obtemMarcasETnova(string* marcas_ET, ET* estacoes, int NUM_ETS2) {
-    cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>" << NUM_ETS2;
     for (int i = 0; i < NUM_ETS2; i++) {
         marcas_ET[i] = estacoes[i].marca;
     }

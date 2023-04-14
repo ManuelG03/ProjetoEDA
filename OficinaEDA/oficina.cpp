@@ -10,7 +10,6 @@
 
 using namespace std;
 
-
 int NUM_CARROS_CRIADOS = 0;
 int id_lista = 0;
 int car_ids[100];
@@ -20,47 +19,47 @@ int num_not_added;
 int HOLD_nca;
 
 
-void inicializarEstacoes(ET* estacoes, string* marcas) {
-    string file = "marcas.txt";
+void inicializarEstacoes(ET* estacoes, string* marcas) {        //Função para inicializar estações
+    string file = "marcas.txt";                                 //Abrir ficheiro marcas.txt
     ifstream fileMarcas(file);
+
     string marca;
 
-    int id_estacao = 1;
+    int id_estacao = 1;                                         //Inicializar o id das estações a 1
 
     if (fileMarcas.is_open()) {
         int i = 0;
         while (!fileMarcas.eof()) {
-            getline(fileMarcas, marcas[i++]);
+            getline(fileMarcas, marcas[i++]);                   //Guardar todas as marcas do ficheiro num array chamado marcas
         }
     }
 
     for (int i = 0; i < NUM_ETS; i++)
     {
         cout << "Introduza o mecânico para a estação " << i << ": ";
-        getline(cin, estacoes[i].mecanico);
-        estacoes[i].id = id_estacao++;
-        estacoes[i].capacidade = rand() % 4 + 2;
-        estacoes[i].capacidade_atual = 0;
-        estacoes[i].marca = marcas[rand() % NUM_MARCAS];
-        estacoes[i].carros = new carro[estacoes[i].capacidade];
-        estacoes[i].regRepCars = new carro[LIMITE];
-        estacoes[i].faturacao = 0;
-        estacoes[i].carros_reparados = 0;
+        getline(cin, estacoes[i].mecanico);                     //O nome do mecânico é introduzido pelo utilizador e adicionado ao array estacoes
+        estacoes[i].id = id_estacao++;                          //O id da estação é incrementado
+        estacoes[i].capacidade = rand() % 4 + 2;                //A capacidade de cada estacao é um valor aleatório entre 3 a 5
+        estacoes[i].capacidade_atual = 0;                       //A capacidade atual de cada estação é inicializada a 0
+        estacoes[i].marca = marcas[rand() % NUM_MARCAS];        //A marca de cada estação é retirada aleatóriamente do array marcas
+        estacoes[i].carros = new carro[estacoes[i].capacidade]; //Inicializado um array de carros para cada estação
+        estacoes[i].regRepCars = new carro[LIMITE];             //Inicializado um array regRepCars para os carros reparados de cada estação
+        estacoes[i].faturacao = 0;                              //A faturação de cada estação é inicializada a 0
+        estacoes[i].carros_reparados = 0;                       //O número de carros reparados de cada estação inicialmente é 0
     }
 
-    fileMarcas.close();
+    fileMarcas.close();                                         //Fechar o ficheiro marcas.txt
 
-    
+
 }
 
-void obtemMarcasET(string* marcas, string* marcas_ET, ET* estacoes) {
+void obtemMarcasET(string* marcas, string* marcas_ET, ET* estacoes) { //Função para obter as marcas de cada estação criada
     for (int i = 0; i < NUM_ETS; i++) {
-        marcas_ET[i] = estacoes[i].marca;
+        marcas_ET[i] = estacoes[i].marca;                             //Igualar a cada posição do array marcas_ET, cada marca de cada estação
     }
 }
 
-void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
-    cout << marcas[0] << marcas[1] << marcas[2] << marcas[3] << marcas[4] << marcas[5] << marcas[6] << marcas[7];
+void criarCarros(carro* listadeespera, string* modelos, string* marcas_ET) {
     string file2 = "modelos.txt";
     ifstream fileModelos(file2);
 
@@ -71,19 +70,12 @@ void criarCarros(carro* listadeespera, string* modelos, string* marcas) {
         }
     }
 
-    NUM_CARROS_CRIADOS = numCarrosCriados();
-
     for (int i = NUM_CARROS_CRIADOS; i < NUM_CARROS_CRIADOS + 10; i++) {
         listadeespera[i].id = id_lista + 1;
-        cout << "1";
         listadeespera[i].tempo_reparacao = rand() % 6 + 2;
-        cout << "2";
-        listadeespera[i].marca = marcas[rand() % NUM_ETS];
-        cout << "3";
+        listadeespera[i].marca = marcas_ET[rand() % NUM_ETS];
         listadeespera[i].dias_ET = 0;
-        cout << "4";
         listadeespera[i].modelo = modelos[rand() % NUM_MODELOS];
-        cout << "5";
         listadeespera[i].custo_reparacao = rand() % 71 + 60;
 
         int decisao = rand() % 100;
@@ -471,11 +463,11 @@ void imprimeOficina(ET* estacoes, carro* listadeespera, carro* not_added_copy) {
         cout << "faturacao: " << estacoes[i].faturacao << "\n";*/
 
         for (int h = 0; h < estacoes[i].capacidade_atual; h++) {
-            /*cout << "carro id: " << estacoes[i].carros[h].id << "\n";
+            cout << "carro id: " << estacoes[i].carros[h].id << "\n";
             cout << "marca: " << estacoes[i].carros[h].marca << "\n";
             cout << "modelo: " << estacoes[i].carros[h].modelo << "\n";
             cout << "prioridade: " << estacoes[i].carros[h].prioridade << "\n";
-            cout << "tempo_reparacao: " << estacoes[i].carros[h].tempo_reparacao << "\n";*/
+            cout << "tempo_reparacao: " << estacoes[i].carros[h].tempo_reparacao << "\n";
             cout << "dias_et: " << estacoes[i].carros[h].dias_ET << endl;
         }
 
@@ -544,7 +536,6 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             not_added_copy = carregarListaDeEspera(not_added_copy);
             listadeespera = carregarCarros(listadeespera);
             marcas_ET = obtemMarcasETnova(marcas_ET, estacoes, NUM_ETS);
-            cout << marcas_ET[0] << marcas_ET[1] << marcas_ET[2] << marcas_ET[3] << marcas_ET[4] << marcas_ET[5] << marcas_ET[6];
             break;
         case '7':
             imprimeOficina(estacoes, listadeespera, not_added_copy);
