@@ -253,7 +253,7 @@ void atualiza_tempo_rep(carro* not_added_copy) {
     }
 }
 
-void menu(ET* estacoes, carro* listadeespera) {
+void menu(ET* estacoes, carro* listadeespera, int NUM_ETS) {
     cout << "--------------------------------------------------------------------" << endl;
     for (int i = 0; i < NUM_ETS; i++)
     {
@@ -625,9 +625,9 @@ void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             cout << "Dia simulado com sucesso!\n";
             incrementar_dias_ET(estacoes, NUM_ETS);
             reparar_carros2(estacoes, NUM_ETS);
-            criarCarros(listadeespera, modelos, marcas_ET);
-            adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
-            menu(estacoes, listadeespera);
+            //criarCarros(listadeespera, modelos, marcas_ET);
+            //adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
+            menu(estacoes, listadeespera, NUM_ETS);
             break;
         case 'g':
         case 'G':
