@@ -484,8 +484,8 @@ void incrementar_dias_ET(ET* estacoes, int num_estacoes) {
 //    cout << endl;
 //}
 
-void imprimeOficina(ET* estacoes, carro* listadeespera, carro* not_added_copy) {
-    /*cout << "carros carregados do arquivo: " << endl;
+void imprimeOficina(ET* estacoes, carro* listadeespera, carro* not_added_copy, int NUM_ETS) {
+    cout << "carros carregados do arquivo: " << endl;
     for (int i = 0; i < 30; i++) {
         cout << "id: " << listadeespera[i].id << endl;
         cout << "marca: " << listadeespera[i].marca << endl;
@@ -494,9 +494,9 @@ void imprimeOficina(ET* estacoes, carro* listadeespera, carro* not_added_copy) {
         cout << "tempo de reparação: " << listadeespera[i].tempo_reparacao << endl;
         cout << "dias na et: " << listadeespera[i].dias_ET << endl;
         cout << endl;
-    }*/
+    }
 
-    /*cout << "number of not added cars: " << endl;
+    cout << "number of not added cars: " << endl;
     for (int i = 0; i < num_not_added; i++) {
         cout << "car " << i + 1 << endl;
         cout << "\tid: " << not_added_copy[i].id << endl;
@@ -505,7 +505,7 @@ void imprimeOficina(ET* estacoes, carro* listadeespera, carro* not_added_copy) {
         cout << "\tprioridade: " << not_added_copy[i].prioridade << endl;
         cout << "\ttempo de reparação: " << not_added_copy[i].tempo_reparacao << endl;
         cout << "\tdias em espera: " << not_added_copy[i].dias_ET << endl;
-    }*/
+    }
 
     for (int i = 0; i < NUM_ETS; i++) {
         cout << "estação id: " << estacoes[i].id << "\n";
@@ -594,7 +594,7 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             marcas_ET = obtemMarcasETnova(marcas_ET, estacoes, NUM_ETS);
             break;
         case '7':
-            imprimeOficina(estacoes, listadeespera, not_added_copy);
+            imprimeOficina(estacoes, listadeespera, not_added_copy, NUM_ETS);
             break;
         case '9':
             simulateDay(estacoes, listadeespera, not_added_copy, modelos, marcas_ET);
