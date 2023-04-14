@@ -213,16 +213,26 @@ void reparacaoManual(ET* estacoes) {
     getline(cin, modelo);
 
     for (int i = 0; i < NUM_ETS; i++) {
+        
+        int carrosRemovidos = 0;
+        int index = 0;
+        carro* TEMP = new carro[estacoes[i].capacidade];
         for (int h = 0; h < estacoes[i].capacidade_atual; h++) {
+            bool carshouldleave = false;
+            carro* carr = &estacoes[i].carros[h];
             if (estacoes[i].carros[h].marca == marca && estacoes[i].carros[h].modelo == modelo) {
-                for (int j = h; j < estacoes[i].capacidade_atual - 1; j++) {
-                    estacoes[i].carros[j] = estacoes[i].carros[j + 1];
-                }
-                estacoes[i].regRepCars[estacoes[i].carros_reparados] = estacoes[i].carros[h];
-                estacoes[i].carros_reparados++;
-                estacoes[i].capacidade_atual--;
+                carshouldleave = true;
+                estacoes[i].regRepCars[estacoes[i].carros_reparados++] = *carr;
+                carrosRemovidos++;
             }
+            if (!carshouldleave) {
+                TEMP[index++] = *carr;
+            }
+
         }
+        estacoes[i].capacidade_atual -= carrosRemovidos;
+        delete[] estacoes[i].carros;
+        estacoes[i].carros = TEMP;
     }
 }
 
@@ -367,11 +377,6 @@ void reparar_carros2(ET* estacoes, int num_estacoes) {
 }
 
 void incrementar_dias_ET(ET* estacoes, int num_estacoes) {
-    for (int i = 0; i < num_estacoes; i++) {
-        for (int h = 0; h < estacoes[i].capacidade_atual; h++) {
-            cout << "dias_et: " << estacoes[i].carros[h].dias_ET << endl;
-        }
-    }
     if (NUM_CARROS_CRIADOS == 0) {
         return;
     }
@@ -624,9 +629,9 @@ void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
         case 'S':
             cout << "Dia simulado com sucesso!\n";
             incrementar_dias_ET(estacoes, NUM_ETS);
-            reparar_carros2(estacoes, NUM_ETS);
-            criarCarros(listadeespera, modelos, marcas_ET);
-            adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
+            //reparar_carros2(estacoes, NUM_ETS);
+            //criarCarros(listadeespera, modelos, marcas_ET);
+            //adicionarCarrosETs(listadeespera, estacoes, not_added_copy);
             menu(estacoes, listadeespera);
             break;
         case 'g':
