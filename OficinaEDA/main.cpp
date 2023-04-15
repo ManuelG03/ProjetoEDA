@@ -20,11 +20,12 @@ int main() {
     carro* not_added = new carro[LIMITE];
     carro* not_added_copy = new carro[LIMITE];
     ET* estacoes = new ET[NUM_ETS];
+    int* car_ids = new int[LIMITE];
     
     inicializarEstacoes(estacoes, marcas);
     obtemMarcasET(marcas, marcas_ET, estacoes);
 
-    simulateDay(estacoes,listadeespera,not_added_copy, modelos, marcas_ET, NUM_ETS);
+    simulateDay(estacoes,listadeespera,not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids);
     
     return 0;
 }

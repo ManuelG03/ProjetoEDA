@@ -26,6 +26,7 @@ void gravarCarros(carro* carrosCriados, int num_carros_criados) { //Função que g
         }
         fileCarros << carrosCriados[i].tempo_reparacao << endl;   //Gravar o tempo de reparação de cada carro inicializado
         fileCarros << carrosCriados[i].dias_ET << endl;           //Gravar a quantidade de dias que o carro esteve na estação de trabalho de cada carro 
+        fileCarros << carrosCriados[i].custo_reparacao << endl;
     }
 
     fileCarros.close();                                           //Fechar o ficheiro carros.txt
@@ -60,6 +61,8 @@ carro* carregarCarros(carro* carrosCriados) {      //Função que carrega as infor
         carrosCriados[i].tempo_reparacao = stoi(linha);
         getline(fileCarros, linha);
         carrosCriados[i].dias_ET = stoi(linha);
+        getline(fileCarros, linha);
+        carrosCriados[i].custo_reparacao = stoi(linha);
     }
 
     fileCarros.close();                            //Fechar o ficheiro carros.txt
@@ -102,6 +105,7 @@ void gravarListaDeEspera(carro* listaDeEspera, int num_lista_espera) { //Função 
         }
         fileListaDeEspera << listaDeEspera[i].tempo_reparacao << endl; //Gravar o tempo de reparação de cada carro da lista de espera
         fileListaDeEspera << listaDeEspera[i].dias_ET << endl;         //Gravar a quantidade de dias que o carro esteve na estação de trabalho de cada carro da lista de espera
+        fileListaDeEspera << listaDeEspera[i].custo_reparacao << endl;
     }
 
     fileListaDeEspera.close();                                         //Fechar o ficheiro listaDeEspera.txt
@@ -136,6 +140,8 @@ carro* carregarListaDeEspera(carro* listaDeEspera) { //Função que carrega as inf
         listaDeEspera[i].tempo_reparacao = stoi(linha);
         getline(fileListaDeEspera, linha);
         listaDeEspera[i].dias_ET = stoi(linha);
+        getline(fileListaDeEspera, linha);
+        listaDeEspera[i].custo_reparacao = stoi(linha);
     }
 
     fileListaDeEspera.close();                       //Fechar o ficheiro listaDeEspera.txt
@@ -189,6 +195,7 @@ void gravarEstacoes(ET* estacoes) {                                             
             }
             fileEstacoes << estacoes[i].carros[h].tempo_reparacao << endl;            //Gravar no estacoes.txt o tempo de reparação de cada carro presente em cada estação
             fileEstacoes << estacoes[i].carros[h].dias_ET << endl;                    //Gravar no estacoes.txt a quantidade de dias que o carro esteve na estação de trabalho de cada carro presente em cada estação
+            fileEstacoes << estacoes[i].carros[h].custo_reparacao << endl;
         }
 
         fileCarrosReparados << estacoes[i].carros_reparados << endl;                  //Gravar no carrosReparados.txt o número de carros reparados de cada estação de trabalho
@@ -205,6 +212,7 @@ void gravarEstacoes(ET* estacoes) {                                             
             }
             fileCarrosReparados << estacoes[i].regRepCars[j].tempo_reparacao << endl; //Gravar no carrosReparados.txt o tempo de reparação de cada carro reparado de cada estação de trabalho
             fileCarrosReparados << estacoes[i].regRepCars[j].dias_ET << endl;         //Gravar no carrosReparados.txt a quantidade de dias que o carro esteve na estação de trabalho de cada carro reparado de cada estação de trabalho
+            fileCarrosReparados << estacoes[i].regRepCars[j].custo_reparacao << endl;
         }
     }
 
@@ -259,6 +267,8 @@ ET* carregarEstacoes(ET* estacoes) {                            //Função que car
             estacoes[i].carros[h].tempo_reparacao = stoi(linha);
             getline(fileEstacoes, linha);
             estacoes[i].carros[h].dias_ET = stoi(linha);
+            getline(fileEstacoes, linha);
+            estacoes[i].carros[h].custo_reparacao = stoi(linha);
         }
 
         estacoes[i].regRepCars = new carro[LIMITE];             //Criar novo array regRepCars para cada estação com LIMITE de tamanho
@@ -281,6 +291,8 @@ ET* carregarEstacoes(ET* estacoes) {                            //Função que car
             estacoes[i].regRepCars[j].tempo_reparacao = stoi(linha);
             getline(fileCarrosReparados, linha);
             estacoes[i].regRepCars[j].dias_ET = stoi(linha);
+            getline(fileCarrosReparados, linha);
+            estacoes[i].regRepCars[j].custo_reparacao = stoi(linha);
         }
     }
 
