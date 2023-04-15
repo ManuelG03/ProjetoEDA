@@ -19,7 +19,7 @@ void verNotAdded(carro* not_added);
 
 void obtemMarcasET(string* marcas, string* marcas_ET, ET* estacoes);
 
-void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET);
+void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS);
 
 void reparar_carros2(ET* estacoes, int num_estacoes);
 	

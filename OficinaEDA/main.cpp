@@ -22,9 +22,9 @@ int main() {
     ET* estacoes = new ET[NUM_ETS];
     
     inicializarEstacoes(estacoes, marcas);
-    obtemMarcasET(marcas,marcas_ET,estacoes);
+    obtemMarcasET(marcas, marcas_ET, estacoes);
 
-    simulateDay(estacoes,listadeespera,not_added_copy, modelos, marcas_ET);
+    simulateDay(estacoes,listadeespera,not_added_copy, modelos, marcas_ET, NUM_ETS);
     
     return 0;
 }
