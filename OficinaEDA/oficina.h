@@ -13,13 +13,13 @@ void menu(ET* estacoes, carro* listadeespera);
 
 void verListaDeEspera(carro* listadeespera);
 
-void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added);
+void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS, int* car_ids, string* marcas);
 
 void verNotAdded(carro* not_added);
 
 void obtemMarcasET(string* marcas, string* marcas_ET, ET* estacoes);
 
-void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS, int* car_ids);
+void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS, int* car_ids, string* marcas);
 
 void reparar_carros2(ET* estacoes, int num_estacoes);
 	

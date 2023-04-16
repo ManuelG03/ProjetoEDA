@@ -505,6 +505,7 @@ void imprimeOficina(ET* estacoes, carro* listadeespera, int NUM_ETS, int NUM_CAR
     cout << endl;
 }
 
+
 //void imprimeOficina(ET* estacoes, carro* listadeespera, carro* not_added_copy, int NUM_ETS) {
 //    /*cout << "carros carregados do arquivo: " << endl;
 //    for (int i = 0; i < NUM_CARROS_CRIADOS; i++) {
@@ -575,7 +576,84 @@ void imprimeOficina(ET* estacoes, carro* listadeespera, int NUM_ETS, int NUM_CAR
 //    }
 //}
 
-void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS, int* car_ids) {
+void removeMecanico(ET* estacoes, int NUM_ETS, string* marcas, string*& marcas_ET, int*& car_ids, int& num_car_ids, carro* listadeespera, int NUM_CARROS_CRIADOS) {
+    
+    string mecanico, novoMecanico;
+    bool mecanicoExiste, mecanicoUnicoDaMarca = false;
+    int carrosRemovidos = 0;
+    int passaPorTodasET = 0;
+    cout << "Introduza o nome do mecânico que pretende remover das oficinas: " << endl;
+    cin >> mecanico;
+    for (int i = 0; i < NUM_ETS; i++) {
+        int index = 0;
+        mecanicoExiste = false;
+        mecanicoUnicoDaMarca = false;
+        carrosRemovidos = 0;
+        if (estacoes[i].mecanico == mecanico) {
+            mecanicoExiste = true;
+        }
+        if (mecanicoExiste) {
+            for (int j = 0; j < estacoes[i].capacidade_atual; j++) {
+                carro* car = &estacoes[i].carros[j];
+                estacoes[i].regRepCars[estacoes[i].carros_reparados++] = *car;
+                estacoes[i].faturacao += car->custo_reparacao;
+                carrosRemovidos++;
+                
+            }
+            carro* estacaoVazia = new carro[estacoes[i].capacidade];
+            estacoes[i].carros = estacaoVazia;
+            estacoes[i].capacidade_atual -= carrosRemovidos;
+
+            // verificar se mecânico removido seja o único mecânico de uma determinada marca
+            for (int k = 0; k < NUM_ETS; k++) {
+                if (estacoes[i].marca == marcas_ET[k]) {
+                    mecanicoUnicoDaMarca = true;
+                }
+            }
+            if (mecanicoUnicoDaMarca) {
+                for (int l = 0; l < NUM_CARROS_CRIADOS; l++) {
+                    carro* car2 = &listadeespera[l];
+                    if (car2 ->marca == estacoes[i].marca) {
+                        car_ids[num_car_ids++] = car2->id; //Os carros nunca sao reparados, sao adicionados a car_ids e nao aparecem no not_added.
+                                                           //MANUEL: PODES POR ISTO EM COMENTARIO, ASSIM, OS CARROS VAO PERMANECER NA LISTA DE ESPERA E NO NOT ADDED PORQUE NAO VAI HAVER OFICINA PARA
+                                                           // ALOJAR. A MENOS QUE A NOVA MARCA SEJA IGUAL.! MANUEl!
+                    }
+                }
+                //impossibilita esta marca de ser criada novamente
+                string* novaMarcas_ET = new string[NUM_ETS];
+                
+                for (int m = 0; m < NUM_ETS; m++) {
+                    if (marcas_ET[m] != estacoes[i].marca) {
+                        novaMarcas_ET[index++] = marcas_ET[m];
+                    }
+                }
+                cout <<"INDEX: " << index;
+                for (int g = 0; g < index; g++) {
+                    cout << "NOVAMARCAS_ET: " << novaMarcas_ET[g];
+                }
+                marcas_ET = novaMarcas_ET;
+            }
+            
+            cout << "Por favor introduza o nome do novo mecânico para a oficina " << estacoes[i].id << ": " << endl;
+            cin >> novoMecanico;
+            estacoes[i].mecanico = novoMecanico;
+            estacoes[i].marca = marcas[rand() % NUM_MARCAS];
+            marcas_ET[index] = estacoes[i].marca; //ocupa o espaco resultante com a nova marca da ET
+            cout << NUM_MARCAS << endl;
+        }
+        if (!mecanicoExiste) {
+            passaPorTodasET++;
+        }
+        if (passaPorTodasET == NUM_ETS) {
+            cout << "O mecãnico introduzido não existe!" << endl;
+            return;
+        }
+    }
+
+    
+}
+
+void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS, int* car_ids, string* marcas) {
     bool sair = false;
     char escolha = ' ';
 
@@ -595,19 +673,15 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
         switch (escolha)
         {
         case '1':
-            for (int i = 0; i < NUM_ETS; i++) {
-                cout << estacoes[i].faturacao << endl;
-            }
             reparacaoManual(estacoes, NUM_ETS);
-            for (int i = 0; i < NUM_ETS; i++) {
-                cout << estacoes[i].faturacao << endl;
-            }
             break;
         case '2':
             atualiza_tempo_rep(listadeespera, NUM_CARROS_CRIADOS);
             break;
         case '3':; break;
-        case '4':; break;
+        case '4':
+            removeMecanico(estacoes, NUM_ETS, marcas, marcas_ET, car_ids,num_car_ids,listadeespera,NUM_CARROS_CRIADOS);
+            break;
         case '5':
             for (int i = 0; i < num_not_added; i++) {
                 cout << not_added_copy[i].id << endl;
@@ -633,7 +707,7 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             
             break;
         case '9':
-            simulateDay(estacoes, listadeespera, not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids);
+            simulateDay(estacoes, listadeespera, not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids, marcas);
             break;
         case '0': cout << "Selecionou a opção sair! " << endl;
             exit(0);
@@ -645,7 +719,7 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
     cin.ignore();
 }
 
-void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS, int* car_ids) {
+void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS, int* car_ids, string* marcas) {
     char opcao = ' ';
     bool sair = false;
 
@@ -667,7 +741,7 @@ void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             break;
         case 'g':
         case 'G':
-            menuInicial(estacoes, listadeespera, not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids);
+            menuInicial(estacoes, listadeespera, not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids, marcas);
             break;
         case '0':
             exit(0);

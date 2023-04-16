@@ -25,7 +25,7 @@ int main() {
     inicializarEstacoes(estacoes, marcas);
     obtemMarcasET(marcas, marcas_ET, estacoes);
 
-    simulateDay(estacoes,listadeespera,not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids);
+    simulateDay(estacoes,listadeespera,not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids, marcas);
     
     return 0;
 }
