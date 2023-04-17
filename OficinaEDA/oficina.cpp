@@ -577,7 +577,7 @@ void imprimeOficina(ET* estacoes, carro* listadeespera, int NUM_ETS, int NUM_CAR
 //}
 
 void removeMecanico(ET* estacoes, int NUM_ETS, string* marcas, string*& marcas_ET, int*& car_ids, int& num_car_ids, carro* listadeespera, int NUM_CARROS_CRIADOS) {
-    
+
     string mecanico, novoMecanico;
     bool mecanicoExiste, mecanicoUnicoDaMarca = false;
     int carrosRemovidos = 0;
@@ -588,7 +588,6 @@ void removeMecanico(ET* estacoes, int NUM_ETS, string* marcas, string*& marcas_E
         int index = 0;
         mecanicoExiste = false;
         mecanicoUnicoDaMarca = false;
-        carrosRemovidos = 0;
         if (estacoes[i].mecanico == mecanico) {
             mecanicoExiste = true;
         }
@@ -597,60 +596,62 @@ void removeMecanico(ET* estacoes, int NUM_ETS, string* marcas, string*& marcas_E
                 carro* car = &estacoes[i].carros[j];
                 estacoes[i].regRepCars[estacoes[i].carros_reparados++] = *car;
                 estacoes[i].faturacao += car->custo_reparacao;
-                carrosRemovidos++;
-                
+
             }
             carro* estacaoVazia = new carro[estacoes[i].capacidade];
             estacoes[i].carros = estacaoVazia;
-            estacoes[i].capacidade_atual -= carrosRemovidos;
+            estacoes[i].capacidade_atual = 0;
 
+            int contador = 0;
             // verificar se mecânico removido seja o único mecânico de uma determinada marca
             for (int k = 0; k < NUM_ETS; k++) {
                 if (estacoes[i].marca == marcas_ET[k]) {
-                    mecanicoUnicoDaMarca = true;
+                    contador++;
                 }
             }
+            if (contador == 1) {
+                mecanicoUnicoDaMarca = true;
+            }
+            string* novaMarcas = new string[NUM_MARCAS - 1];
             if (mecanicoUnicoDaMarca) {
-                for (int l = 0; l < NUM_CARROS_CRIADOS; l++) {
-                    carro* car2 = &listadeespera[l];
-                    if (car2 ->marca == estacoes[i].marca) {
-                        car_ids[num_car_ids++] = car2->id; //Os carros nunca sao reparados, sao adicionados a car_ids e nao aparecem no not_added.
-                                                           //MANUEL: PODES POR ISTO EM COMENTARIO, ASSIM, OS CARROS VAO PERMANECER NA LISTA DE ESPERA E NO NOT ADDED PORQUE NAO VAI HAVER OFICINA PARA
-                                                           // ALOJAR. A MENOS QUE A NOVA MARCA SEJA IGUAL.! MANUEl!
-                    }
-                }
+                //for (int l = 0; l < NUM_CARROS_CRIADOS; l++) {
+                //    carro* car2 = &listadeespera[l];
+                //    if (car2 ->marca == estacoes[i].marca) {
+                //        car_ids[num_car_ids++] = car2->id; //Os carros nunca sao reparados, sao adicionados a car_ids e nao aparecem no not_added.
+                //                                           //MANUEL: PODES POR ISTO EM COMENTARIO, ASSIM, OS CARROS VAO PERMANECER NA LISTA DE ESPERA E NO NOT ADDED PORQUE NAO VAI HAVER OFICINA PARA
+                //                                           // ALOJAR. A MENOS QUE A NOVA MARCA SEJA IGUAL.! MANUEl!
+                //    }
+                //}
                 //impossibilita esta marca de ser criada novamente
-                string* novaMarcas_ET = new string[NUM_ETS];
-                
-                for (int m = 0; m < NUM_ETS; m++) {
-                    if (marcas_ET[m] != estacoes[i].marca) {
-                        novaMarcas_ET[index++] = marcas_ET[m];
+
+                for (int m = 0; m < NUM_MARCAS; m++) {
+                    if (marcas[m] != estacoes[i].marca) {
+                        novaMarcas[index++] = marcas[m];
                     }
                 }
-                cout <<"INDEX: " << index;
+                cout << "INDEX: " << index << endl;
                 for (int g = 0; g < index; g++) {
-                    cout << "NOVAMARCAS_ET: " << novaMarcas_ET[g];
+                    cout << "NOVAMARCAS_ET: " << novaMarcas[g] << endl;
                 }
-                marcas_ET = novaMarcas_ET;
             }
-            
+
             cout << "Por favor introduza o nome do novo mecânico para a oficina " << estacoes[i].id << ": " << endl;
             cin >> novoMecanico;
             estacoes[i].mecanico = novoMecanico;
-            estacoes[i].marca = marcas[rand() % NUM_MARCAS];
-            marcas_ET[index] = estacoes[i].marca; //ocupa o espaco resultante com a nova marca da ET
-            cout << NUM_MARCAS << endl;
+            estacoes[i].marca = novaMarcas[rand() % NUM_MARCAS - 1];
+            marcas_ET[i] = estacoes[i].marca; //ocupa o espaco resultante com a nova marca da ET
+            //cout << NUM_MARCAS << endl;
         }
         if (!mecanicoExiste) {
             passaPorTodasET++;
         }
         if (passaPorTodasET == NUM_ETS) {
-            cout << "O mecãnico introduzido não existe!" << endl;
+            cout << "O mecânico introduzido não existe!" << endl;
             return;
         }
     }
 
-    
+
 }
 
 void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS, int* car_ids, string* marcas) {
