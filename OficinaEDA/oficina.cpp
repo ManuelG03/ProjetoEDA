@@ -683,16 +683,13 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             removeMecanico(estacoes, NUM_ETS, marcas, marcas_ET, car_ids,num_car_ids,listadeespera,NUM_CARROS_CRIADOS);
             break;
         case '5':
-            for (int i = 0; i < NUM_ETS; i++) {
-                cout << estacoes[i].mecanico << endl;
+            for (int i = 0; i < num_not_added; i++) {
+                cout << not_added_copy[i].id << endl;
             }
             gravarOficina(listadeespera, NUM_CARROS_CRIADOS, not_added_copy, num_not_added, estacoes);
             cout << endl << "A gravação da oficina foi feita com sucesso." << endl << endl;
             break;
         case '6':
-            for (int i = 0; i < NUM_ETS; i++) {
-                cout << estacoes[i].mecanico << endl;
-            }
             NUM_ETS = numEstacoes();
             NUM_CARROS_CRIADOS = numCarrosCriados();
             num_not_added = numListaDeEspera();
