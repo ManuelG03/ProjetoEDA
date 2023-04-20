@@ -273,6 +273,32 @@ void atualiza_tempo_rep(carro* not_added_copy, int NUM_CARROS_CRIADOS) { //SARA
     }
 }
 
+void adiciona_prioridade(carro* not_added, int num_not_added) {
+    cout << endl << "Adicionar Prioridade" << endl;
+    bool carroEncontrado = false;
+    int ID;
+
+    cout << "ID do carro: " << endl;
+    cin >> ID;
+
+
+    for (int i = 0; i < num_not_added; i++) {
+        if (not_added[i].id == ID) {
+            carroEncontrado = true;
+            if (not_added[i].prioridade == 1)
+                cout << endl << "Carro já tem prioridade." << endl;
+            else {
+                not_added[i].prioridade = 1;
+                cout << endl << "Prioridade adicionada." << endl;
+            }
+        }
+    }
+
+    if (!carroEncontrado) {
+        cout << "Não existe nenhum carro com essa ID na fila de espera." << endl << endl;
+    }
+}
+
 void menu(ET* estacoes, carro* listadeespera, int NUM_ETS) { //Dá output dos carros presentes nas ETs atualmente 
     cout << "--------------------------------------------------------------------" << endl;
     for (int i = 0; i < NUM_ETS; i++)
@@ -443,7 +469,13 @@ void imprimeOficina(ET* estacoes, carro* listadeespera, int NUM_ETS, int NUM_CAR
     for (int i = 0; i < indexEstacoes; i++) {
         cout << "id: " << carrosEstacoes[i].id << " | ";
         cout << carrosEstacoes[i].marca << "-" << carrosEstacoes[i].modelo << " | ";
-        cout << "prioritário: " << carrosEstacoes[i].prioridade << " | ";
+        cout << "prioritário: ";
+        if (carrosEstacoes[i].prioridade == '1') {
+            cout << "Sim | ";
+        }
+        else {
+            cout << "Não | ";
+        }
         cout << "tempo reparação: " << carrosEstacoes[i].tempo_reparacao << " | ";
         cout << "dias na et: " << carrosEstacoes[i].dias_ET << endl;
     }
@@ -452,7 +484,13 @@ void imprimeOficina(ET* estacoes, carro* listadeespera, int NUM_ETS, int NUM_CAR
     for (int i = 0; i < indexListaDeEspera; i++) {
         cout << "id: " << carrosListaDeEspera[i].id << " | ";
         cout << carrosListaDeEspera[i].marca << "-" << carrosListaDeEspera[i].modelo << " | ";
-        cout << "prioritário: " << carrosListaDeEspera[i].prioridade << " | ";
+        cout << "prioritário: ";
+        if (carrosListaDeEspera[i].prioridade == '1') {
+            cout << "Sim | ";
+        }
+        else {
+            cout << "Não | ";
+        }
         cout << "tempo reparação: " << carrosListaDeEspera[i].tempo_reparacao << " | ";
         cout << "dias na et: " << carrosListaDeEspera[i].dias_ET << endl;
     }
@@ -566,7 +604,9 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
         case '2':
             atualiza_tempo_rep(listadeespera, NUM_CARROS_CRIADOS);
             break;
-        case '3':; break;
+        case '3':
+            adiciona_prioridade(not_added_copy, num_not_added);
+            break;
         case '4':
             removeMecanico(estacoes, NUM_ETS, marcas, marcas_ET, car_ids,num_car_ids,listadeespera,NUM_CARROS_CRIADOS);
             break;
