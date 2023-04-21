@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
     locale::global(locale(""));
     srand(time(NULL));
 
@@ -21,11 +21,26 @@ int main() {
     carro* not_added_copy = new carro[LIMITE];
     ET* estacoes = new ET[NUM_ETS];
     int* car_ids = new int[LIMITE];
+
+    caminhosFicheiros* caminhos = new caminhosFicheiros;
     
+    if ((argv[1] && argv[2] && argv[3] && argv[4]) == NULL) {
+        caminhos->caminhoCarros = "carros.txt";
+        caminhos->caminhoListaDeEspera = "listaDeEspera.txt";
+        caminhos->caminhoEstacoes = "estacoes.txt";
+        caminhos->caminhoCarrosReparados = "carrosReparados.txt";
+    }
+    else {
+        caminhos->caminhoCarros = argv[1];
+        caminhos->caminhoListaDeEspera = argv[2];
+        caminhos->caminhoEstacoes = argv[3];
+        caminhos->caminhoCarrosReparados = argv[4];
+    }
+
     inicializarEstacoes(estacoes, marcas);
     obtemMarcasET(marcas, marcas_ET, estacoes);
 
-    simulateDay(estacoes,listadeespera,not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids, marcas);
+    simulateDay(estacoes,listadeespera,not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids, marcas, caminhos);
     
     return 0;
 }

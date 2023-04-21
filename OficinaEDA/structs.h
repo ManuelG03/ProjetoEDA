@@ -22,3 +22,10 @@ struct ET {
     int capacidade_atual;
     int faturacao;
 };
+
+struct caminhosFicheiros {
+    string caminhoCarros;
+    string caminhoListaDeEspera;
+    string caminhoEstacoes;
+    string caminhoCarrosReparados;
+};

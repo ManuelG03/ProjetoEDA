@@ -32,9 +32,9 @@ void gravarCarros(carro* carrosCriados, int num_carros_criados) { //Função que g
     fileCarros.close();                                           //Fechar o ficheiro carros.txt
 }
 
-carro* carregarCarros(carro* carrosCriados) {      //Função que carrega as informações dos carros criados do ficheiro
+carro* carregarCarros(carro* carrosCriados, caminhosFicheiros* caminho) {      //Função que carrega as informações dos carros criados do ficheiro
     ifstream fileCarros;
-    fileCarros.open("carros.txt");                 //Abrir o ficheiro carros.txt
+    fileCarros.open(caminho->caminhoCarros);                 //Abrir o ficheiro carros.txt
 
     string linha;
 
@@ -111,9 +111,9 @@ void gravarListaDeEspera(carro* listaDeEspera, int num_lista_espera) { //Função 
     fileListaDeEspera.close();                                         //Fechar o ficheiro listaDeEspera.txt
 }
 
-carro* carregarListaDeEspera(carro* listaDeEspera) { //Função que carrega as informações dos carros criados do ficheiro
+carro* carregarListaDeEspera(carro* listaDeEspera, caminhosFicheiros* caminhos) { //Função que carrega as informações dos carros criados do ficheiro
     ifstream fileListaDeEspera;
-    fileListaDeEspera.open("listaDeEspera.txt");     //Abrir o ficheiro listaDeEspera.txt
+    fileListaDeEspera.open(caminhos->caminhoListaDeEspera);     //Abrir o ficheiro listaDeEspera.txt
 
     string linha;
 
@@ -221,11 +221,11 @@ void gravarEstacoes(ET* estacoes) {                                             
     fileCarrosReparados.close();                                                      //Fechar o ficheiro carrosReparados.txt
 }
 
-ET* carregarEstacoes(ET* estacoes) {                            //Função que carrega as informações das estações do ficheiro
+ET* carregarEstacoes(ET* estacoes, caminhosFicheiros* caminhos) {                            //Função que carrega as informações das estações do ficheiro
     ifstream fileEstacoes;
-    fileEstacoes.open("estacoes.txt");                          //Abrir o ficheiro estacoes.txt
+    fileEstacoes.open(caminhos->caminhoEstacoes);                          //Abrir o ficheiro estacoes.txt
     ifstream fileCarrosReparados;
-    fileCarrosReparados.open("carrosReparados.txt");            //Abrir o ficheiro carrosReparados.txt
+    fileCarrosReparados.open(caminhos->caminhoCarrosReparados);            //Abrir o ficheiro carrosReparados.txt
 
     string linha;
 
@@ -331,8 +331,8 @@ void gravarOficina(carro* carrosCriados, int num_carros_criados, carro* listaDeE
     gravarListaDeEspera(listaDeEspera, num_lista_espera);
 }
 
-void carregarOficina(carro* carrosCriados, carro* listaDeEspera, ET* estacoes) { //Função que executa todas as funções de carregamento do ficheiro
-    carregarEstacoes(estacoes);
-    carregarListaDeEspera(listaDeEspera);
-    carregarCarros(carrosCriados);
+void carregarOficina(carro* carrosCriados, carro* listaDeEspera, ET* estacoes, caminhosFicheiros* caminhos) { //Função que executa todas as funções de carregamento do ficheiro
+    carregarEstacoes(estacoes, caminhos);
+    carregarListaDeEspera(listaDeEspera, caminhos);
+    carregarCarros(carrosCriados, caminhos);
 }

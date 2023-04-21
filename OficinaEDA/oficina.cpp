@@ -578,7 +578,7 @@ void removeMecanico(ET* estacoes, int NUM_ETS, string* marcas, string*& marcas_E
 
 }
 
-void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS, int* car_ids, string* marcas) {
+void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS, int* car_ids, string* marcas, caminhosFicheiros* caminhos) {
     //Menu que permite a iteração do utilizador com o programa
     bool sair = false;
     char escolha = ' ';
@@ -621,21 +621,18 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             NUM_ETS = numEstacoes();
             NUM_CARROS_CRIADOS = numCarrosCriados();
             num_not_added = numListaDeEspera();
-            estacoes = carregarEstacoes(estacoes);
-            not_added_copy = carregarListaDeEspera(not_added_copy);
-            listadeespera = carregarCarros(listadeespera);
+            estacoes = carregarEstacoes(estacoes, caminhos);
+            not_added_copy = carregarListaDeEspera(not_added_copy, caminhos);
+            listadeespera = carregarCarros(listadeespera, caminhos);
             marcas_ET = obtemMarcasETnova(marcas_ET, estacoes, NUM_ETS);
             car_ids = carregarCarrosId(estacoes, car_ids, NUM_ETS, num_car_ids);
             cout << endl << "O carregamento da oficina foi feito com sucesso." << endl << endl;
-            cout << num_not_added << endl;
             break;
         case '7':
             imprimeOficina(estacoes, listadeespera, NUM_ETS, NUM_CARROS_CRIADOS, not_added_copy, num_not_added);
-            cout << num_not_added << endl;
-            
             break;
         case '9':
-            simulateDay(estacoes, listadeespera, not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids, marcas);
+            simulateDay(estacoes, listadeespera, not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids, marcas, caminhos);
             break;
         case '0': cout << "Selecionou a opção sair! " << endl;
             exit(0);
@@ -647,7 +644,7 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
     cin.ignore();
 }
 
-void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS, int* car_ids, string* marcas) {
+void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, string* modelos, string* marcas_ET, int NUM_ETS, int* car_ids, string* marcas, caminhosFicheiros* caminhos) {
     //Permite ao utilizador simular um dia ao carregar "S"
     char opcao = ' ';
     bool sair = false;
@@ -670,7 +667,7 @@ void simulateDay(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             break;
         case 'g':
         case 'G':
-            menuInicial(estacoes, listadeespera, not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids, marcas);
+            menuInicial(estacoes, listadeespera, not_added_copy, modelos, marcas_ET, NUM_ETS, car_ids, marcas, caminhos);
             break;
         case '0':
             exit(0);
