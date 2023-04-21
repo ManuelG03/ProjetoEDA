@@ -1,5 +1,4 @@
-﻿  ficheiro.cpp
-  main.cpp
-C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\main.cpp(14,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
-  Gerando Código...
+﻿  oficina.cpp
+C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\oficina.cpp(477,45): warning C4806: '==': operação não segura: nenhum valor do tipo 'bool' promovido para tipo 'char' pode se igualar à constante fornecida
+C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\oficina.cpp(492,50): warning C4806: '==': operação não segura: nenhum valor do tipo 'bool' promovido para tipo 'char' pode se igualar à constante fornecida
   OficinaEDA.vcxproj -> C:\Users\joaoc\Documents\GitHub\ProjetoEDA\x64\Debug\OficinaEDA.exe

@@ -274,22 +274,24 @@ void atualiza_tempo_rep(carro* not_added_copy, int NUM_CARROS_CRIADOS) { //SARA
 }
 
 void adiciona_prioridade(carro* not_added, int num_not_added) {
-    cout << endl << "Adicionar Prioridade" << endl;
+    cout << endl << "*****Adicionar Prioridade*****" << endl;
     bool carroEncontrado = false;
     int ID;
 
     cout << "ID do carro: " << endl;
     cin >> ID;
 
-
     for (int i = 0; i < num_not_added; i++) {
         if (not_added[i].id == ID) {
             carroEncontrado = true;
-            if (not_added[i].prioridade == 1)
+            if (not_added[i].prioridade == true) {
                 cout << endl << "Carro já tem prioridade." << endl;
+            }
             else {
-                not_added[i].prioridade = 1;
-                cout << endl << "Prioridade adicionada." << endl;
+                not_added[i].prioridade = true;
+                if (not_added[i].prioridade = true) {
+                    cout << endl << "Prioridade adicionada." << endl;
+                }
             }
         }
     }
@@ -606,6 +608,11 @@ void menuInicial(ET* estacoes, carro* listadeespera, carro* not_added_copy, stri
             break;
         case '3':
             adiciona_prioridade(not_added_copy, num_not_added);
+            for (int i = 0; i < num_not_added; i++) {
+                if (not_added_copy[i].prioridade) {
+                    cout << not_added_copy[i].id << endl;
+                }
+            }
             break;
         case '4':
             removeMecanico(estacoes, NUM_ETS, marcas, marcas_ET, car_ids,num_car_ids,listadeespera,NUM_CARROS_CRIADOS);
