@@ -1,5 +1,2 @@
-﻿  ficheiro.cpp
-  main.cpp
-C:\Users\joaoc\Documents\GitHub\ProjetoEDA\OficinaEDA\main.cpp(14,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
-  Gerando Código...
+﻿  LINK : C:\Users\joaoc\Documents\GitHub\ProjetoEDA\x64\Debug\OficinaEDA.exe não encontrado ou não compilado pelo o último link incremental; executando link completo
   OficinaEDA.vcxproj -> C:\Users\joaoc\Documents\GitHub\ProjetoEDA\x64\Debug\OficinaEDA.exe
