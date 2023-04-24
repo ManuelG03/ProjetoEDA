@@ -470,7 +470,7 @@ void imprimeOficina(ET* estacoes, carro* listadeespera, int NUM_ETS, int NUM_CAR
         cout << "id: " << carrosEstacoes[i].id << " | ";
         cout << carrosEstacoes[i].marca << "-" << carrosEstacoes[i].modelo << " | ";
         cout << "prioritário: ";
-        if (carrosEstacoes[i].prioridade == '1') {
+        if (carrosEstacoes[i].prioridade == 1) {
             cout << "Sim | ";
         }
         else {
@@ -485,7 +485,7 @@ void imprimeOficina(ET* estacoes, carro* listadeespera, int NUM_ETS, int NUM_CAR
         cout << "id: " << carrosListaDeEspera[i].id << " | ";
         cout << carrosListaDeEspera[i].marca << "-" << carrosListaDeEspera[i].modelo << " | ";
         cout << "prioritário: ";
-        if (carrosListaDeEspera[i].prioridade == '1') {
+        if (carrosListaDeEspera[i].prioridade == 1) {
             cout << "Sim | ";
         }
         else {
