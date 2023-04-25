@@ -210,37 +210,37 @@ void reparacaoManual(ET* estacoes, int NUM_ETS) { //SARA
     cout << "Modelo: " << endl;
     getline(cin, modelo);
 
-    for (int i = 0; i < NUM_ETS; i++) {
-        
-        int carrosReparados = 0;
-        int index = 0;
-        carro* carroRestantes = new carro[estacoes[i].capacidade];
-        for (int h = 0; h < estacoes[i].capacidade_atual; h++) {
-            bool carroEncontrado = false;
-            carro* carro = &estacoes[i].carros[h];
-            if (estacoes[i].carros[h].marca == marca && estacoes[i].carros[h].modelo == modelo) {
-                carroEncontrado = true;
-                cout << carro->custo_reparacao << endl;
-                estacoes[i].faturacao += carro->custo_reparacao;
-                estacoes[i].regRepCars[estacoes[i].carros_reparados++] = *carro;
-                carrosReparados++;
-                carrosEncontrados = true;
+    for (int i = 0; i < NUM_ETS; i++) {                                                            //ciclo que percorre todas as estações da oficina
+
+        int carrosReparados = 0;                                                                   //variável inteira responsável por identificar quantos carros foram reparados
+        int index = 0;                                                                             // variável inteira que vai ser usada com índice
+        carro* carroRestantes = new carro[estacoes[i].capacidade];                                 //novo array dinânmico do tipo carro que tem a mesma capacidade que a capacidade de cada estação
+        for (int h = 0; h < estacoes[i].capacidade_atual; h++) {                                   //ciclo que percorre a capacidade atual de cada estação
+            bool carroEncontrado = false;                                                          // variável responsável por identificar se o carro foi ou não encontrado
+            carro* carro = &estacoes[i].carros[h];                                                 //apontador carro que aponta o endereço de memória onde está guardado o carro h da ET i
+            if (estacoes[i].carros[h].marca == marca && estacoes[i].carros[h].modelo == modelo) {  //Procurar nas estações atuais pela marca e modelo que o utilizador escreveu
+                carroEncontrado = true;                                                            //se a condição se verificar o carro foi encontrado
+                cout << carro->custo_reparacao << endl;                                            //imprime o valor da reparação do veículo
+                estacoes[i].faturacao += carro->custo_reparacao;                                   //Adiciona á faturação da estação o preço da reparação
+                estacoes[i].regRepCars[estacoes[i].carros_reparados++] = *carro;                   //o carro reparado vai ser guardado no array dos carros reparados
+                carrosReparados++;                                                                 //o nº de carros reparados aumenta 1 valor
+                carrosEncontrados = true;                                                          //identificação que o carro foi encontrado
             }
             if (!carroEncontrado) {
-                carroRestantes[index++] = *carro;
+                carroRestantes[index++] = *carro;                                                  //array carros restantes guarda todo os carros exceto o carro que queríamos reparar
             }
         }
 
-        estacoes[i].capacidade_atual -= carrosReparados;
-        delete[] estacoes[i].carros;
-        estacoes[i].carros = carroRestantes;
+        estacoes[i].capacidade_atual -= carrosReparados;                                           //Capacidade atual da estação diminui
+        delete[] estacoes[i].carros;                                                               //o array que continha todos os carros na oficina é eliminado 
+        estacoes[i].carros = carroRestantes;                                                       //os carros que estão na oficina passam a ser os mesmos que os anteriores exceto o que queríamos reparar
 
-        if (carrosReparados > 0) {
+        if (carrosReparados > 0) {                                                                 //imprime o nº de carros iguais reparados na estação
             cout << "Foram reparados " << carrosReparados << " carros." << endl << endl;
         }
     }
 
-    if (!carrosEncontrados) {
+    if (!carrosEncontrados) {                                                                      //caso o veículo não seja encontrado em nenhuma estação
         cout << "Não existe nenhum carro desse modelo/marca nas estações." << endl << endl;
     }
 }
@@ -259,16 +259,16 @@ void atualiza_tempo_rep(carro* not_added_copy, int NUM_CARROS_CRIADOS) { //SARA
     cout << "Modelo: " << endl;
     getline(cin, modelo);
 
-    for (int i = 0; i < NUM_CARROS_CRIADOS; i++) {
-        if (not_added_copy[i].marca == marca && not_added_copy[i].modelo == modelo) {
+    for (int i = 0; i < NUM_CARROS_CRIADOS; i++) {                                                     //ciclo percorre os carros que estão na fila de espera
+        if (not_added_copy[i].marca == marca && not_added_copy[i].modelo == modelo) {                  //condição que procura o veículo pedido pelo utilizador   
             cout << "Insira o novo tempo de reparacao (em dias): " << endl;
-            cin >> tempoRep;
-            not_added_copy[i].tempo_reparacao = tempoRep;
-            carrosEncontrados = true;
+            cin >> tempoRep;                                                                           //utilizador insere o novo tempo
+            not_added_copy[i].tempo_reparacao = tempoRep;                                              //tempo de reparação do veículo é alterado
+            carrosEncontrados = true;                                                                  //identificação que o carro foi encontrado
         }
     }
 
-    if (!carrosEncontrados) {
+    if (!carrosEncontrados) {                                                                          //caso o carro não esteja na fila de espera
         cout << "Não existe nenhum carro desse modelo/marca na fila de espera." << endl << endl;
     }
 }
@@ -279,22 +279,22 @@ void adiciona_prioridade(carro* not_added, int num_not_added) {
     int ID;
 
     cout << "ID do carro: " << endl;
-    cin >> ID;
+    cin >> ID;                                                                                  //id do carro escolhido pelo utilizador
 
 
-    for (int i = 0; i < num_not_added; i++) {
-        if (not_added[i].id == ID) {
-            carroEncontrado = true;
-            if (not_added[i].prioridade == 1)
+    for (int i = 0; i < num_not_added; i++) {                                                   //ciclo que percorre os carros na lista de espera
+        if (not_added[i].id == ID) {                                                            //caso o id que o utilizador digitou seja igual a algum id dos carros em espera
+            carroEncontrado = true;                                                             //identificador que o carro foi encontrado
+            if (not_added[i].prioridade == 1)                                                   //caso o carro já tenha prioridade atribuida
                 cout << endl << "Carro já tem prioridade." << endl;
-            else {
-                not_added[i].prioridade = 1;
+            else {                                                                              //caso o carro não tenha prioridade
+                not_added[i].prioridade = 1;                                                    //adicionar prioridade ao veículo
                 cout << endl << "Prioridade adicionada." << endl;
             }
         }
     }
 
-    if (!carroEncontrado) {
+    if (!carroEncontrado) {                                                                    //caso o carro não esteja presente na fila de espera
         cout << "Não existe nenhum carro com essa ID na fila de espera." << endl << endl;
     }
 }
